@@ -9,8 +9,7 @@ $this->load->view('dist/_partials/header');
             <h1>Project</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#">Components</a></div>
-              <div class="breadcrumb-item">Table</div>
+              <div class="breadcrumb-item">Project</div>
             </div>
           </div>
           <div class="row">
@@ -33,12 +32,7 @@ $this->load->view('dist/_partials/header');
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                          <th>
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                              <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                            </div>
-                          </th>
+                        <th>#</th>
                           <th>Task Name</th>
                           <th>Progress</th>
                           <th>Members</th>
@@ -48,10 +42,6 @@ $this->load->view('dist/_partials/header');
                         </tr>
                         <tr>
                           <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                              <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                            </div>
                           </td>
                           <td>Create a mobile app</td>
                           <td class="align-middle">
@@ -68,10 +58,6 @@ $this->load->view('dist/_partials/header');
                         </tr>
                         <tr>
                           <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                              <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                            </div>
                           </td>
                           <td>Redesign homepage</td>
                           <td class="align-middle">
@@ -90,10 +76,6 @@ $this->load->view('dist/_partials/header');
                         </tr>
                         <tr>
                           <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                              <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                            </div>
                           </td>
                           <td>Backup database</td>
                           <td class="align-middle">
@@ -111,10 +93,6 @@ $this->load->view('dist/_partials/header');
                         </tr>
                         <tr>
                           <td class="p-0 text-center">
-                            <div class="custom-checkbox custom-control">
-                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
-                              <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
-                            </div>
                           </td>
                           <td>Input data</td>
                           <td class="align-middle">

@@ -17,11 +17,11 @@ class Dist extends CI_Controller {
 		$this->load->view('dist/index-0', $data);
 	}
 
-	public function layout_default() {
+	public function project() {
 		$data = array(
-			'title' => "Layout &rsaquo; Default"
+			'title' => "Project"
 		);
-		$this->load->view('dist/layout-default', $data);
+		$this->load->view('dist/admin-project_view', $data);
 	}
 
 	public function layout_transparent() {
@@ -38,12 +38,12 @@ class Dist extends CI_Controller {
 		$this->load->view('dist/layout-top-navigation', $data);
 	}
 
-	public function blank() {
-		$data = array(
-			'title' => "Blank Page"
-		);
-		$this->load->view('dist/blank', $data);
-	}
+	// public function blank() {
+	// 	$data = array(
+	// 		'title' => "Blank Page"
+	// 	);
+	// 	$this->load->view('dist/blank', $data);
+	// }
 
 	public function bootstrap_alert() {
 		$data = array(

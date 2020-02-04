@@ -39,7 +39,7 @@ class Project_ctrl extends CI_Controller
         $config['total_rows'] = $this->Project_model->getTotalrows();
         $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
-        $this->load->view('Project/project_view', $data);
+        $this->load->view('Project/admin-project_view', $data);
     }
 
     public function create_project()
