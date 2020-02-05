@@ -10,9 +10,7 @@ class Project_ctrl extends CI_Controller
     }
     public function project()
     {
-        $this->load->view('head');
-        $this->load->view('body');
-        $this->load->view('footer');
+ 
         $this->load->library("pagination");
         $config['base_url'] = base_url('Project_ctrl/project');
         $config['uri_segement'] = 3;
@@ -39,7 +37,7 @@ class Project_ctrl extends CI_Controller
         $config['total_rows'] = $this->Project_model->getTotalrows();
         $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
-        $this->load->view('Project/admin-project_view', $data);
+        $this->load->view('dist/admin-project_view', $data);
     }
 
     public function create_project()
