@@ -19,12 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
             <li class="menu-header">Starter</li>
-            <li class="dropdown <?php echo $this->uri->segment(2) == 'layout_default' || $this->uri->segment(2) == 'layout_transparent' || $this->uri->segment(2) == 'layout_top_navigation' ? 'active' : ''; ?>">
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'project' || $this->uri->segment(2) == 'create_project' ? 'active' : ''; ?>">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-file-alt"></i>  <span>Project</span></a>
               <ul class="dropdown-menu">
                 <li class="<?php echo $this->uri->segment(2) == 'layout_default' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>project_ctrl/project">All Project</a></li>
-                <li><a class="nav-link" href="<?php echo base_url(); ?>dist/layout_transparent">Add Project</a></li>
-                <!-- <li><a class="nav-link" href="<?php echo base_url(); ?>dist/layout_top_navigation">Top Navigation</a></li> -->
+                <li class="<?php echo $this->uri->segment(2) == 'create_project' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>project_ctrl/create_project">Add Project</a></li>
               </ul>
             </li>
             <!-- <li class="<?php echo $this->uri->segment(2) == 'blank' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/blank"><i class="far fa-file-alt"></i> <span>Project</span></a></li> -->
