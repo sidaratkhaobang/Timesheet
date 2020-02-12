@@ -7,7 +7,7 @@ class Login_ctrl extends CI_Controller {
         $this->load->model('Login_model');
     }
     public function index(){
-        $this->load->view('login_view');
+        $this->load->view('dist/auth-login');
     }
     public function adding(){
         echo '<pre>';
@@ -18,13 +18,13 @@ class Login_ctrl extends CI_Controller {
         $this->load->view('register_view');
     }
     public function login(){
-        $user=$this->input->post('username',TRUE);
+        $user=$this->input->post('email',TRUE);
         $pass=$this->input->post('password',TRUE);
         $checklogin = $this->Login_model->list_users($user,$pass);
 
         if($checklogin){
             foreach($checklogin as $row);
-            $this->session->set_userdata('username',$row->username);
+            $this->session->set_userdata('email',$row->email);
             $this->session->set_userdata('level',$row->level);
 
             if($this->session->userdata('level')=="A"){
@@ -36,15 +36,15 @@ class Login_ctrl extends CI_Controller {
             echo 'Hello Leader';
             }
         }else{
-            $data['pesan']="Username and Password wrong!!";
-            $this->load->view('login_view',$data);
+            $data['pesan']="Email and Password wrong!!";
+            $this->load->view('dist/auth-login',$data);
         }
         
     }
 
     public function logout(){
         $this->session->sess_destroy();
-        redirect('login_view');
+        redirect('dist/auth-login');
     }
 
 

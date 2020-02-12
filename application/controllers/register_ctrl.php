@@ -8,19 +8,19 @@ class Register_ctrl extends CI_Controller {
         $this->load->model('Register_model');
     }
     public function index(){
-        $this->load->view('register_view');
+        $this->load->view('dist/auth-register');
     }
     public function validation(){
-        $this->form_validation->set_rules('fullname','Full Name','required|trim');
-        $this->form_validation->set_rules('username','Name','required|trim');
+        $this->form_validation->set_rules('firstname','First Name','required|trim');
+        $this->form_validation->set_rules('lastname','Last name','required|trim');
         $this->form_validation->set_rules('email','Email Address',
         'required|trim|valid_email|is_unique[users.email]');
         $this->form_validation->set_rules('password','Password','required');
         if($this->form_validation->run())
         {
             $data = array(
-                'fullname' => $this->input->post('fullname'),
-                'username' => $this->input->post('username'),
+                'firstname' => $this->input->post('firstname'),
+                'lastname' => $this->input->post('lastname'),
                 'email'    => $this->input->post('email'),
                 'password' => $this->input->post('password')
             );

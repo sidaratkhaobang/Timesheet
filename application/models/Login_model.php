@@ -9,9 +9,9 @@ class Login_model extends CI_Model
 		$this->load->database();
     }
     public function list_users($user,$pass){
-        $this->db->select('fullname,username,password,level');
+        $this->db->select('firstname,email,password,level');
         $this->db->from('users');
-        $this->db->where('username',$user);
+        $this->db->where('email',$user);
         $this->db->where('password',$pass);
         $this->db->limit(1);
         $query = $this->db->get();

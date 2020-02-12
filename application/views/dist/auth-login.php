@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
 ?>
+
 <body>
   <div id="app">
     <section class="section">
@@ -13,10 +14,16 @@ $this->load->view('dist/_partials/header');
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>Login</h4></div>
+              <div class="card-header">
+                <h4>Login</h4>
+              </div>
 
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <?php if (isset($pesan)) {
+                  echo $pesan;
+                }
+                ?>
+                <form method="POST" action="<?php echo base_url() ?>login_ctrl/login" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
@@ -27,7 +34,7 @@ $this->load->view('dist/_partials/header');
 
                   <div class="form-group">
                     <div class="d-block">
-                    	<label for="password" class="control-label">Password</label>
+                      <label for="password" class="control-label">Password</label>
                       <div class="float-right">
                         <a href="<?php echo base_url(); ?>dist/auth_forgot_password" class="text-small">
                           Forgot Password?
@@ -53,7 +60,7 @@ $this->load->view('dist/_partials/header');
                     </button>
                   </div>
                 </form>
-                <div class="text-center mt-4 mb-3">
+                <!-- <div class="text-center mt-4 mb-3">
                   <div class="text-job text-muted">Login With Social</div>
                 </div>
                 <div class="row sm-gutters">
@@ -65,9 +72,9 @@ $this->load->view('dist/_partials/header');
                   <div class="col-6">
                     <a class="btn btn-block btn-social btn-twitter">
                       <span class="fab fa-twitter"></span> Twitter
-                    </a>                                
+                    </a>
                   </div>
-                </div>
+                </div> -->
 
               </div>
             </div>
@@ -83,4 +90,4 @@ $this->load->view('dist/_partials/header');
     </section>
   </div>
 
-<?php $this->load->view('dist/_partials/js'); ?>
+  <?php $this->load->view('dist/_partials/js'); ?>
