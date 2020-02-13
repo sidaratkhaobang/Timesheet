@@ -31,6 +31,10 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
 <?php
+}elseif ($this->uri->segment(2) == "recordtask") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script> 
+  <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
+<?php
 }elseif ($this->uri->segment(2) == "bootstrap_modal") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/prism/prism.js"></script>
 <?php

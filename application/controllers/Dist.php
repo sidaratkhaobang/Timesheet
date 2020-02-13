@@ -38,11 +38,11 @@ class Dist extends CI_Controller {
 		$this->load->view('dist/layout-top-navigation', $data);
 	}
 
-	public function blank() {
+	public function recordtask() {
 		$data = array(
-			'title' => "Blank Page"
+			'title' => "Record Task"
 		);
-		$this->load->view('dist/blank', $data);
+		$this->load->view('dist/recordtask_view', $data);
 	}
 
 	public function bootstrap_alert() {

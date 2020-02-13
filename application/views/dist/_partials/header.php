@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title><?php echo $title; ?> &mdash; Stisla</title>
+  <title><?php echo $title; ?> &mdash; Timesheet</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap/css/bootstrap.min.css">
@@ -27,6 +27,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
 <?php
 }elseif ($this->uri->segment(2) == "bootstrap_card") { ?>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/chocolat/dist/css/chocolat.css">
+<?php
+}elseif ($this->uri->segment(2) == "recordtask") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/chocolat/dist/css/chocolat.css">
 <?php
 }elseif ($this->uri->segment(2) == "bootstrap_modal") { ?>
@@ -150,7 +153,7 @@ if ($this->uri->segment(2) == "layout_transparent") {
 }elseif ($this->uri->segment(2) == "layout_top_navigation") {
   $this->load->view('dist/_partials/layout-3');
   $this->load->view('dist/_partials/navbar');
-}elseif ($this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "auth_forgot_password"&& $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password" && $this->uri->segment(2) != "errors_503" && $this->uri->segment(2) != "errors_403" && $this->uri->segment(2) != "errors_404" && $this->uri->segment(2) != "errors_500" && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
+}elseif ($this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "auth_forgot_password"&& $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password" && $this->uri->segment(2) != "index" && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar');
 }
