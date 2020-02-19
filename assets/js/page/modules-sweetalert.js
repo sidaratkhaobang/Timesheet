@@ -12,6 +12,10 @@ $("#swal-3").click(function() {
 	swal('Good Job', 'You clicked the button!', 'warning');
 });
 
+$("#swal-9").click(function() {
+	swal('Good Job', 'You clicked the button!', 'warning');
+});
+
 $("#swal-4").click(function() {
 	swal('Good Job', 'You clicked the button!', 'info');
 });
@@ -19,6 +23,7 @@ $("#swal-4").click(function() {
 $("#swal-5").click(function() {
 	swal('Good Job', 'You clicked the button!', 'error');
 });
+
 
 $("#swal-6").click(function() {
   swal({

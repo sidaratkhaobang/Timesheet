@@ -444,6 +444,13 @@ class Dist extends CI_Controller {
 		$this->load->view('dist/auth-forgot-password', $data);
 	}
 
+	public function reset_pass_send() {
+		$data = array(
+			'title' => "reset"
+		);
+		$this->load->view('dist/reset_pass_send', $data);
+	}
+
 	public function auth_login() {
 		$data = array(
 			'title' => "Login"
@@ -463,6 +470,12 @@ class Dist extends CI_Controller {
 			'title' => "Reset Password"
 		);
 		$this->load->view('dist/auth-reset-password', $data);
+	}
+	public function update_pass_success() {
+		$data = array(
+			'title' => "Update Password"
+		);
+		$this->load->view('dist/update_pass_success', $data);
 	}
 
 	public function errors_503() {

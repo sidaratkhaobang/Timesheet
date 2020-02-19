@@ -10,7 +10,7 @@ $this->load->view('dist/_partials/header');
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="<?php echo base_url(); ?>assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="<?php echo base_url(); ?>assets/img/bird.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
             <div class="card card-primary">
@@ -36,7 +36,7 @@ $this->load->view('dist/_partials/header');
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
                       <div class="float-right">
-                        <a href="<?php echo base_url(); ?>dist/auth_forgot_password" class="text-small">
+                        <a href="<?php echo base_url(); ?>login_ctrl/reset_password" class="text-small">
                           Forgot Password?
                         </a>
                       </div>
@@ -53,29 +53,16 @@ $this->load->view('dist/_partials/header');
                       <label class="custom-control-label" for="remember-me">Remember Me</label>
                     </div>
                   </div>
-
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Login
                     </button>
                   </div>
                 </form>
-                <!-- <div class="text-center mt-4 mb-3">
-                  <div class="text-job text-muted">Login With Social</div>
-                </div>
-                <div class="row sm-gutters">
-                  <div class="col-6">
-                    <a class="btn btn-block btn-social btn-facebook">
-                      <span class="fab fa-facebook"></span> Facebook
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a class="btn btn-block btn-social btn-twitter">
-                      <span class="fab fa-twitter"></span> Twitter
-                    </a>
-                  </div>
-                </div> -->
-
+                <?php
+                  echo validation_errors('<p class="error');
+                ?>
+              
               </div>
             </div>
             <div class="mt-5 text-muted text-center">

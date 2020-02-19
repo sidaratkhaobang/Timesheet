@@ -9,18 +9,18 @@ $this->load->view('dist/_partials/header');
         <div class="row">
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
             <div class="login-brand">
-              <img src="<?php echo base_url(); ?>assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="<?php echo base_url(); ?>assets/img/bird.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
             <div class="card card-primary">
               <div class="card-header"><h4>Register</h4></div>
 
               <div class="card-body">
-                <form action="<?php echo base_url() ?>register_ctrl/validation" method="POST">
+                <form action="<?php echo base_url() ?>register_ctrl/validation" class="needs-validation" novalidate="" method="POST">
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="frist_name">First Name</label>
-                      <input id="frist_name" type="text" class="form-control" name="frist_name" autofocus >
+                      <input id="frist_name" type="text" class="form-control" name="frist_name" >
                       <div class="invalid-feedback">
                           What's your first name?
                       </div>
@@ -36,8 +36,9 @@ $this->load->view('dist/_partials/header');
 
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" >
+                    <input id="email" type="email" class="form-control" name="email">
                     <div class="invalid-feedback">
+                    What's your email?
                     </div>
                   </div>
 
@@ -45,6 +46,9 @@ $this->load->view('dist/_partials/header');
                     <div class="form-group col-6">
                       <label for="password" class="d-block">Password</label>
                       <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
+                      <div class="invalid-feedback">
+                    What's your password?
+                    </div>
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
@@ -52,7 +56,10 @@ $this->load->view('dist/_partials/header');
                     </div>
                     <div class="form-group col-6">
                       <label for="password2" class="d-block">Password Confirmation</label>
-                      <input id="password2" type="password" class="form-control" name="password-confirm">
+                      <input id="password2" type="password" class="form-control" name="password-confirm" >
+                      <div class="invalid-feedback">
+                      You must confirm your password.
+                    </div>
                     </div>
                   </div>
 

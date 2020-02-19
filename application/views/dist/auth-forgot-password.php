@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/header');
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="<?php echo base_url(); ?>assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="<?php echo base_url(); ?>assets/img/bird.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
             <div class="card card-primary">
@@ -17,10 +17,10 @@ $this->load->view('dist/_partials/header');
 
               <div class="card-body">
                 <p class="text-muted">We will send a link to reset your password</p>
-                <form method="POST">
+                <form action="<?php echo base_url() ?>login_ctrl/reset_password" method="POST">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                    <input id="email" type="email" class="form-control"  value="<?php echo set_value('email');?>" name="email" tabindex="1" required autofocus>
                   </div>
 
                   <div class="form-group">
@@ -29,6 +29,12 @@ $this->load->view('dist/_partials/header');
                     </button>
                   </div>
                 </form>
+                <!-- <?
+                  echo validation_errors('<p class="error">');
+                  if(isset($error)){
+                    echo '<p class="error">' . $error . '</p>';
+                  }
+                ?> -->
               </div>
             </div>
             <div class="simple-footer">
@@ -39,5 +45,5 @@ $this->load->view('dist/_partials/header');
       </div>
     </section>
   </div>
-
+  <?php $this->load->view('dist/_partials/footer'); ?>
 <?php $this->load->view('dist/_partials/js'); ?>

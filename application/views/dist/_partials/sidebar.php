@@ -4,18 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="<?php echo base_url(); ?>dist/index">Timesheet</a>
+            <a href="<?php echo base_url(); ?>dist/index_0">Timesheet</a>
           </div>
-          <div class="sidebar-brand sidebar-brand-sm">
+          <!-- <div class="sidebar-brand sidebar-brand-sm">
             <a href="<?php echo base_url(); ?>dist/index">St</a>
-          </div>
+          </div> -->
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="dropdown <?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>">
+            <li class="dropdown <?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
               <ul class="dropdown-menu">
                 <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index_0">General Dashboard</a></li>
-                <li><a href="<?php echo base_url(); ?>dist/auth_login">Login</a></li> 
+                <!-- <li><a href="<?php echo base_url(); ?>dist/auth_login">Login</a></li>  -->
                 <!-- <li class="<?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index">Ecommerce Dashboard</a></li> -->
               </ul>
             </li>
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown <?php echo $this->uri->segment(2) == 'project' || $this->uri->segment(2) == 'create_project' ? 'active' : ''; ?>">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-file-alt"></i>  <span>Project</span></a>
               <ul class="dropdown-menu">
-                <li class="<?php echo $this->uri->segment(2) == 'layout_default' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>project_ctrl/project">All Project</a></li>
+                <li class="<?php echo $this->uri->segment(2) == 'project' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>project_ctrl/project">All Project</a></li>
                 <li class="<?php echo $this->uri->segment(2) == 'create_project' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>project_ctrl/create_project">Add Project</a></li>
               </ul>
             </li>
