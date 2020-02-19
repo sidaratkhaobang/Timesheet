@@ -26,6 +26,7 @@ class Login_ctrl extends CI_Controller {
             foreach($checklogin as $row);
             $this->session->set_userdata('email',$row->email);
             $this->session->set_userdata('level',$row->level);
+            $this->session->set_userdata('firstname',$row->firstname);
 
             if($this->session->userdata('level')=="A"){
                 redirect('Project_ctrl/project','refresh');
@@ -79,10 +80,10 @@ class Login_ctrl extends CI_Controller {
 
     public function send_reset_password_email($email, $firstname){
         $this->load->library('email');
-        $email_code = md5($this->config->item('salt'). $firstname);
+        $email_code = md5($this->config->item(''). $firstname);
         
         $this->email->set_mailtype('html');
-        $this->email->from($this->config->item('bot_email'), 'Timesheet');
+        $this->email->from($this->config->item('email'), 'Timesheet');
         $this->email->to($email);
         $this->email->subject('Please reset your pasword at Timesheet');
 
