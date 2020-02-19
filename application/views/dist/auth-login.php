@@ -76,5 +76,5 @@ $this->load->view('dist/_partials/header');
       </div>
     </section>
   </div>
-
+  <?php $this->load->view('dist/_partials/footer'); ?>
   <?php $this->load->view('dist/_partials/js'); ?>

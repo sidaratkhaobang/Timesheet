@@ -7,7 +7,7 @@ class Login_ctrl extends CI_Controller {
         $this->load->model('Login_model');
     }
     public function index(){
-        $this->load->view('dist/auth-login');
+        redirect('dist/auth_login');
     }
     public function adding(){
         echo '<pre>';
@@ -36,14 +36,14 @@ class Login_ctrl extends CI_Controller {
             echo 'Hello Leader';
             }
         }else{
-            $data['pesan']="Email and Password wrong!!";
-            $this->load->view('dist/auth-login',$data);
+            $this->session->set_flashdata('login_wrong', TRUE);
+            redirect('dist/auth_login');
         }
         
     }
     public function logout(){
         $this->session->sess_destroy();
-        redirect('dist/auth-login');
+        redirect('dist/auth_login');
     }
 
     // public function forgot_pass(){
@@ -140,12 +140,6 @@ class Login_ctrl extends CI_Controller {
         }
     }
     }
-
-
-
-
-
-
 
     public function reset_pass(){
          $email= $this->input->post('email');

@@ -7,7 +7,8 @@ class Dist extends CI_Controller {
 		$data = array(
 			'title' => "Welcome to Timesheet"
 		);
-		$this->load->view('dist/auth-login', $data);
+		$this->auth_login();
+		// $this->load->view('dist/auth-login', $data);
 	}
 
 	public function index_0() {

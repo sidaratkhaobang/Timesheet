@@ -16,18 +16,18 @@ $this->load->view('dist/_partials/header');
               <div class="card-header"><h4>Register</h4></div>
 
               <div class="card-body">
-                <form action="<?php echo base_url() ?>register_ctrl/validation" class="needs-validation" novalidate="" method="POST">
+                <form  class="needs-validation" novalidate="" method="POST" action="<?php echo base_url() ?>register_ctrl/validation">
                   <div class="row">
                     <div class="form-group col-6">
-                      <label for="frist_name">First Name</label>
-                      <input id="frist_name" type="text" class="form-control" name="frist_name" >
+                      <label for="firstname">First Name</label>
+                      <input id="firstname" type="text" class="form-control" name="firstname" required autofocus>
                       <div class="invalid-feedback">
                           What's your first name?
                       </div>
                     </div>
                     <div class="form-group col-6">
-                      <label for="last_name">Last Name</label>
-                      <input id="last_name" type="text" class="form-control" name="last_name" >
+                      <label for="lastname">Last Name</label>
+                      <input id="lastname" type="text" class="form-control" name="lastname" required autofocus>
                       <div class="invalid-feedback">
                           What's your last name?
                       </div>
@@ -36,7 +36,7 @@ $this->load->view('dist/_partials/header');
 
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email">
+                    <input id="email" type="email" class="form-control" name="email" required autofocus>
                     <div class="invalid-feedback">
                     What's your email?
                     </div>
@@ -45,7 +45,7 @@ $this->load->view('dist/_partials/header');
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="password" class="d-block">Password</label>
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
+                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password" required autofocus>
                       <div class="invalid-feedback">
                     What's your password?
                     </div>
@@ -56,7 +56,7 @@ $this->load->view('dist/_partials/header');
                     </div>
                     <div class="form-group col-6">
                       <label for="password2" class="d-block">Password Confirmation</label>
-                      <input id="password2" type="password" class="form-control" name="password-confirm" >
+                      <input id="password2" type="password" class="form-control" name="password-confirm" required autofocus>
                       <div class="invalid-feedback">
                       You must confirm your password.
                     </div>
@@ -78,6 +78,9 @@ $this->load->view('dist/_partials/header');
                 </form>
               </div>
             </div>
+            <div class="mt-5 text-muted text-center">
+              You want to login? <a href="<?php echo base_url(); ?>dist/auth_login">Login</a>
+            </div>
             <div class="simple-footer">
               Copyright &copy; Stisla 2018
             </div>
@@ -86,5 +89,5 @@ $this->load->view('dist/_partials/header');
       </div>
     </section>
   </div>
-
+  <?php $this->load->view('dist/_partials/footer'); ?>
 <?php $this->load->view('dist/_partials/js'); ?>

@@ -17,9 +17,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php if ($this->session->flashdata('save_success')) : ?>
     swal("", "Add Data Complete!", "success");
   <?php endif; ?>
+  <?php if ($this->session->flashdata('regis_success')) : ?>
+    swal("", "Registed Complete!", "success");
+  <?php endif; ?>
+  <?php if ($this->session->flashdata('login_wrong')) : ?>
+    swal("", "  Email and Password wrong!!", "error");
+  <?php endif; ?>
 
+  <?php if ($this->session->flashdata('data_duplicate')) : ?>
+    swal("", "Data Duplicate!!", "error");
+  <?php endif; ?>
+  
   <?php if ($this->session->flashdata('un_success')) : ?>
-    swal("", "Email not registered!!", "error");
+    swal("", "Email dupicate!!", "error");
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('del_success')) : ?>
