@@ -47,6 +47,7 @@ class Project_model extends CI_Model
 		return $query->result();
 	}
 
+
 	function delete($id)
 	{
 		$this->db->delete('projects', array('idProject' => $id));
@@ -58,8 +59,7 @@ class Project_model extends CI_Model
 			"projectCode" => $this->input->post("projectCode"),
 			"projectName" => $this->input->post("projectName"),
 			"budget" => $this->input->post("budget"),
-			"team" => $this->input->post("team"),
-			"startDate" => $this->input->post("startDate"),
+			"team" => implode(",", $this->input->post("team")),
 			"endDate" => $this->input->post("endDate")
 		);
 		$this->db->where(array('idProject'=>$id));
