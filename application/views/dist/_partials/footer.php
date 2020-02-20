@@ -21,13 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     swal("", "Registed Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('login_wrong')) : ?>
-    swal("", "  Email and Password wrong!!", "error");
+    swal("Oops...!", " Incorrect email or password Try again or click. Forgot password to reset the code.", "error");
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
     swal("", "Data Duplicate!!", "error");
   <?php endif; ?>
-  
+
   <?php if ($this->session->flashdata('un_success')) : ?>
     swal("", "Email dupicate!!", "error");
   <?php endif; ?>

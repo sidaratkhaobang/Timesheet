@@ -20,7 +20,7 @@ class Dist extends CI_Controller {
 
 	public function project() {
 		$data = array(
-			'title' => "Project"
+			'title' => "All Project"
 		);
 		$this->load->view('dist/admin-project_view', $data);
 	}

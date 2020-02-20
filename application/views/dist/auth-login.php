@@ -26,7 +26,8 @@ $this->load->view('dist/_partials/header');
                 <form method="POST" action="<?php echo base_url() ?>login_ctrl/login" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                    <input id="email" type="email" class="form-control" value="<?php if (get_cookie('email')) { echo get_cookie('email'); } ?>" name="email" tabindex="1" required autofocus>
+                    
                     <div class="invalid-feedback">
                       Please fill in your email
                     </div>
@@ -36,7 +37,7 @@ $this->load->view('dist/_partials/header');
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
                       <div class="float-right">
-                        <a href="<?php echo base_url(); ?>login_ctrl/reset_password" class="text-small">
+                        <a href="<?php echo base_url(); ?>login_ctrl/reset_password" value="<?php if (get_cookie('password')) { echo get_cookie('password'); } ?>" id="password" name="password" class="text-small">
                           Forgot Password?
                         </a>
                       </div>
@@ -50,7 +51,7 @@ $this->load->view('dist/_partials/header');
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                      <label class="custom-control-label" for="remember-me">Remember Me</label>
+                      <label class="custom-control-label" value="remember-me" <?php if (get_cookie('email')) { ?> checked="checked" <?php } ?> for="remember-me">Remember Me</label>
                     </div>
                   </div>
                   <div class="form-group">
