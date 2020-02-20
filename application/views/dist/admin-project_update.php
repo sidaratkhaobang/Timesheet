@@ -10,7 +10,7 @@ $this->load->view('dist/_partials/header');
             <h1>Update Project</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item">Add Project</div>
+                <div class="breadcrumb-item">Update Project</div>
             </div>
         </div>
         <section class="section">
@@ -19,7 +19,7 @@ $this->load->view('dist/_partials/header');
                     <div class="col-12 col-sm-5 offset-sm-2 col-md-6 offset-md-6 col-lg-8 offset-lg-6 col-xl-8 offset-xl-2">
                         <div class="card card-warning">
                             <div class="card-header">
-                                <h4 class="card-title">Edit Project</h4>
+                                <h4 class="card-title">Update Project</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                 </div>

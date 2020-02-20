@@ -10,6 +10,9 @@ class Project_ctrl extends CI_Controller
     }
     public function project()
     {
+        $data = array(
+			'title' => "All Project"
+		);
         $this->load->library("pagination");
         $config['base_url'] = base_url('Project_ctrl/project');
         $config['uri_segement'] = 3;
@@ -41,6 +44,9 @@ class Project_ctrl extends CI_Controller
 
     public function create_project()
     {
+        $data = array(
+			'title' => "Add Project"
+		);
         $data['team'] = $this->Project_model->getTeam();
         $this->load->view('dist/admin-project_create', $data);
     }
@@ -74,6 +80,9 @@ class Project_ctrl extends CI_Controller
 
     public function update_project($id)
     {
+        $data = array(
+			'title' => "Update Project"
+		);
         $data['team'] = $this->Project_model->getTeam();
         $data['data'] = $this->Project_model->getbyID($id);
         $this->load->view('dist/admin-project_update', $data);

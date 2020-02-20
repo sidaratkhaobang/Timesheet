@@ -7,10 +7,10 @@ $this->load->view('dist/_partials/header');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Project</h1>
+            <h1>Create Project</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item">Add Project</div>
+                <div class="breadcrumb-item">Create Project</div>
             </div>
         </div>
         <!-- <div class="app-content content">
@@ -24,7 +24,7 @@ $this->load->view('dist/_partials/header');
                     <div class="col-12 col-sm-5 offset-sm-2 col-md-6 offset-md-6 col-lg-8 offset-lg-6 col-xl-8 offset-xl-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h4 class="card-title">Add Project</h4>
+                                    <h4 class="card-title">Create Project</h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                     </div>
