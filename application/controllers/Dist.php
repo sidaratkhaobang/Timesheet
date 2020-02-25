@@ -43,7 +43,7 @@ class Dist extends CI_Controller {
 		$data = array(
 			'title' => "Record Task"
 		);
-		$this->load->view('dist/recordtask_view', $data);
+		$this->load->view('dist/member-recordtask_view', $data);
 	}
 
 	public function bootstrap_alert() {
