@@ -56,7 +56,7 @@ class Login_ctrl extends CI_Controller
             } elseif ($this->session->userdata('level') == "M") {
                 echo 'Hello Member';
             } elseif ($this->session->userdata('level') == "L") {
-                echo 'Hello Leader';
+                redirect('Leader_ctrl/status', 'refresh');
             }
         } 
         else{   
