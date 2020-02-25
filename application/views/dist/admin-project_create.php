@@ -50,7 +50,7 @@ $this->load->view('dist/_partials/header');
                                                         <span class="input-group-text">.00 THB</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label for="team">Team:</label>
                                                     <div class="input-group-append">
                                                         <select class="form-control selectric" multiple="" name="team[]" id="team">

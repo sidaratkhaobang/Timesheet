@@ -18,13 +18,23 @@ $this->load->view('dist/_partials/header');
           <div class="card-header">
             <h4>Project Table</h4>
             <div class="card-header-form">
+              <form>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
+                  <div class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-header-form">
             </div>
           </div>
           <!-- End Main Content -->
           <!-- Table -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped" id="table-1">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -69,17 +79,28 @@ $this->load->view('dist/_partials/header');
                         <?php } ?>
                       </td>
                       <td>
-                        <a href="<?php echo base_url('Project_ctrl/update_project/' . $row->idProject); ?>" class="btn btn-sm btn-icon btn-primary" title="Edit"><i class="far fa-edit"></i></a>
-                        <!-- <a href="<?php echo base_url('Project_ctrl/delete_project/' . $row->idProject); ?>" onclick="return confirm('confirm delete?');" class="btn btn-sm  btn-icon btn-danger" title="Delete"><i class="fas fa-times"></i></a> -->
+                        <div class="dropdown">
+                          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i class="far fa-edit"></i></a>
+                          <div class="dropdown-menu">
+                            <a href="<?php echo base_url('Project_ctrl/update_project/' . $row->idProject); ?>" class="dropdown-item has-icon"><i class="far fa-edit"></i> Edit</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="<?php echo base_url('Project_ctrl/delete_project/' . $row->idProject); ?>" class="dropdown-item has-icon text-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                          </div>
+                        </div>
                       </td>
                     </tr>
-                  <?php
+                <?php
                   }
                 }
                 ?>
               </table>
             </div>
           </div>
+          <ul class="list-inline mb-0">
+              <ul class="pagination">
+                <?php echo $pagination; ?>
+              </ul>
+          </ul>
         </div>
       </div>
   </section>
