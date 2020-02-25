@@ -48,6 +48,9 @@ class Login_ctrl extends CI_Controller
             $this->session->set_userdata('email', $row->email);
             $this->session->set_userdata('level', $row->level);
             $this->session->set_userdata('firstname', $row->firstname);
+            $this->session->set_userdata('lastname', $row->lastname);
+            $this->session->set_userdata('role', $row->role);
+            $this->session->set_userdata('phone', $row->phone);
             if ($this->session->userdata('level') == "A") {
                 redirect('Project_ctrl/project', 'refresh');
             } elseif ($this->session->userdata('level') == "M") {

@@ -156,6 +156,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 } elseif ($this->uri->segment(2) == "features_profile") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>
 <?php
 } elseif ($this->uri->segment(2) == "features_setting_detail") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/codemirror/lib/codemirror.js"></script>

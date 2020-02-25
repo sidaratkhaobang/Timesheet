@@ -532,7 +532,7 @@ class Dist extends CI_Controller {
 		$data = array(
 			'title' => "Profile"
 		);
-		$this->load->view('dist/features-profile', $data);
+		$this->load->view('dist/profile-view', $data);
 	}
 
 	public function features_settings() {
