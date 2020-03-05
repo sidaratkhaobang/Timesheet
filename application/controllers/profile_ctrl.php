@@ -19,6 +19,6 @@ class Profile_ctrl extends CI_Controller
     {
         $this->Profile_model->update_profile($id);
         $this->session->set_flashdata('save_update', TRUE);
-        redirect('profile_ctrl/edit_profile', 'refresh');
+        redirect('profile_ctrl/edit_profile');
     }
 }
