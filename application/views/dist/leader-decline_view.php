@@ -61,8 +61,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                     </tr>
                                 </thead>
                                 <?php
-                                if ($select_data->num_rows() > 0) {
-                                    foreach ($select_data->result() as $row) {
+                                if ($data_decl->num_rows() > 0) {
+                                    foreach ($data_decl->result() as $row) {
                                         $got = $row->team;
                                         $value = explode(',', $got);
                                 ?>
@@ -85,12 +85,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->endDate; ?></td>
                                             <td>
                                                 <!-- if status  -->
-                                                <?php if ($row->status === '1') { ?>
-                                                    <div class="badge badge-success">Approve</div>
-                                                <?php } elseif ($row->status === '2') { ?>
+                                                <?php if ($row->status === '2') { ?>
                                                     <div class="badge badge-danger">Decline</div>
-                                                <?php } else { ?>
-                                                    <div class="badge badge-warning">Waiting</div>
                                                 <?php } ?>
                                             </td>
                                         </tr>

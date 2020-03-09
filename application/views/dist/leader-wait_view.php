@@ -57,12 +57,12 @@ $this->load->view('dist/_partials/sidebar_L');
                                         <th scope="col">Team</th>
                                         <th scope="col">FinishDate</th>
                                         <th scope="col">Status</th>
-                                        <!-- <th scope="col">Action</th> -->
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <?php
-                                if ($select_data->num_rows() > 0) {
-                                    foreach ($select_data->result() as $row) {
+                                if ($data_wait->num_rows() > 0) {
+                                    foreach ($data_wait->result() as $row) {
                                         $got = $row->team;
                                         $value = explode(',', $got);
                                 ?>
@@ -85,13 +85,18 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->endDate; ?></td>
                                             <td>
                                                 <!-- if status  -->
-                                                <?php if ($row->status === '1') { ?>
-                                                    <div class="badge badge-success">Approve</div>
-                                                <?php } elseif ($row->status === '2') { ?>
-                                                    <div class="badge badge-danger">Decline</div>
-                                                <?php } else { ?>
+                                                <?php if ($row->status === '3') { ?>
                                                     <div class="badge badge-warning">Waiting</div>
                                                 <?php } ?>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i class="far fa-edit"></i></a>
+                                                    <div class="dropdown-menu">
+                                                        <a href="<?php echo base_url('leader_ctrl/change_accept/' . $row->idProject) ?>" class="dropdown-item has-icon text-success"> Accept</a>
+                                                        <a href="<?php echo base_url('leader_ctrl/change_decline/' . $row->idProject) ?>" class="dropdown-item has-icon text-danger"> Decline</a>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                 <?php

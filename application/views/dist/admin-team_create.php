@@ -52,7 +52,7 @@ $this->load->view('dist/_partials/header');
                                         </div>
                                         <div class="offset-sm-8 col-sm-10">
                                             <button type="submit" name="action" class="btn btn-primary">Add</button> &nbsp;
-                                            <a href="<?php echo base_url('Project_ctrl/project') ?>"><button type="button" class="btn btn-default center-block">Cancel</button></a>
+                                            <!-- <button href=""><button type="button" class="btn btn-default center-block">Cancel</button></a> -->
                                         </div>
                                     </form>
                                 </div>
