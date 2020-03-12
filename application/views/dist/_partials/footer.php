@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <footer class="main-footer">
   <div class="footer-left">
-    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+    <!-- Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a> -->
   </div>
   <div class="footer-right">
 
@@ -17,6 +17,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php if ($this->session->flashdata('save_success')) : ?>
     swal("", "Add Data Complete!", "success");
   <?php endif; ?>
+  <?php if ($this->session->flashdata('record_success')) : ?>
+    swal("Good jop!", "You have successfully recorded your daily work.", "success");
+  <?php endif; ?>
   <?php if ($this->session->flashdata('add_success')) : ?>
     swal("", "Add Team Complete!", "success");
   <?php endif; ?>
@@ -28,19 +31,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
-    swal("", "Data Duplicate!!", "error");
+    swal("Oops...!", "Data Duplicate!!", "error");
+  <?php endif; ?>
+  <?php if ($this->session->flashdata('data_except')) : ?>
+    swal("Oops...!", "The hour must be greater than or equal to 8 hours.", "error");
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('un_success')) : ?>
     swal("", "Email dupicate!!", "error");
   <?php endif; ?>
 
-  <?php if ($this->session->flashdata('del_success')) : ?>
-    swal("", "Delete Data Success", "success");
-  <?php endif; ?>
+
+  // <?php if ($this->session->flashdata('del_success')) : ?>
+  //   swal("", "Delete Data Success", "success");
+  // <?php endif; ?>
 
   <?php if ($this->session->flashdata('save_update')) : ?>
     swal("", "Edit Data Complete!", "success");
   <?php endif; ?>
-</script>
+
+  function confirmDelete(id){
+        swal({
+          title: "Are you sure?",
+          text: "You won't be able to delete this!",
+          type: "warning",
+          showCancelButton: true, 
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: "Yes, delete it!",
+          closeOnConfirm: false
+        },function (isConfirm) {
+            $.ajax({
+                url: "<?php echo base_url('Project_ctrl/delete_project/') ?>",
+                type: "POST",
+                data: {id:id},
+                // dataType:"HTML",
+                success: function () {
+                    swal("Done!", "It was succesfully deleted!", "success");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Error deleting!", "Please try again", "error");
+                }
+            });
+        });
+    }
+    </script>
 <?php $this->load->view('dist/_partials/js'); ?>
