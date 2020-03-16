@@ -88,6 +88,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
   <?php
+  } elseif ($this->uri->segment(2) == "insert_worker") { ?>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+  <?php
   } elseif ($this->uri->segment(2) == "forms_editor") { ?>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/codemirror/lib/codemirror.css">
@@ -164,18 +172,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     gtag('config', 'UA-94034622-3');
   </script>
-  <!-- /END GA -->
-</head>
 
-<?php
-// if ($this->uri->segment(2) == "layout_transparent") {
-//   $this->load->view('dist/_partials/layout-2');
-//   $this->load->view('dist/_partials/sidebar-2');
-// }elseif ($this->uri->segment(2) == "layout_top_navigation") {
-//   $this->load->view('dist/_partials/layout-3');
-//   $this->load->view('dist/_partials/navbar');
-if ($this->uri->segment(2) != "" && $this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "auth_forgot_password" && $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password"  && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
-  $this->load->view('dist/_partials/layout');
-  $this->load->view('dist/_partials/sidebar');
-}
-?>
+  <!-- <style type="text/css">
+    .regiration_form fieldset:not(:first-of-type) {
+      display: none;
+    }
+  </style> -->
+  <!-- /END GA -->
+  <?php
+  // if ($this->uri->segment(2) == "layout_transparent") {
+  //   $this->load->view('dist/_partials/layout-2');
+  //   $this->load->view('dist/_partials/sidebar-2');
+  // }elseif ($this->uri->segment(2) == "layout_top_navigation") {
+  //   $this->load->view('dist/_partials/layout-3');
+  //   $this->load->view('dist/_partials/navbar');
+  if ($this->uri->segment(2) != "" && $this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "auth_forgot_password" && $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password"  && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
+    $this->load->view('dist/_partials/layout');
+    $this->load->view('dist/_partials/sidebar');
+  }
+  ?>

@@ -21,7 +21,7 @@ class Team_ctrl extends CI_Controller
     public function insert_data()
     {
         $data = array(
-            "nameteam" => $this->input->post("nameteam"),
+            "team_name" => $this->input->post("team_name"),
             "member" => implode(",",$this->input->post("member"))
         );
         $this->Team_model->insert($data);

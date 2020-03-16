@@ -90,8 +90,14 @@ $this->load->view('dist/_partials/sidebar_L');
                                                 <?php } ?>
                                             </td>
                                         </tr>
-                                <?php
+                                    <?php
                                     }
+                                } else {
+                                    ?>
+                                    <tr>
+                                        <td colspan="7" style="text-align:center;">No Data</td>
+                                    </tr>
+                                <?php
                                 }
                                 ?>
                             </table>

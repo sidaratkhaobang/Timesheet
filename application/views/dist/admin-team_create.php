@@ -34,8 +34,8 @@ $this->load->view('dist/_partials/header');
                                     <form class="col-12" id="user_form" method="Post" action="<?php echo base_url() ?>team_ctrl/insert_data">
 
                                         <br>
-                                        <label for="nameteam">Name Team:</label><br>
-                                        <input type="text" class="form-control" id="nameteam" placeholder="Enter Name Team" name="nameteam" required>
+                                        <label for="team_name">Name Team:</label><br>
+                                        <input type="text" class="form-control" id="team_name" placeholder="Enter Name Team" name="team_name" required>
                                         <br>
                                             <label for="member"><i  class="fas fa-user-plus"></i> Member:</label>
                                             <div class="input-group-append">

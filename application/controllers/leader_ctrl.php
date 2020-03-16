@@ -64,6 +64,9 @@ class Leader_ctrl extends CI_Controller
 
     public function status_approve()
     {
+        $data = array(
+            'title' => "Approve"
+        );
         $this->load->library("pagination");
         $config['base_url'] = base_url('Leader_ctrl/status_approve');
         $config['uri_segement'] = 3;
@@ -93,7 +96,11 @@ class Leader_ctrl extends CI_Controller
         $this->load->view('dist/leader-approve_view', $data);
     }
 
-    public function status_wait(){
+    public function status_wait()
+    {
+        $data = array(
+            'title' => "Waitting"
+        );
         $this->load->library("pagination");
         $config['base_url'] = base_url('Leader_ctrl/status_wait');
         $config['uri_segement'] = 3;
@@ -123,7 +130,11 @@ class Leader_ctrl extends CI_Controller
         $this->load->view('dist/leader-wait_view', $data);
     }
 
-    public function status_decl(){
+    public function status_decl()
+    {
+        $data = array(
+            'title' => "Decline"
+        );
         $this->load->library("pagination");
         $config['base_url'] = base_url('Leader_ctrl/status_decl');
         $config['uri_segement'] = 3;
@@ -151,5 +162,30 @@ class Leader_ctrl extends CI_Controller
         $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
         $this->load->view('dist/leader-decline_view', $data);
+    }
+
+    public function assign()
+    {
+        $data = array(
+            'title' => "Assignment of Member"
+        );
+        $this->load->view('dist/leader-assign_work_emp', $data);
+    }
+
+    public function new_worker()
+    {
+        $data = array(
+            'title' => "New Worker"
+        );
+        $data['user'] = $this->Leader_model->getUser();
+        $data['project'] = $this->Leader_model->getProjectCode();
+        $this->load->view('dist/leader-add_worker', $data);
+    }
+
+    public function insert_worker()
+    {
+        $data = $this->input->post();
+        $this->Leader_model->insert($data);
+        redirect('leader_ctrl/assign', 'refresh');
     }
 }

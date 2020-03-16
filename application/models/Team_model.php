@@ -19,6 +19,6 @@ class Team_model extends CI_Model
     
     function insert($data)
 	{
-		$this->db->insert("team", $data);
+		$this->db->insert("teams", $data);
 	}
 }

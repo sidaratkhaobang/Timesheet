@@ -12,9 +12,6 @@ class Leader_model extends CI_Model
 
     function select_data($limit, $start)
     {
-        $search = $this->input->get('search');
-        $this->db->like(array('projectCode' => $search));
-        $this->db->or_like(array('projectName' => $search));
         $this->db->limit($limit, $start);
         $this->db->order_by('idProject  DESC');
         $query = $this->db->get("projects");
@@ -24,9 +21,6 @@ class Leader_model extends CI_Model
 
     function getTotalrows()
     {
-        $search = $this->input->get('search');
-        $this->db->like(array('projectCode' => $search));
-        $this->db->or_like(array('projectName' => $search));
         $sql = explode('LIMIT', $this->lastQuery);
         $query = $this->db->query($sql[0]);
         $result = $query->result();
@@ -90,5 +84,35 @@ class Leader_model extends CI_Model
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
+    }
+
+    function getUser()
+    {
+        $this->db->order_by('firstname', 'ASC');
+        $query = $this->db->get('users');
+        return $query->result();
+    }
+
+    function getProjectCode()
+    {
+        $this->db->order_by('projectCode', 'ASC');
+        $query = $this->db->get('projects');
+        return $query->result();
+    }
+
+    function insert($data)
+    {
+        $i = 0;
+        foreach ($data['project_code'] as $project_code) {
+            $work = array(
+                "project_code" => $project_code,
+                "system_name" => $data['system_name'],
+                "programmer" => $data['programmer'],
+                "module_name" => $data['module_name'],
+                "program" => $data['program'],
+            );
+            $this->db->insert("wokers", $work);
+            $i++;
+        };
     }
 }
