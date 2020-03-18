@@ -21,16 +21,16 @@ $this->load->view('dist/_partials/sidebar_L');
                         <div class="card-header-form">
                             <div class="btn-group btn-group-sm">
                                 <a href="<?php echo base_url('leader_ctrl/status/'); ?>" type="button" class="btn btn-primary">
-                                    All <span class="badge badge-transparent">10
+                                    All <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_approve/'); ?>" type="btn-group btn-group-sm" class="btn btn-success">
-                                    Approve <span class="badge badge-transparent">2</span>
+                                    Approve <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_wait/'); ?>" type="btn-group btn-group-sm" class="btn btn-warning">
-                                    Waiting <span class="badge badge-transparent">7</span>
+                                    Waiting <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_decl/'); ?>" type="btn-group btn-group-sm" class="btn btn-danger">
-                                    Decline <span class="badge badge-transparent">1</span>
+                                    Decline <span class="badge badge-transparent"></span>
                                 </a>
 
                             </div>
