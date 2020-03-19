@@ -37,9 +37,7 @@ $this->load->view('dist/_partials/header');
                 ?> -->
               </div>
             </div>
-            <div class="simple-footer">
-              Copyright &copy; Stisla 2018
-            </div>
+           
           </div>
         </div>
       </div>

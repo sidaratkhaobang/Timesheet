@@ -27,7 +27,6 @@ $this->load->view('dist/_partials/header');
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" value="<?php if (get_cookie('email')) { echo get_cookie('email'); } ?>" name="email" tabindex="1" required autofocus>
-                    
                     <div class="invalid-feedback">
                       Please fill in your email
                     </div>
@@ -63,14 +62,10 @@ $this->load->view('dist/_partials/header');
                 <?php
                   echo validation_errors('<p class="error');
                 ?>
-              
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
               Don't have an account? <a href="<?php echo base_url(); ?>dist/auth_register">Create One</a>
-            </div>
-            <div class="simple-footer">
-              Copyright &copy; Stisla 2018
             </div>
           </div>
         </div>

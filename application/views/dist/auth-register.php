@@ -81,9 +81,7 @@ $this->load->view('dist/_partials/header');
             <div class="mt-5 text-muted text-center">
               You want to login? <a href="<?php echo base_url(); ?>dist/auth_login">Login</a>
             </div>
-            <div class="simple-footer">
-              Copyright &copy; Stisla 2018
-            </div>
+            
           </div>
         </div>
       </div>

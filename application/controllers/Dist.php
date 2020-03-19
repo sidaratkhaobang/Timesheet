@@ -534,6 +534,24 @@ class Dist extends CI_Controller {
 		);
 		$this->load->view('dist/profile-view', $data);
 	}
+	public function features_profile_member() {
+		$data = array(
+			'title' => "Profile"
+		);
+		$this->load->view('dist/member-profile-view', $data);
+	}
+	public function features_profile_leader() {
+		$data = array(
+			'title' => "Profile"
+		);
+		$this->load->view('dist/leader-profile-view', $data);
+	}
+	public function features_profile_admin() {
+		$data = array(
+			'title' => "Profile"
+		);
+		$this->load->view('dist/admin-profile-view', $data);
+	}
 
 	public function features_settings() {
 		$data = array(

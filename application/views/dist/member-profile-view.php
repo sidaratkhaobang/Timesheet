@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
+$this->load->view('dist/_partials/sidebar_M');
 ?>
       <!-- Main Content -->
       <div class="main-content">
@@ -31,22 +32,7 @@ $this->load->view('dist/_partials/header');
 									<i class="fas fa-envelope" style="font-size:24px"></i>&nbsp;<?php echo $this->session->userdata('email');?></a></li>
 								</ul>
                 <br><br>
-                <a href="<?php echo base_url('profile_ctrl/edit_profile')?>" class="card-link"><?php echo $this->session->userdata('idUser');?>Change about yourself</a>
-                    <!-- <div class="font-weight-bold mb-2">Follow <?php echo $this->session->userdata('firstname');?></div>
-                    <a href="#" class="btn btn-social-icon btn-facebook mr-1">
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="btn btn-social-icon btn-twitter mr-1">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="btn btn-social-icon btn-github mr-1">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="btn btn-social-icon btn-instagram">
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                  </div> -->
-							
+                <!-- <a href="<?php echo base_url('profile_ctrl/edit_profile')?>" class="card-link"><?php echo $this->session->userdata('idUser');?>Change about yourself</a>               -->
 						</div>
 					</div>
            		</div>

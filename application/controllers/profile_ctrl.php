@@ -15,6 +15,14 @@ class Profile_ctrl extends CI_Controller
         $data['data'] = $this->Profile_model->getbyID($id);
         $this->load->view('dist/edit-profile', $data);
     }
+    public function profile_member($id)
+    {
+        $data = array(
+			'title' => "Profile"
+        );
+        $data['data'] = $this->Profile_model->getbyID($id);
+        $this->load->view('dist/profile-view', $data);
+    }
     public function update_profile($id)
     {
         $this->Profile_model->update_profile($id);

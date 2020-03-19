@@ -53,9 +53,9 @@ class Login_ctrl extends CI_Controller
             $this->session->set_userdata('phone', $row->phone);
             if ($this->session->userdata('level') == "A") {
                 redirect('Project_ctrl/project', 'refresh');
-            } elseif ($this->session->userdata('level') == "M") {
+            } elseif ($this->session->userdata('level') == "") {
                 redirect('Emp_ctrl/task_emp', 'refresh');
-            } elseif ($this->session->userdata('level') == "L") {
+            } elseif ($this->session->userdata('level') == "L"){
                 redirect('Leader_ctrl/status', 'refresh');
             }
         } 
@@ -63,7 +63,7 @@ class Login_ctrl extends CI_Controller
             $this->session->set_flashdata('login_wrong', TRUE);
             redirect('dist/auth_login');
             }
-        }
+        }  
     
 
     public function logout()
