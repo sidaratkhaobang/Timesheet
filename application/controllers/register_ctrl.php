@@ -34,11 +34,12 @@ class Register_ctrl extends CI_Controller {
             $this->session->set_flashdata('regis_success', TRUE);
             redirect('register_ctrl/index1', 'refresh');
         }
-        // $this->form_validation->set_rules('firstname','First Name','required|trim');    
-        // $this->form_validation->set_rules('lastname','Last name','required|trim');
-        // $this->form_validation->set_rules('email','Email Address',
-        // 'required|trim|valid_email|is_unique[users.email]');
-        // $this->form_validation->set_rules('password','Password','required');
+        // $this->form_validation->set_rules('username', 'Username', 'required');
+        // $this->form_validation->set_rules('password', 'Password', 'required',
+        //     array('required' => 'You must provide a %s.')
+        //     );
+        // $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
+        // $this->form_validation->set_rules('email', 'Email', 'required');
         // if($this->form_validation->run())
         // {
         //     $data = array(
@@ -47,16 +48,13 @@ class Register_ctrl extends CI_Controller {
         //         'email'    => $this->input->post('email'),
         //         'password' => $this->input->post('password')
         //     );
-        //     $id = $this->Register_model->insert($data);
-        //     // if($id > 0)
-        //     // {
-
-        //     // }
-        //     $this->session->set_flashdata('message','You register success');
-        //     redirect('register_ctrl/register');
+        //     $this->Register_model->insert($data);
+        //      $this->session->set_flashdata('regis_success', TRUE);
+        //      redirect('register_ctrl/index1', 'refresh');
         // }else
         // {
-        //     $this->register();
+        //  $this->session->set_flashdata('un_success', TRUE);
+        //    redirect('register_ctrl/index', 'refresh');
         // }
         
     }

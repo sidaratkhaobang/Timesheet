@@ -83,7 +83,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <i class="far fa-user"></i> Profile
               </a> 
               <?php } elseif ($this->session->userdata('level') == "") {?>
-                <a href="<?php echo base_url(); ?>dist/features_profile_member" class="dropdown-item has-icon">
+                <a href="<?php echo base_url('Profile_ctrl/user_profile/'); ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a> 
               <?php 
@@ -96,9 +96,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
               }
               ?>
               
-              <a href="<?php echo base_url(); ?>dist/features_settings" class="dropdown-item has-icon">
+              <!-- <a href="<?php echo base_url(); ?>dist/features_settings" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i>Change about yourself
-              </a>
+              </a> -->
               <div class="dropdown-divider"></div>
               <a href="<?php echo base_url() ?>dist/auth_login" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout

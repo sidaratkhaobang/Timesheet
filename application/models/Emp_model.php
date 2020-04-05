@@ -40,5 +40,11 @@ class Emp_model extends CI_Model
 		$query = $this->db->get('projects');
 		return $query->result();
 	}
+	function getModules()
+	{
+		$this->db->order_by('module_name', 'ASC');
+		$query = $this->db->get('wokers');
+		return $query->result();
+	}
 
 }

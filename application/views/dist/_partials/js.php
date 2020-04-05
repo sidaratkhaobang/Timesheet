@@ -168,6 +168,20 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 } elseif ($this->uri->segment(2) == "features_profile") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "user_profile") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "features_profile_member") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "features_profile_admin") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "features_profile_leader") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>
 <?php
 } elseif ($this->uri->segment(2) == "features_setting_detail") { ?>

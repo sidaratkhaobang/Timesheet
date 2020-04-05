@@ -8,19 +8,22 @@ class Profile_model extends CI_Model
 		parent::__construct();
 		$this->load->database();
     }
-function update_profile($id)
+	function edit_profile($id)
 	{
 		$data = array(
 			"firstname" => $this->input->post("firstname"),
 			"lastname" => $this->input->post("lastname"),
 			"phone" => $this->input->post("phone"),
-			"role" => $this->input->post("role"),
-			"email" => $this->input->post("email")
+			"bio" => $this->input->post("bio"),
+			"email" => $this->input->post("email"),
+			"img" => $this->input->post("img")
 		);
 		$this->db->where(array('idUser'=>$id));
 		$this->db->update("users", $data);
+		// $query = $this->db->get();
+		// return $query->row();
     }
-    function getbyID($id){
-		return $this->db->get_where('users',array('idUser'=>$id))->row();
-	}
+    // function getbyID($id){
+	// 	return $this->db->get_where('users',array('idUser'=>$id))->row();
+	// }
 }

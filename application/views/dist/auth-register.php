@@ -36,7 +36,7 @@ $this->load->view('dist/_partials/header');
 
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" required autofocus>
+                    <input id="email" type="email" class="form-control" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required autofocus>
                     <div class="invalid-feedback">
                     What's your email?
                     </div>

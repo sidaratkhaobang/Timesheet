@@ -16,7 +16,7 @@ class Emp_ctrl extends CI_Controller
             "des_task" => $this->input->post("des_task"),
             "hours" => $this->input->post("hours"),
         );
-        if ($hours >= 8) 
+        if ($hours <= 8) 
         {
             $this->Emp_model->insert($data);
             $this->session->set_flashdata('record_success', TRUE);
@@ -36,6 +36,7 @@ class Emp_ctrl extends CI_Controller
         );
         $data['task_type'] = $this->Emp_model->getTaskTypes();
         $data['projectName'] = $this->Emp_model->getProjects();
+        $data['module_name'] = $this->Emp_model->getModules();
         $data["select_data"] = $this->Emp_model->select_data();
         $this->load->view("dist/emp-task_view", $data);
     }

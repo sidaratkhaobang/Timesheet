@@ -3,11 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
 $this->load->view('dist/_partials/sidebar_M');
 ?>
+
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Time Task</h1>
+      <h1></h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
         <div class="breadcrumb-item">Time Task</div>
@@ -32,10 +33,23 @@ $this->load->view('dist/_partials/sidebar_M');
               }
               ?>
             </select>
-            <div class="invalid-feedback">
+            <!-- <div class="invalid-feedback">
               Please fill in your work
-            </div>
+            </div> -->
           </div>
+          <div class="form-group col-3">
+            <label>Module Name*</label>
+            <select class="form-control" id="task_type" name="task_type" required autofocus>
+              <option value="">choose your module name</option>
+              <?php
+              foreach ($module_name as $row) {
+                echo '<option value="  ' . $row->module_name . '">' . $row->module_name
+                  . '</option>';
+              }
+              ?>
+            </select>
+          </div>
+
           <div class="form-group col-3">
             <label>Task Type*</label>
             <select class="form-control" id="task_type" name="task_type" required autofocus>
@@ -48,12 +62,12 @@ $this->load->view('dist/_partials/sidebar_M');
               ?>
             </select>
           </div>
-          <div class="form-group col-3">
+          <div class="form-group col-6">
             <label>Task Description</label>
-            <input type="text" class="form-control" id="des_task" name="des_task" value="" required autofocus>
-            <div class="invalid-feedback">
+            <textarea type="text" class="form-control" id="des_task" name="des_task" value=""></textarea>
+            <!-- <div class="invalid-feedback">
               Please fill in description
-            </div>
+            </div> -->
           </div>
           <div class="form-group col-2">
             <label>Your working time/hrs*</label>
@@ -61,18 +75,17 @@ $this->load->view('dist/_partials/sidebar_M');
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <i class="fas fa-clock"></i>
-                  <div class="invalid-feedback">
+                  <!-- <div class="invalid-feedback">
                     Please fill in description
-                  </div>
+                  </div> -->
                 </div>
               </div>
-              <input type="text" class="form-control number" name="hours" id="hours" required autofocus>
+              <input type="text" class="form-control number" name="hours" id="hours" placeholder="0-8" required autofocus>
             </div>
           </div>
-          <div class="form-group col-1">
-            <label>Do it!</label>
-            <button type="submit" name="action" id="toastr-3" class="btn btn-primary mr-1">Go</button>
-          </div>
+        </div>
+        <div>
+          <button type="submit" name="action" id="toastr-3" class="btn btn-lg btn-success"><i class="fas fa-check"></i> Save</button>
         </div>
         </form>
       </div>
@@ -89,7 +102,7 @@ $this->load->view('dist/_partials/sidebar_M');
           <i class="fas fa-search" aria-hidden="true"></i>
         </form>
       </div><br>
-        <!-- End Search form --> 
+      <!-- End Search form -->
       <div class="row">
         <div class="col-12">
           <?php
@@ -137,3 +150,8 @@ $this->load->view('dist/_partials/sidebar_M');
     });
   });
 </script> -->
+
+<!-- <div class="required">
+    <label>Name:</label>
+    <input type="text">
+</div> -->

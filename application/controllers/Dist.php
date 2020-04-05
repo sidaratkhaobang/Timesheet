@@ -528,11 +528,11 @@ class Dist extends CI_Controller {
 		$this->load->view('dist/features-posts', $data);
 	}
 
-	public function features_profile() {
+	public function user_profile() {
 		$data = array(
 			'title' => "Profile"
 		);
-		$this->load->view('dist/profile-view', $data);
+		$this->load->view('dist/user-profile_update', $data);
 	}
 	public function features_profile_member() {
 		$data = array(
