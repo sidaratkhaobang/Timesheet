@@ -22,39 +22,39 @@ $this->load->view('dist/_partials/sidebar_L');
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="progress">
+                        <!-- <div class="progress">
                             <div class="progress-bar progress-bar-striped active bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> <br>
+                        </div> <br> -->
                         <form id="regiration_form" novalidate method="Post" action="<?php echo base_url() ?>leader_ctrl/insert_worker">
 
                             <!-- Step 1 -->
                             <fieldset>
-                                <h2>Step 1: Add Project</h2>
-                                <div class="form-group col-lg-6 col-md-10">
-                                    <label for="project_code">Project Code:</label>
-                                    <select class="form-control" id="project_code" name="project_code">
-                                        <?php
-                                        foreach ($project as $row) {
-                                            echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
-                                                . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-10">
-                                    <label for="system_name">System Name:</label>
-                                    <input type="text" class="form-control" id="system_name" name="system_name" placeholder="Enter System Name">
-                                </div>
-                                <input type="button" name="next" class="next btn btn-info" value="Next" />
-                            </fieldset>
-
-                            <!-- Step 2 -->
-                            <fieldset>
-                                <h2> Step 2: Add Worker</h2>
+                                <h2>Assign Work</h2>
                                 <div class="row">
-                                    <div class="form-group col-4">
-                                        <label>Programmer:</label>
-                                        <select class="form-control" id="programmer" name="programmer">
+                                    <div class="form-group col-3">
+                                        <label for="project_code">Project Code:</label>
+                                        <select class="form-control" id="project_code[]" name="project_code[]">
+                                        <option value="">Choose Project Code</option>
+                                            <?php
+                                            foreach ($project as $row) {
+                                                echo '<option value="'.$row->projectCode.'">' . $row->projectCode
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="system_name">System Name:</label>
+                                        <input type="text" class="form-control" id="system_name[]" name="system_name[]" placeholder="Enter System Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="module_name">Module Name:</label>
+                                        <input type="text" class="form-control" id="module_name[]" name="module_name[]" placeholder="Enter Module Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="programmer">Programmer:</label>
+                                        <select class="form-control" id="programmer[]" name="programmer[]">
+                                            <option value="">Choose Programmer</option>
                                             <?php
                                             foreach ($user as $row) {
                                                 echo '<option value="  ' . $row->firstname . '">' . $row->firstname
@@ -63,19 +63,32 @@ $this->load->view('dist/_partials/sidebar_L');
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group col-4">
-                                        <label>Module Name:</label>
-                                        <input type="text" class="form-control" id="module_name" name="module_name">
-                                    </div>
-                                    <div class="form-group col-4">
-                                        <label>Program Name:</label>
-                                        <input type="text" class="form-control" id="program" name="program">
-                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-4">
-                                        <label>Programmer:</label>
-                                        <select class="form-control" id="programmer" name="programmer">
+                                    <div class="form-group col-3">
+                                        <label for="project_code">Project Code:</label>
+                                        <select class="form-control" id="project_code[]" name="project_code[]">
+                                            <option value="">Choose Project Code</option>
+                                            <?php
+                                            foreach ($project as $row) {
+                                                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="system_name">System Name:</label>
+                                        <input type="text" class="form-control" id="system_name[]" name="system_name[]" placeholder="Enter System Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="module_name">Module Name:</label>
+                                        <input type="text" class="form-control" id="module_name[]" name="module_name[]" placeholder="Enter Module Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="programmer">Programmer:</label>
+                                        <select class="form-control" id="programmer[]" name="programmer[]">
+                                            <option value="">Choose Programmer</option>
                                             <?php
                                             foreach ($user as $row) {
                                                 echo '<option value="  ' . $row->firstname . '">' . $row->firstname
@@ -84,16 +97,110 @@ $this->load->view('dist/_partials/sidebar_L');
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group col-4">
-                                        <label>Module Name:</label>
-                                        <input type="text" class="form-control" id="module_name" name="module_name">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-3">
+                                        <label for="project_code">Project Code:</label>
+                                        <select class="form-control" id="project_code[]" name="project_code[]">
+                                            <option value="">Choose Project Code</option>
+                                            <?php
+                                            foreach ($project as $row) {
+                                                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
-                                    <div class="form-group col-4">
-                                        <label>Program Name:</label>
-                                        <input type="text" class="form-control" id="program" id="program">
+                                    <div class="form-group col-3">
+                                        <label for="system_name">System Name:</label>
+                                        <input type="text" class="form-control" id="system_name[]" name="system_name[]" placeholder="Enter System Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="module_name">Module Name:</label>
+                                        <input type="text" class="form-control" id="module_name[]" name="module_name[]" placeholder="Enter Module Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="programmer">Programmer:</label>
+                                        <select class="form-control" id="programmer[]" name="programmer[]">
+                                            <option value="">Choose Programmer</option>
+                                            <?php
+                                            foreach ($user as $row) {
+                                                echo '<option value="  ' . $row->firstname . '">' . $row->firstname
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
-                                <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
+                                <div class="row">
+                                    <div class="form-group col-3">
+                                        <label for="project_code">Project Code:</label>
+                                        <select class="form-control" id="project_code[]" name="project_code[]">
+                                            <option value="">Choose Project Code</option>
+                                            <?php
+                                            foreach ($project as $row) {
+                                                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="system_name">System Name:</label>
+                                        <input type="text" class="form-control" id="system_name[]" name="system_name[]" placeholder="Enter System Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="module_name">Module Name:</label>
+                                        <input type="text" class="form-control" id="module_name[]" name="module_name[]" placeholder="Enter Module Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="programmer">Programmer:</label>
+                                        <select class="form-control" id="programmer[]" name="programmer[]">
+                                            <option value="">Choose Programmer</option>
+                                            <?php
+                                            foreach ($user as $row) {
+                                                echo '<option value="  ' . $row->firstname . '">' . $row->firstname
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
+                                    <div class="form-group col-3">
+                                        <label for="project_code">Project Code:</label>
+                                        <select class="form-control" id="project_code[]" name="project_code[]">
+                                            <option value="">Choose Project code</option>
+                                            <?php
+                                            foreach ($project as $row) {
+                                                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="system_name">System Name:</label>
+                                        <input type="text" class="form-control" id="system_name[]" name="system_name[]" placeholder="Enter System Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="module_name">Module Name:</label>
+                                        <input type="text" class="form-control" id="module_name[]" name="module_name[]" placeholder="Enter Module Name">
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label for="programmer">Programmer:</label>
+                                        <select class="form-control" id="programmer[]" name="programmer[]">
+                                            <option value="">Choose Programmer</option>
+                                            <?php
+                                            foreach ($user as $row) {
+                                                echo '<option value="  ' . $row->firstname . '">' . $row->firstname
+                                                    . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <!-- <button  class="add_form_field btn btn-danger">Add</button> -->
                                 <input type="submit" name="action" class="submit btn btn-success" value="Submit" />
                             </fieldset>
                         </form>

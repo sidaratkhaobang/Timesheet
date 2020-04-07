@@ -169,7 +169,8 @@ class Leader_ctrl extends CI_Controller
         $data = array(
             'title' => "Assignment of Member"
         );
-        $this->load->view('dist/leader-assign_work_emp', $data);
+        $data["projectC"] = $this->Leader_model->worker();
+        $this->load->view('dist/leader-assign_work_emp', $data);;
     }
 
     public function new_worker()
@@ -184,8 +185,28 @@ class Leader_ctrl extends CI_Controller
 
     public function insert_worker()
     {
-        $data = $this->input->post();
-        $this->Leader_model->insert($data);
+        if ($_POST) {
+            $data = [];
+            for ($i = 0; $i < count($this->input->post('project_code')); $i++) {
+                $data[$i] = array(
+                    'project_code' => $this->input->post('project_code')[$i],
+                    'system_name' => $this->input->post('system_name')[$i],
+                    'module_name' => $this->input->post('module_name')[$i],
+                    'programmer' => $this->input->post('programmer')[$i]
+                );
+            }
+            $this->Leader_model->insert($data);
+        }
+        $this->session->set_flashdata('save_success', TRUE);
         redirect('leader_ctrl/assign', 'refresh');
+    }
+
+    public function detail($code)
+    {
+        $data = array(
+            'title' => "Detail Worker"
+        );
+        // $data["projectC"] = $this->Leader_model->select_worker($code);
+        $this->load->view('dist/leader-worker_view', $data);
     }
 }

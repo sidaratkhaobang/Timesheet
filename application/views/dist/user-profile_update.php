@@ -16,7 +16,7 @@ $this->load->view('dist/_partials/sidebar_M');
     <!--================Home Banner Area =================-->
     <div class="col-12 col-md-12 col-lg-7">
       <div class="card">
-        <form action="<?php echo base_url('Profile_ctrl/update_data/'); ?>" method="post"  class="needs-validation" novalidate="">
+        <form method="post" class="needs-validation"  action="<?php echo base_url('Profile_ctrl/update_data/' . $this->session->userdata('idUser')); ?>">
           <div class="card-header">
             <h4>Edit Profile</h4>
           </div>
@@ -52,13 +52,13 @@ $this->load->view('dist/_partials/sidebar_M');
             </div>
             <div class="row">
               <div class="form-group col-12">
-              <label>Profile Picture</label>
-            <div class="custom-file">
-        
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-            </div>
+                <label>Profile Picture</label>
+                <div class="custom-file">
+
+                  <input type="file" class="custom-file-input" id="customFile">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="form-group col-12">

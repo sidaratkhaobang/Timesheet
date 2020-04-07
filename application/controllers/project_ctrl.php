@@ -61,7 +61,7 @@ class Project_ctrl extends CI_Controller
         $query = $this->db->get('projects');
         $num = $query->num_rows();
         if ($num > 0) {
-            $this->session->set_flashdata('un_success', TRUE);
+            $this->session->set_flashdata('data_duplicate', TRUE);
             redirect('project_ctrl/project', 'refresh');
         } else {
             $data = array(

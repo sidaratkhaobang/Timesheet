@@ -44,11 +44,11 @@ $this->load->view('dist/_partials/sidebar_L');
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th scope="col">ProjectCode</th>
-                                        <th scope="col">ProjectName</th>
+                                        <th scope="col">Project Code</th>
+                                        <th scope="col">Project Name</th>
                                         <th scope="col">Budget(THB)</th>
                                         <th scope="col">Team</th>
-                                        <th scope="col">FinishDate</th>
+                                        <th scope="col">Finish Date</th>
                                         <th scope="col">Status</th>
                                         <!-- <th scope="col">Action</th> -->
                                     </tr>
@@ -63,7 +63,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->idProject; ?></td>
                                             <td><?php echo $row->projectCode; ?></td>
                                             <td><?php echo $row->projectName; ?></td>
-                                            <td><?php echo $row->budget; ?>.00</td>
+                                            <td><?php echo $row->budget; ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></a>

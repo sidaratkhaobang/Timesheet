@@ -12,6 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </div>
 </div>
 <script src="<?php echo base_url(); ?>assets/modules/sweetalert/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
   <?php if ($this->session->flashdata('save_success')) : ?>
@@ -42,9 +43,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php endif; ?>
 
 
-  // <?php if ($this->session->flashdata('del_success')) : ?>
-  //   swal("", "Delete Data Success", "success");
-  // <?php endif; ?>
+  <?php if ($this->session->flashdata('del_success')) : ?>
+    swal("", "Delete Data Success", "success");
+  <?php endif; ?>
 
   <?php if ($this->session->flashdata('save_update')) : ?>
     swal("", "Edit Data Complete!", "success");

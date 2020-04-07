@@ -38,11 +38,11 @@ $this->load->view('dist/_partials/header');
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th scope="col">ProjectCode</th>
-                    <th scope="col">ProjectName</th>
+                    <th scope="col">Project code</th>
+                    <th scope="col">Project name</th>
                     <th scope="col">Budget(THB)</th>
                     <th scope="col">Team</th>
-                    <th scope="col">Finish Date</th>
+                    <th scope="col">Finish date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -57,7 +57,7 @@ $this->load->view('dist/_partials/header');
                       <td><?php echo $row->idProject; ?></td>
                       <td><?php echo $row->projectCode; ?></td>
                       <td><?php echo $row->projectName; ?></td>
-                      <td><?php echo $row->budget; ?>.00</td>
+                      <td><?php echo $row->budget; ?></td>
                       <td>
                         <div class="dropdown">
                           <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></i></a>
@@ -103,7 +103,7 @@ $this->load->view('dist/_partials/header');
   </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
-<script>
+<!-- <script>
   function confirmDelete(id){
         swal({
           title: "Are you sure?",
@@ -129,4 +129,4 @@ $this->load->view('dist/_partials/header');
             });
         });
     }
-    </script>
+    </script> -->

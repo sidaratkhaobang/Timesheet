@@ -630,37 +630,70 @@ $(function() {
 });
 
 // step by step worker
-$(document).ready(function() {
-  var current = 1,
-    current_step,
-    next_step,
-    steps;
-  steps = $("fieldset").length;
-  $(".next").click(function() {
-    current_step = $(this).parent();
-    next_step = $(this)
-      .parent()
-      .next();
-    next_step.show();
-    current_step.hide();
-    setProgressBar(++current);
-  });
-  $(".previous").click(function() {
-    current_step = $(this).parent();
-    next_step = $(this)
-      .parent()
-      .prev();
-    next_step.show();
-    current_step.hide();
-    setProgressBar(--current);
-  });
-  setProgressBar(current);
-  // Change progress bar action
-  function setProgressBar(curStep) {
-    var percent = parseFloat(100 / steps) * curStep;
-    percent = percent.toFixed();
-    $(".progress-bar")
-      .css("width", percent + "%")
-      .html(percent + "%");
-  }
-});
+// $(document).ready(function() {
+//   var current = 1,
+//     current_step,
+//     next_step,
+//     steps;
+//   steps = $("fieldset").length;
+//   $(".next").click(function() {
+//     current_step = $(this).parent();
+//     next_step = $(this)
+//       .parent()
+//       .next();
+//     next_step.show();
+//     current_step.hide();
+//     setProgressBar(++current);
+//   });
+//   $(".previous").click(function() {
+//     current_step = $(this).parent();
+//     next_step = $(this)
+//       .parent()
+//       .prev();
+//     next_step.show();
+//     current_step.hide();
+//     setProgressBar(--current);
+//   });
+//   setProgressBar(current);
+//   // Change progress bar action
+//   function setProgressBar(curStep) {
+//     var percent = parseFloat(100 / steps) * curStep;
+//     percent = percent.toFixed();
+//     $(".progress-bar")
+//       .css("width", percent + "%")
+//       .html(percent + "%");
+//   }
+// });
+
+// $(document).ready(function() {
+//   var max_fields = 10;
+//   var wrapper = $(".add1");
+//   var add_button = $(".add_form_field");
+
+//   var x = 1;
+//   $(add_button).click(function(e) {
+//     e.preventDefault();
+//     if (x < max_fields) {
+//       x++;
+//       $(wrapper).append(
+//         '<div class="form-group col-3"><label for="project_code">Project Code:</label><select class="form-control" id="project_code" name="project_code"><'+  +'></select></div><div class="form-group col-3"><label for="system_name">System Name:</label><input type="text" class="form-control" id="system_name" name="system_name" placeholder="Enter System Name"></div><div class="form-group col-3"><label for="module_name">Module Name:</label><input type="text" class="form-control" id="module_name" name="module_name" placeholder="Enter Module Name"></div><div class="form-group col-3"><label for="programmer">Programmer:</label><select class="form-control" id="programmer" name="programmer"><?phpforeach ($user as $row) {echo <option value="   . $row->firstname . "> . $row->firstname. </option>;}?></select></div>');
+      //   '<div class="form-group col-4"><label>Programmer:</label><select class="form-control" id="programmer[]" name="programmer[]"><?php foreach ($user as $row) { echo <option value="   . $row->firstname . "> . $row->firstname . </option>;}?></select></div><div class="form-group col-4"><label>Module Name:</label><input type="text" class="form-control" id="module_name[]" name="module_name[]"></div><div class="form-group col-4"><label>Program Name:</label><input type="text" class="form-control" id="program[]" name="program[]"></div>'
+      // );
+      // <div><input type="text" name="mytext[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
+  //   } else {
+  //     alert("You Reached the limits");
+  //   }
+  // });
+
+  // $(wrapper).on("click", ".delete", function(e) {
+  //   e.preventDefault();
+  //   if (x < max_fields) {
+  //     x--;
+  //     $(this)
+  //       .parent("div")
+  //       .remove();
+  //   } else {
+  //     alert("You Reached the limits");
+  //   }
+  // });
+// });

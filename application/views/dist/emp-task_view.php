@@ -28,7 +28,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your project</option>
               <?php
               foreach ($projectName as $row) {
-                echo '<option value="  ' . $row->projectName . '">' . $row->projectName
+                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
                   . '</option>';
               }
               ?>

@@ -28,4 +28,12 @@ class Profile_ctrl extends CI_Controller
         $this->session->set_flashdata('save_update', TRUE); 
         redirect('profile_ctrl/user_profile');
     }
+
+    public function leader_profile()
+    {
+       $data = array(
+			'title' => "Profile"
+		);
+		$this->load->view('dist/leader-profile-view', $data);
+    }
 }
