@@ -26,22 +26,24 @@ $this->load->view('dist/_partials/sidebar_L');
                     </div>
                     <div class="row">
                         <?php
-                        // if ($projectC->num_rows() > 0) {
-                        foreach ($projectC as $row) { ?>
-                            <div class="col-lg-6">
-                                <div class="card card-large-icons">
-                                    <div class="card-icon bg-primary text-white">
-                                        <i class="fas fa-file-alt"></i>
-                                    </div>
+                        if ($projectC->num_rows() > 0) {
+                            foreach ($projectC->result() as $row) { ?>
+                                <div class="col-lg-6">
+                                    <div class="card card-large-icons">
+                                        <div class="card-icon bg-primary text-white">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
 
-                                    <div class="card-body">
-                                        <h4><?php echo $row->project_code; ?></h4>
-                                        <a href="<?php echo base_url('leader_Ctrl/detail/' . $row->project_code); ?>" class="card-cta">View Detail <i class="fas fa-chevron-right"></i></a>
-                                    </div>
+                                        <div class="card-body">
+                                            <h4><?php echo $row->project_code; ?></h4>
+                                            <a href="<?php echo base_url('leader_Ctrl/detail/' . $row->project_code); ?>" class="card-cta">View Detail <i class="fas fa-chevron-right"></i></a>
+                                        </div>
 
+                                    </div>
                                 </div>
-                            </div>
                         <?php
+                            }
+                        } else {
                         }
                         ?>
                     </div>

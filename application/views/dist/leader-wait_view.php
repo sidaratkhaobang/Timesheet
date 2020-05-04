@@ -10,7 +10,7 @@ $this->load->view('dist/_partials/sidebar_L');
             <h1>Project</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item">Project</div>
+                <div class="breadcrumb-item">Wait Project</div>
             </div>
         </div>
         <div class="row">

@@ -36,7 +36,9 @@ class Leader_model extends CI_Model
     {
         $data = [
             'status' => '1',
+            'startDate' => date("Y-m-d"),
         ];
+        // $today = date("Y-m-d");
         $this->db->where('idProject', $id);
         $this->db->update("projects", $data);
     }
@@ -111,12 +113,12 @@ class Leader_model extends CI_Model
         $this->db->select('project_code');
         $this->db->group_by('project_code');
         $query = $this->db->get('wokers'); // table name
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        }
+        // if ($query->num_rows() > 0) {
+        //     return $query->result();
+        // }
         // $this->db->group_by('project_code');
         // $query = $this->db->get("wokers");
-        // return $query;
+        return $query;
     }
 
     // function select_worker($code)

@@ -8,14 +8,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
 
           <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
+            <!-- <li class="menu-header">Dashboard</li>
             <li class="dropdown <?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>">
-              <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a> -->
               <!-- <ul class="dropdown-menu">
                 <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index_0">General Dashboard</a></li>
               </ul> -->
               
-            </li>
+            <!-- </li> -->
             <li class="menu-header">Project</li>
             <li class="dropdown <?php echo $this->uri->segment(2) == 'project' || $this->uri->segment(2) == 'create_project' ? 'active' : ''; ?>">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-file-alt"></i>  <span>Project</span></a>

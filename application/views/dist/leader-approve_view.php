@@ -10,7 +10,7 @@ $this->load->view('dist/_partials/sidebar_L');
             <h1>Project</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                <div class="breadcrumb-item">Project</div>
+                <div class="breadcrumb-item">Approve Project</div>
             </div>
         </div>
         <div class="row">
@@ -55,6 +55,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                         <th scope="col">Project Name</th>
                                         <th scope="col">Budget(THB)</th>
                                         <th scope="col">Team</th>
+                                        <th scope="col">Start Date</th>
                                         <th scope="col">Finish Date</th>
                                         <th scope="col">Status</th>
                                         <!-- <th scope="col">Action</th> -->
@@ -82,6 +83,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td><?php echo $row->startDate; ?></td>
                                             <td><?php echo $row->endDate; ?></td>
                                             <td>
                                                 <!-- if status  -->
