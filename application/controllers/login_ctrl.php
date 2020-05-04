@@ -59,11 +59,11 @@ class Login_ctrl extends CI_Controller
             );
             $this->session->set_userdata($sess_array);
            
-            if ($this->session->set_userdata('level') == "A") {
+            if ($this->session->userdata('level') == "A") {
                 redirect('Project_ctrl/project', 'refresh');
-            } elseif ($this->session->set_userdata('level') == "") {
+            } elseif ($this->session->userdata('level') == "") {
                 redirect('Emp_ctrl/task_emp', 'refresh');
-            } elseif ($this->session->set_userdata('level') == "L"){
+            } elseif ($this->session->userdata('level') == "L"){
                 redirect('Leader_ctrl/status', 'refresh');
             }
         } 
