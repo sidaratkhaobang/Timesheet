@@ -27,10 +27,10 @@ class Leader_model extends CI_Model
         return count($result);
     }
 
-    function getbyID($id)
-    {
-        return $this->db->get_where('projects', array('idProject' => $id))->row();
-    }
+    // function getbyID($id)
+    // {
+    //     return $this->db->get_where('projects', array('idProject' => $id))->row();
+    // }
 
     function change_statusA($id)
     {
@@ -56,7 +56,7 @@ class Leader_model extends CI_Model
             'status' => '1',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -68,7 +68,7 @@ class Leader_model extends CI_Model
             'status' => '3',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -80,7 +80,7 @@ class Leader_model extends CI_Model
             'status' => '2',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -102,17 +102,30 @@ class Leader_model extends CI_Model
 
     function insert($data)
     {
-        $i = 0;
-        foreach ($data['project_code'] as $project_code) {
-            $work = array(
-                "project_code" => $project_code,
-                "system_name" => $data['system_name'],
-                "programmer" => $data['programmer'],
-                "module_name" => $data['module_name'],
-                "program" => $data['program'],
-            );
-            $this->db->insert("wokers", $work);
-            $i++;
-        };
+        $this->db->insert_batch("wokers", $data);
     }
+
+    function worker()
+    {
+        // $query = $this->db->group_by('wokers', array('project_code'));  ,'system_name','module_name','programmer'
+        $this->db->select('project_code');
+        $this->db->group_by('project_code');
+        $query = $this->db->get('wokers'); // table name
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+        // $this->db->group_by('project_code');
+        // $query = $this->db->get("wokers");
+        // return $query;
+    }
+
+    // function select_worker($code)
+    // {
+    //     $this->db->select('system_name','module_name','programmer');
+    //     $this->db->where('project_code', $code);
+    //     $query = $this->db->get_where('wokers', $code); // table name
+    //     if ($query->num_rows() > 0) {
+    //         return $query->result();
+    //     }
+    // }
 }

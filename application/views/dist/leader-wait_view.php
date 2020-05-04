@@ -21,16 +21,16 @@ $this->load->view('dist/_partials/sidebar_L');
                         <div class="card-header-form">
                             <div class="btn-group btn-group-sm">
                                 <a href="<?php echo base_url('leader_ctrl/status/'); ?>" type="button" class="btn btn-primary">
-                                    All <span class="badge badge-transparent">10
+                                    All <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_approve/'); ?>" type="btn-group btn-group-sm" class="btn btn-success">
-                                    Approve <span class="badge badge-transparent">2</span>
+                                    Approve <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_wait/'); ?>" type="btn-group btn-group-sm" class="btn btn-warning">
-                                    Waiting <span class="badge badge-transparent">7</span>
+                                    Waiting <span class="badge badge-transparent"></span>
                                 </a>
                                 <a href="<?php echo base_url('leader_ctrl/status_decl/'); ?>" type="btn-group btn-group-sm" class="btn btn-danger">
-                                    Decline <span class="badge badge-transparent">1</span>
+                                    Decline <span class="badge badge-transparent"></span>
                                 </a>
                             </div>
                         </div>
@@ -51,11 +51,11 @@ $this->load->view('dist/_partials/sidebar_L');
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th scope="col">ProjectCode</th>
-                                        <th scope="col">ProjectName</th>
+                                        <th scope="col">Project Code</th>
+                                        <th scope="col">Project Name</th>
                                         <th scope="col">Budget(THB)</th>
                                         <th scope="col">Team</th>
-                                        <th scope="col">FinishDate</th>
+                                        <th scope="col">Finish Date</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -70,7 +70,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->idProject; ?></td>
                                             <td><?php echo $row->projectCode; ?></td>
                                             <td><?php echo $row->projectName; ?></td>
-                                            <td><?php echo $row->budget; ?>.00</td>
+                                            <td><?php echo $row->budget; ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></a>

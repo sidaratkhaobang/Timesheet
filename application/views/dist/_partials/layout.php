@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </a> 
               <?php 
               } elseif ($this->session->userdata('level') == "L") {?>
-                <a href="<?php echo base_url(); ?>dist/features_profile_leader" class="dropdown-item has-icon">
+                <a href="<?php echo base_url('Profile_ctrl/leader_profile/'); ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a> 
               <?php 

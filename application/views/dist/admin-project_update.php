@@ -28,11 +28,11 @@ $this->load->view('dist/_partials/header');
                                 <div class="card-body">
                                     <form class="form-group col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
 
-                                        <label for="projectCode">ProjectCode:</label><br>
+                                        <label for="projectCode">Project Code:</label><br>
                                         <input type="text" class="form-control" id="projectCode" name="projectCode" value="<?php echo $data->projectCode ?>" required>
                                         <br>
 
-                                        <label for="projectName">ProjectName:</label><br>
+                                        <label for="projectName">Project Name:</label><br>
                                         <input type="text" class="form-control" id="projectName" name="projectName" value="<?php echo $data->projectName ?>" required>
                                         <br>
 
@@ -41,7 +41,7 @@ $this->load->view('dist/_partials/header');
                                                 <label for="budget">Budget:</label>
                                                 <div class="input-group-append">
                                                     <input type="text" class="form-control" name="budget" id="budget" value="<?php echo $data->budget ?>" required>
-                                                    <span class="input-group-text">.00 THB</span>
+                                                    <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
                                             <div class=" col-md-6">
@@ -51,7 +51,7 @@ $this->load->view('dist/_partials/header');
                                                         <option><?php echo $data->team ?></option>
                                                         <?php
                                                         foreach ($team as $row) {
-                                                            echo '<option value="  ' . $row->NameTeam . '">' . $row->NameTeam
+                                                            echo '<option value="  ' . $row->team_name . '">' . $row->team_name
                                                                 . '</option>';
                                                         }
                                                         ?>
@@ -75,16 +75,11 @@ $this->load->view('dist/_partials/header');
                                     </form>
                                 </div>
                             </div>
-                            <!-- <p class="card-text">Using the most <code>.table</code>-based tables look in Bootstrap. You can use any example of below table for your table and it can be use with any type of bootstrap tables. </p> -->
                         </div>
                     </div>
                 </div>
             </div>
-</section>
-</div>
-</div>
-</div>
-</div>
-</section>
+        </section>
+    </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>

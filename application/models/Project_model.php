@@ -42,8 +42,8 @@ class Project_model extends CI_Model
 
 	function getTeam()
 	{
-		$this->db->order_by('NameTeam', 'ASC');
-		$query = $this->db->get('members');
+		$this->db->order_by('team_name', 'ASC');
+		$query = $this->db->get('teams');
 		return $query->result();
 	}
 
@@ -59,7 +59,7 @@ class Project_model extends CI_Model
 			"projectCode" => $this->input->post("projectCode"),
 			"projectName" => $this->input->post("projectName"),
 			"budget" => $this->input->post("budget"),
-			"team" => implode(",", $this->input->post("team")),
+			"team" => implode(",",$this->input->post("team")),
 			"endDate" => $this->input->post("endDate")
 		);
 		$this->db->where(array('idProject'=>$id));
