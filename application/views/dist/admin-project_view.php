@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
 ?>
-<!-- Main Content -->
+<!-- Main  -->
 <div class="main-content">
   <section class="section">
     <div class="section-header">
@@ -12,6 +12,7 @@ $this->load->view('dist/_partials/header');
         <div class="breadcrumb-item">Project</div>
       </div>
     </div>
+    <br>
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -38,11 +39,11 @@ $this->load->view('dist/_partials/header');
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th scope="col">Project code</th>
-                    <th scope="col">Project name</th>
+                    <th scope="col">Project Code</th>
+                    <th scope="col">Project Name</th>
                     <th scope="col">Budget(THB)</th>
                     <th scope="col">Team</th>
-                    <th scope="col">Finish date</th>
+                    <th scope="col">Finish Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -69,6 +70,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </td>
                       <td><?php echo $row->endDate; ?></td>
+
                       <td>
                         <?php if ($row->status === '1') { ?>
                           <div class="badge badge-success">Accept</div>
@@ -79,28 +81,27 @@ $this->load->view('dist/_partials/header');
                         <?php } ?>
                       </td>
                       <td>
-                        <a href="<?php echo base_url('Project_ctrl/update_project/'.$row->idProject); ?>" class="edit"><i class='fas fa-edit' title="Edit"></i></a>
-                        <a href="<?php echo base_url('Project_ctrl/delete_project/'.$row->idProject); ?>" onclick="return confirm('confirm delete?');" data-toggle="tooltip" 
-                        ><i class="fas fa-trash-alt" style="color:red" title="Delete"></i></a>
-                          </div>
-                        </div>  
-                      </td>
-                    </tr>
-                <?php
-                  } 
-                }
-                ?>
-              </table> 
+                        <a href="<?php echo base_url('Project_ctrl/update_project/' . $row->idProject); ?>" class="edit"><i class='fas fa-edit' title="Edit"></i></a>
+                        <a href="<?php echo base_url('Project_ctrl/delete_project/' . $row->idProject); ?>" onclick="return confirm('confirm delete?');" data-toggle="tooltip"><i class="fas fa-trash-alt" style="color:red" title="Delete"></i></a>
             </div>
           </div>
-          <ul class="list-inline mb-0">
-              <ul class="pagination">
-                <?php echo $pagination; ?>
-              </ul>
-          </ul>
+          </td>
+          </tr>
+      <?php
+                  }
+                }
+      ?>
+      </table>
         </div>
       </div>
-  </section>
+      <ul class="list-inline mb-0">
+        <ul class="pagination">
+          <?php echo $pagination; ?>
+        </ul>
+      </ul>
+    </div>
+</div>
+</section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
 <!-- <script>
@@ -116,7 +117,7 @@ $this->load->view('dist/_partials/header');
           closeOnConfirm: false
         },function (isConfirm) {
             $.ajax({
-                url: "<?php echo base_url('Project_ctrl/delete_project/')?>",
+                url: "<?php echo base_url('Project_ctrl/delete_project/') ?>",
                 type: "POST",
                 data: {id:id},
                 // dataType:"HTML",

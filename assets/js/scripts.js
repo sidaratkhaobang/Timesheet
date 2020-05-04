@@ -697,3 +697,31 @@ $(function() {
   //   }
   // });
 // });
+
+// auto ProjectCode
+function autoTab(obj){
+  var pattern = new String("_______-__");
+  var pattern_ex = new String("-");
+  var returnText = new String("");
+  var obj_1 = obj.value.length;
+  var obj_2 = obj_1 - 1;
+  for (var i = 0; i < pattern.length; i++){
+    if (obj_2 == i && pattern.charAt(i+1)==pattern_ex){
+      returnText+=obj.value+pattern_ex
+      obj.value = returnText;
+    }
+  }
+  if (obj_1 >= pattern.length){
+    obj.value = obj.value.substr(0,pattern.length);
+  }
+}
+
+
+// $(document).ready(function(){
+//   $('#team').multiselect({
+//    nonSelectedText: 'Select team',
+//    enableFiltering: true,
+//    enableCaseInsensitiveFiltering: true,
+//    buttonWidth:'400px'
+//   });
+// });
