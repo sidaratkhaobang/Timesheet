@@ -5,6 +5,9 @@ class Emp_model extends CI_Model
 {
 
 	// private $lastQuery = '';
+	public $table = 'tasks';
+	public $id = 'id_task';
+	public $order ='DESC';
 
 	function __constuct()
 	{
@@ -22,11 +25,13 @@ class Emp_model extends CI_Model
 		$this->db->like(array('date'=>$search));
 		$this->db->or_like(array('project_name'=>$search));
 		$this->db->or_like(array('task_type'=>$search));
-		// $this->db->limit($limit, $start);
-		$this->db->order_by('id_task  DESC');
-		$query = $this->db->get("tasks");
-		// $this->lastQuery = $this->db->last_query();
-		return $query;
+		//
+		$this->db->select('*');
+		$this->db->order_by($this->id,$this->order);
+		// $this->db->where('tasks.idUser',$this->session->userdata('idUser'));
+		// $this->db->join('users','users.idUser = tasks.idUser');
+		return $this->db->get($this->table);
+		 
 	}
 	function getTaskTypes()
 	{

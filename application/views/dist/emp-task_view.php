@@ -97,7 +97,7 @@ $this->load->view('dist/_partials/sidebar_M');
       <div class="section-body">
         <h2 class="section-title">Daily work log</h2>
         <!-- Search form -->
-        <form class="form-inline active-cyan-4">
+        <form class="form-inline active-cyan-4" >
           <input class="form-control form-control-sm mr-3 w-25" id="listSearch" type="text" class="form-control form-control-sm mr-3 w-25" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
           <i class="fas fa-search" aria-hidden="true"></i>
         </form>

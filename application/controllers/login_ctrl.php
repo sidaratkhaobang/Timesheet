@@ -1,8 +1,10 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
+
 class Login_ctrl extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->load->model('Login_model');
@@ -45,17 +47,23 @@ class Login_ctrl extends CI_Controller
                 setcookie('email', $email, time() + (86400 * 30), "/");
                 setcookie('password', $password, time() + (86400 * 30), "/");
             }
-            $this->session->set_userdata('email', $row->email);
-            $this->session->set_userdata('level', $row->level);
-            $this->session->set_userdata('firstname', $row->firstname);
-            $this->session->set_userdata('lastname', $row->lastname);
-            $this->session->set_userdata('role', $row->role);
-            $this->session->set_userdata('phone', $row->phone);
-            if ($this->session->userdata('level') == "A") {
+            $sess_array = array(
+                'idUser' => $row->idUser,
+                'email' => $row->email,
+                'level' => $row->level,
+                'firstname' => $row->firstname,
+                'lastname' => $row->lastname,
+                'role' => $row->role,
+                'phone' => $row->phone,
+                'isLoggedIn' => TRUE
+            );
+            $this->session->set_userdata($sess_array);
+           
+            if ($this->session->set_userdata('level') == "A") {
                 redirect('Project_ctrl/project', 'refresh');
-            } elseif ($this->session->userdata('level') == "") {
+            } elseif ($this->session->set_userdata('level') == "") {
                 redirect('Emp_ctrl/task_emp', 'refresh');
-            } elseif ($this->session->userdata('level') == "L"){
+            } elseif ($this->session->set_userdata('level') == "L"){
                 redirect('Leader_ctrl/status', 'refresh');
             }
         } 
