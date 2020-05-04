@@ -26,8 +26,8 @@ $this->load->view('dist/_partials/header');
                             </div>
                             <div class="card-text">
                                 <div class="card-body">
-                                    <form class="form-group col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
-
+                                    <form class="col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
+                                        <br>
                                         <label for="projectCode">Project Code:</label><br>
                                         <input type="text" class="form-control" id="projectCode" name="projectCode" value="<?php echo $data->projectCode ?>" required>
                                         <br>
@@ -44,11 +44,11 @@ $this->load->view('dist/_partials/header');
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
-                                            <div class=" col-md-6">
+                                            <div class="col-md-6">
                                                 <label for="team">Team:</label>
-                                                <div class="input-group-append">
+                                                <div class="form-group">
                                                     <select class="form-control selectric" multiple="" name="team[]" id="team">
-                                                        <option><?php echo $data->team ?></option>
+                                                        <option value=""><?php echo $data->team ?></option>
                                                         <?php
                                                         foreach ($team as $row) {
                                                             echo '<option value="  ' . $row->team_name . '">' . $row->team_name
