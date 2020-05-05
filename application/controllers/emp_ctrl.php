@@ -2,9 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Emp_ctrl extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('level') == "") {
+            redirect('dist/auth_login', 'refresh');
+        }
         $this->load->model('Emp_model');
     }
     public function insert_data()

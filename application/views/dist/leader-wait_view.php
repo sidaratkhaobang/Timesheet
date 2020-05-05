@@ -94,7 +94,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                     <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i class="far fa-edit"></i></a>
                                                     <div class="dropdown-menu">
                                                         <a href="<?php echo base_url('leader_ctrl/change_accept/' . $row->idProject) ?>" class="dropdown-item has-icon text-success"> Accept</a>
-                                                        <a href="<?php echo base_url('leader_ctrl/change_decline/' . $row->idProject) ?>" class="dropdown-item has-icon text-danger"> Decline</a>
+                                                        <a href="<?php echo base_url('leader_ctrl/change_decline/' . $row->idProject) ?>" class="dropdown-item has-icon text-danger"  onclick="return confirm('Confirm Decline?');" > Decline</a>
                                                     </div>
                                                 </div>
                                             </td>

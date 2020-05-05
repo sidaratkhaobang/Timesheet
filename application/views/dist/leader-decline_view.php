@@ -86,7 +86,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td>
                                                 <!-- if status  -->
                                                 <?php if ($row->status === '2') { ?>
-                                                    <div class="badge badge-danger">Decline</div>
+                                                    <div class="badge badge-danger" >Decline</div>
                                                 <?php } ?>
                                             </td>
                                         </tr>

@@ -3,9 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Leader_ctrl extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('level') == "L") {
+            redirect('dist/auth_login', 'refresh');
+        }
         $this->load->model('Leader_model');
     }
     public function status()
@@ -53,12 +56,14 @@ class Leader_ctrl extends CI_Controller
     public function change_accept($id)
     {
         $this->Leader_model->change_statusA($id);
+        $this->session->set_flashdata('appove_success', TRUE);
         redirect('Leader_ctrl/status');
     }
 
     public function change_decline($id)
     {
         $this->Leader_model->change_statusD($id);
+        $this->session->set_flashdata('decline_success', TRUE);
         redirect('Leader_ctrl/status');
     }
 

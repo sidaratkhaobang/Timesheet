@@ -1,12 +1,18 @@
 <?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
-
 class Login_ctrl extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('level') == "A") {
+            redirect('Project_ctrl/project', 'refresh');
+        } elseif ($this->session->userdata('level') == "") {
+            redirect('Emp_ctrl/task_emp', 'refresh');
+        } elseif ($this->session->userdata('level') == "L"){
+            redirect('Leader_ctrl/status', 'refresh');
+        }
         $this->load->model('Login_model');
         $this->load->helper('cookie');
     }

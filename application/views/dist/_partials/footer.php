@@ -30,9 +30,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php if ($this->session->flashdata('login_wrong')) : ?>
     swal("Oops...!", " Incorrect email or password Try again or click. Forgot password to reset the code.", "error");
   <?php endif; ?>
-
+  <?php if ($this->session->flashdata('appove_success')) : ?>
+    swal("", "Successful approval!", "success");
+  <?php endif; ?>
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
-    swal("Oops...!", "Data Duplicate!!", "error");
+    swal("Oops...!", "The record has not been successful. The data is already in the system, or the data has to be reviewed and re-checked.", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_except')) : ?>
     swal("Oops...!", "The hour must be greater than or equal to 8 hours.", "error");
@@ -41,8 +43,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php if ($this->session->flashdata('un_success')) : ?>
     swal("", "Email dupicate!!", "error");
   <?php endif; ?>
-
-
+ 
+  <?php if ($this->session->flashdata('decline_success')) : ?>
+    swal("", " Decline project success!", "success");
+  <?php endif; ?>
   <?php if ($this->session->flashdata('del_success')) : ?>
     swal("", "Delete Data Success", "success");
   <?php endif; ?>

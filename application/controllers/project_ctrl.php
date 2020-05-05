@@ -3,13 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Project_ctrl extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('level') == "A") {
+            redirect('dist/auth_login', 'refresh');
+        }
         $this->load->model('Project_model');
     }
     public function project()
     {
+        // print_r($_SESSION);
         $data = array(
 			'title' => "All Project"
 		);
