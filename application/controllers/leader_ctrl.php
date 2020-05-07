@@ -45,14 +45,6 @@ class Leader_ctrl extends CI_Controller
         $this->load->view('dist/leader-status_view', $data);
     }
 
-    public function dashboard()
-    {
-        $data = array(
-            'title' => "Dashboard Project"
-        );
-        $this->load->view('dist/leader-dashboard_view', $data);
-    }
-
     public function change_accept($id)
     {
         $this->Leader_model->change_statusA($id);
@@ -175,7 +167,7 @@ class Leader_ctrl extends CI_Controller
             'title' => "Assignment of Member"
         );
         $data["projectC"] = $this->Leader_model->worker();
-        $this->load->view('dist/leader-assign_work_emp', $data);;
+        $this->load->view('dist/leader-assign_work_emp', $data);
     }
 
     public function new_worker()
@@ -183,25 +175,43 @@ class Leader_ctrl extends CI_Controller
         $data = array(
             'title' => "New Worker"
         );
+        $count_add = $this->input->post('count_add');
         $data['user'] = $this->Leader_model->getUser();
         $data['project'] = $this->Leader_model->getProjectCode();
-        $this->load->view('dist/leader-add_worker', $data);
+        $this->load->view('dist/leader-add_worker', $data, $count_add);
     }
 
     public function insert_worker()
     {
-        if ($_POST) {
-            $data = [];
-            for ($i = 0; $i < count($this->input->post('project_code')); $i++) {
-                $data[$i] = array(
-                    'project_code' => $this->input->post('project_code')[$i],
-                    'system_name' => $this->input->post('system_name')[$i],
-                    'module_name' => $this->input->post('module_name')[$i],
-                    'programmer' => $this->input->post('programmer')[$i]
-                );
-            }
-            $this->Leader_model->insert($data);
+        $project_code = $_POST['project_code'];
+        $system_name = $_POST['system_name'];
+        $module_name = $_POST['module_name'];
+        $programmer = $_POST['programmer'];
+        $data = array();
+
+        $index = 0;
+        foreach ($project_code as $isData) {
+            array_push($data, array(
+                'project_code' => $isData,
+                'system_name' => $system_name[$index],
+                'module_name' => $module_name[$index],
+                'programmer' => $programmer[$index],
+            ));
+            $index++;
         }
+        $this->Leader_model->insert($data);
+        // if ($_POST) {
+        //     $data = [];
+        //     for ($i = 0; $i < count($this->input->post('project_code')); $i++) {
+        //         $data[$i] = array(
+        //             'project_code' => $this->input->post('project_code')[$i],
+        //             'system_name' => $this->input->post('system_name')[$i],
+        //             'module_name' => $this->input->post('module_name')[$i],
+        //             'programmer' => $this->input->post('programmer')[$i]
+        //         );
+        //     }
+        //     $this->Leader_model->insert($data);
+        // }
         $this->session->set_flashdata('save_success', TRUE);
         redirect('leader_ctrl/assign', 'refresh');
     }
@@ -213,5 +223,26 @@ class Leader_ctrl extends CI_Controller
         );
         // $data["projectC"] = $this->Leader_model->select_worker($code);
         $this->load->view('dist/leader-worker_view', $data);
+    }
+
+    public function generate()
+    {
+        $data = array(
+            'title' => "Generate"
+        );
+        $this->load->view('dist/generate', $data);
+    }
+
+    public function dashboard()
+    {
+        $data = array(
+            'title' => "Dashboard Project"
+        );
+        $data['countA'] = $this->Leader_model->getCountApprove();
+        $data['countD'] = $this->Leader_model->getCountDecline();
+        $data['countW'] = $this->Leader_model->getCountWait();
+        $data['countAll'] = $this->Leader_model->getCountAll();
+        $data['sumAll'] = $this->Leader_model->getSumAll();
+        $this->load->view('dist/leader-dashboard_view', $data);
     }
 }

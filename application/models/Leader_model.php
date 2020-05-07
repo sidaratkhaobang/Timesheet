@@ -109,8 +109,9 @@ class Leader_model extends CI_Model
     function worker()
     {
         // $query = $this->db->group_by('wokers', array('project_code'));  ,'system_name','module_name','programmer'
-        $this->db->select('project_code');
-        $this->db->group_by('project_code');
+        // $this->db->select('project_code');
+        // $this->db->group_by('project_code');
+        // $this->db->order_by('project_code DESC');
         $query = $this->db->get('wokers'); // table name
         // if ($query->num_rows() > 0) {
         //     return $query->result();
@@ -119,6 +120,7 @@ class Leader_model extends CI_Model
         // $query = $this->db->get("wokers");
         return $query;
     }
+
 
     // function select_worker($code)
     // {
@@ -129,4 +131,38 @@ class Leader_model extends CI_Model
     //         return $query->result();
     //     }
     // }
+
+    function getCountApprove()
+    {
+        $sql = "SELECT count(if(status='1',status,NULL)) as status FROM projects";
+        $result = $this->db->query($sql);
+        return $result->row();
+    }
+
+    function getCountDecline()
+    {
+        $sql = "SELECT count(if(status='2',status,NULL)) as status FROM projects";
+        $result = $this->db->query($sql);
+        return $result->row();
+    }
+
+    function getCountWait()
+    {
+        $sql = "SELECT count(if(status='3',status,NULL)) as status FROM projects";
+        $result = $this->db->query($sql);
+        return $result->row();
+    }
+
+    function getCountAll(){
+        $sql = "SELECT count(projectName) as projectName FROM projects";
+        $result = $this->db->query($sql);
+        return $result->row()->projectName;
+    }
+
+    function getSumAll()
+    {
+        $sql = "SELECT sum(budget) as budget FROM projects";
+        $result = $this->db->query($sql);
+        return $result->row()->budget;
+    }
 }

@@ -20,11 +20,36 @@ $this->load->view('dist/_partials/sidebar_L');
                         <h4>Assignment</h4>&nbsp;&nbsp;
                         <div class="card-header-form">
                             <div class="buttons">
-                                <a href="<?php echo base_url('leader_ctrl/new_worker/'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Worker</a>
+                                <a href="<?php echo base_url('leader_ctrl/generate/'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Worker</a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <table border="1" cellpadding="5">
+                        <tr>
+                            <th>No</th>
+                            <th>project</th>
+                            <th>system</th>
+                            <th>module</th>
+                            <th>program</th>
+                        </tr>
+                        <?php
+                        if (!empty($projectC)) {
+                            $no = 1;
+                            foreach ($projectC->result() as $data) { ?>
+                                <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $data->project_code; ?></td>
+                                    <td><?php echo $data->system_name; ?></td>
+                                    <td><?php echo $data->module_name; ?></td>
+                                    <td><?php echo $data->programmer; ?></td>
+                                </tr>
+                                <?php
+                                $no++;
+                            }
+                        }
+                                ?>
+                    </table>
+                    <!-- <div class="row">
                         <?php
                         if ($projectC->num_rows() > 0) {
                             foreach ($projectC->result() as $row) { ?>
@@ -46,7 +71,7 @@ $this->load->view('dist/_partials/sidebar_L');
                         } else {
                         }
                         ?>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
