@@ -6,24 +6,26 @@ class Login_ctrl extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('level') == "A") {
-            redirect('Project_ctrl/project', 'refresh');
-        } elseif ($this->session->userdata('level') == "") {
-            redirect('Emp_ctrl/task_emp', 'refresh');
-        } elseif ($this->session->userdata('level') == "L"){
-            redirect('Leader_ctrl/status', 'refresh');
-        }
+        // if ($this->session->userdata('level') == "A") {
+        //     redirect('Project_ctrl/project', 'refresh');
+        // } elseif ($this->session->userdata('level') == "") {
+        //     redirect('Emp_ctrl/task_emp', 'refresh');
+        // } elseif ($this->session->userdata('level') == "L"){
+        //     redirect('Leader_ctrl/status', 'refresh');
+        // }
         $this->load->model('Login_model');
         $this->load->helper('cookie');
     }
 
     public function index()
     {
+        
         if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             if ($this->Login_model->list_users($_COOKIE['email'], $_COOKIE['password'])) {
                 $this->session->set_userdata(array('email' => $_COOKIE['email']));
             }
         }else {
+            
             redirect('dist/auth_login');
         }
     }
@@ -82,7 +84,8 @@ class Login_ctrl extends CI_Controller
 
     public function logout()
     {
-        $this->session->sess_destroy();
+        
+        $this->session->unset_usedata('level');
         setcookie('email', '', 0, "/");
         setcookie('password', '', 0, "/");
         redirect('dist/auth_login');

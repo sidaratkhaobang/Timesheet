@@ -106,8 +106,8 @@ $this->load->view('dist/_partials/sidebar_M');
       <div class="row">
         <div class="col-12">
           <?php
-          if ($select_data->num_rows() > 0) {
-            foreach ($select_data->result() as $row) {
+        
+            foreach ($select_data as $row) {
               // $date_create = $this->Emp_ctrl->get_nice_date($row->hours,'full');
           ?>
               <div class="activities">
@@ -136,7 +136,7 @@ $this->load->view('dist/_partials/sidebar_M');
                   </div>
                 </div>
             <?php }
-          } ?>
+          ?>
   </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>

@@ -26,11 +26,17 @@ class Emp_model extends CI_Model
 		$this->db->or_like(array('project_name'=>$search));
 		$this->db->or_like(array('task_type'=>$search));
 		//
-		$this->db->select('*');
-		$this->db->order_by($this->id,$this->order);
-		// $this->db->where('tasks.idUser',$this->session->userdata('idUser'));
-		// $this->db->join('users','users.idUser = tasks.idUser');
-		return $this->db->get($this->table);
+		$this->db->select('*','u.idUser');
+		$this->db->from('tasks as t');
+		$this->db->where('t.id_user', $this->session->userdata('idUser'));
+		$this->db->join('users as u','t.id_user=u.idUser');
+		$query = $this->db->get();
+		return $query->result();
+		// $this->db->select('*');
+		// $this->db->order_by($this->id,$this->order);
+		// // $this->db->where('tasks.idUser',$this->session->userdata('idUser'));
+		// // $this->db->join('users','users.idUser = tasks.idUser');
+		// return $this->db->get($this->table);
 		 
 	}
 	function getTaskTypes()

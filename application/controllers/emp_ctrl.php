@@ -5,15 +5,16 @@ class Emp_ctrl extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('level') == "") {
-            redirect('dist/auth_login', 'refresh');
-        }
         $this->load->model('Emp_model');
+        if (!$this->session->userdata('level') == "") {
+            redirect('dist/auth_login', 'refresh'); 
+        }
     }
     public function insert_data()
     {
         $hours = $this->input->post("hours");
         $data = array(
+            // $this->session->userdata('idUser') => $this->input->post("idUser"),
             "project_name" => $this->input->post("project_name"),
             "task_type" => $this->input->post("task_type"),
             "des_task" => $this->input->post("des_task"),
@@ -40,7 +41,13 @@ class Emp_ctrl extends CI_Controller
         $data['task_type'] = $this->Emp_model->getTaskTypes();
         $data['projectName'] = $this->Emp_model->getProjects();
         $data['module_name'] = $this->Emp_model->getModules();
+        // if ($this->session->userdata('idUser')) {
         $data["select_data"] = $this->Emp_model->select_data();
+        // echo '<pre>';
+        // print_r ($data);
+        // echo '<pre>';
+        // exit();
+        
         $this->load->view("dist/emp-task_view", $data);
     }
     
