@@ -248,6 +248,12 @@ class Dist extends CI_Controller {
 		);
 		$this->load->view('dist/components-statistic', $data);
 	}
+	public function chart() {
+		$data = array(
+			'title' => "Components &rsaquo; Statistic"
+		);
+		$this->load->view('dist/chart', $data);
+	}
 
 	public function components_tab() {
 		$data = array(

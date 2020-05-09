@@ -84,7 +84,6 @@ class Emp_ctrl extends CI_Controller
         $data['task_type'] = $this->Emp_model->getTaskTypes();
         $data['projectName'] = $this->Emp_model->getProjects();
         $data['module_name'] = $this->Emp_model->getModules();
-        // $member_id = $this->session->userdata("idUser");
         $data["select_data"] = $this->Emp_model->select_data();
         // echo '<pre>';
         // print_r ($data);

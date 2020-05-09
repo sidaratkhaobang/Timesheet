@@ -8,8 +8,24 @@ class Profile_model extends CI_Model
 		parent::__construct();
 		$this->load->database();
 	}
-
-	function select_data()
+	function select_data_e()
+	{
+		$member_id = $this->session->userdata("idUser");
+		$data = [
+			'idUser' => $member_id,
+		];
+		$result = $this->db->get_where("users", $data);
+		return $result->row();
+	}
+	function select_data_l()
+	{
+		$data = [
+			'level' => "L",
+		];
+		$result = $this->db->get_where("users", $data);
+		return $result->row();
+	}
+	function select_data_a()
 	{
 		$data = [
 			'level' => "A",

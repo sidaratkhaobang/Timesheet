@@ -29,7 +29,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     swal("", "Registed Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('login_wrong')) : ?>
-    swal("Oops...!", " Incorrect email or password Try again or click. Forgot password to reset the code.", "error");
+    swal("Oops...!", " Incorrect email or password Try again or click.", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('appove_success')) : ?>
     swal("", "Successful approval!", "success");

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
-// $this->load->view('dist/_partials/sidebar');
+$this->load->view('dist/_partials/sidebar_M');
 ?>
 <!-- Main Content -->
 <div class="main-content">
@@ -15,7 +15,7 @@ $this->load->view('dist/_partials/header');
     </div>
     <div class="col-12 col-md-12 col-lg-7">
       <div class="card">
-        <form method="Post" action="<?php echo base_url('profile_ctrl/update_data_admin/' . $data->idUser); ?>" class="needs-validation" novalidate="">
+        <form method="Post" action="<?php echo base_url('profile_ctrl/update_data_emp/' . $data->idUser); ?>" class="needs-validation" novalidate="">
           <div class="card-header">
             <h4>Edit Profile</h4>
           </div>
@@ -55,7 +55,7 @@ $this->load->view('dist/_partials/header');
                 <textarea class="form-control summernote-simple" id="bio" name="bio">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="form-group col-6">
                 <label>Your picture</label>
                 <div class="custom-file">
@@ -63,7 +63,7 @@ $this->load->view('dist/_partials/header');
                   <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="card-footer text-right">
             <button class="btn btn-primary" type="submit" name="action">Save Changes</button>

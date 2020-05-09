@@ -57,7 +57,7 @@ $this->load->view('dist/_partials/sidebar_M');
       labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       datasets: [{
         label: 'hours',
-        data: [<?php echo $sumJan; ?>, <?php echo $sumFab; ?>, 240, <?php echo $sumMarch; ?>, 176, <?php echo $sumMay; ?>, <?php echo $sumJune; ?>, 0, 0, 0, 0, 0, 0],
+        data: [<?php echo $sumJan; ?>, <?php echo $sumFab; ?>, <?php echo $sumMarch; ?>, 176, <?php echo $sumMay; ?>, <?php echo $sumJune; ?>, 0, 0, 0, 0, 0, 0],
         borderWidth: 2,
         backgroundColor: 'transparent',
         borderColor: 'rgba(254,86,83,.7)',

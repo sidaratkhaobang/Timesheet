@@ -66,7 +66,14 @@ class Login_ctrl extends CI_Controller
                 'isLoggedIn' => TRUE
             );
             $this->session->set_userdata($sess_array);
-           
+            // echo '<pre>';
+            // print_r ($sess_array);
+            // echo '<pre>';
+            // echo "<pre>";
+            // print_r($this->session->userdata('idUser'));  
+            // echo "</pre>";
+            // exit();
+            
             if ($this->session->userdata('level') == "A") {
                 redirect('Project_ctrl/project', 'refresh');
             } elseif ($this->session->userdata('level') == "") {
@@ -88,7 +95,7 @@ class Login_ctrl extends CI_Controller
         $this->session->unset_usedata('level');
         setcookie('email', '', 0, "/");
         setcookie('password', '', 0, "/");
-        redirect('dist/auth_login');
+        redirect('dist/auth_login','refresh');
     }
 
     // public function forgot_pass(){
@@ -103,7 +110,7 @@ class Login_ctrl extends CI_Controller
             //first check if its a valid email or not
             $this->form_validation->set_rules("email", "Email Address", "trim|required");
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('dist/auth-login', array('error' => 'Please supply a valid email address.'));
+                $this->load->view('dist/auth_login', array('error' => 'Please supply a valid email address.'));
             } else {
                 $email = trim($this->input->post('email'));
                 $result = $this->Login_model->email_exists($email);
