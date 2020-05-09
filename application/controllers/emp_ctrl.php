@@ -5,20 +5,21 @@ class Emp_ctrl extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Emp_model');
-        if (!$this->session->userdata('level') == "") {
+        if ($this->session->userdata('level') !== '') {
             redirect('dist/auth_login', 'refresh'); 
         }
+        $this->load->model('Emp_model');
     }
     public function insert_data()
     {
         $hours = $this->input->post("hours");
+        // $member_id = $this->session->userdata("idUser");
         $data = array(
-            // $this->session->userdata('idUser') => $this->input->post("idUser"),
             "project_name" => $this->input->post("project_name"),
             "task_type" => $this->input->post("task_type"),
             "des_task" => $this->input->post("des_task"),
             "hours" => $this->input->post("hours"),
+            "id_user" => $this->input->post($this->session->userdata("idUser"))
         );
         if ($hours <= 8) 
         {
@@ -33,24 +34,62 @@ class Emp_ctrl extends CI_Controller
             
         }
     }
+    
+	public function emp_dashboard() {
+		$data = array(
+			'title' => "Dashboard Tracker"
+        );
+        $data['countPro'] = $this->Emp_model->getCountProjectTask();
+        $data['sumJan'] = $this->Emp_model->getHoursJanuary();
+        $data['sumFab'] = $this->Emp_model->getHoursFebruary();
+        $data['sumMarch'] = $this->Emp_model->getHoursMarch();
+        $data['sumApr'] = $this->Emp_model->getHoursApril();
+        $data['sumJune'] = $this->Emp_model->getHoursJune();
+        $data['sumMay'] = $this->Emp_model->getHoursMay();
+        $data['sumJuly'] = $this->Emp_model->getHoursJuly();
+        $data['sumAug'] = $this->Emp_model->getHoursAugust();
+        $data['sumSep'] = $this->Emp_model->getHoursSeptember();
+        $data['sumOct'] = $this->Emp_model->getHoursOctober();
+        $data['sumNov'] = $this->Emp_model->getHoursNovember();
+        $data['sumDec'] = $this->Emp_model->getHoursDecember();
+        $data['sum2020'] = $this->Emp_model->getYear2020();
+        $this->load->view('dist/emp-dashboard_view', $data);
+        // echo '<pre>';
+        // print_r ($data);
+        // echo '<pre>';
+        // exit();
+        
+    }
+    public function chart() {
+		$data = array(
+			'title' => "Components &rsaquo; Statistic"
+		);
+		$this->load->view('dist/chart', $data);
+	}
     public function task_emp()
     {
+        
         $data = array(
             'title' => "Time Tracker"
         );
         $data['task_type'] = $this->Emp_model->getTaskTypes();
         $data['projectName'] = $this->Emp_model->getProjects();
         $data['module_name'] = $this->Emp_model->getModules();
-        // if ($this->session->userdata('idUser')) {
-        $data["select_data"] = $this->Emp_model->select_data();
+        $member_id = $this->session->userdata("idUser");
+        $data["select_data"] = $this->Emp_model->select_data($member_id);
         // echo '<pre>';
         // print_r ($data);
         // echo '<pre>';
+        // echo "<pre>";
+        // print_r($this->session->userdata('idUser'));  
+        // echo "</pre>";
         // exit();
-        
+    // }
         $this->load->view("dist/emp-task_view", $data);
     }
-    
+
+  
+     
     // function time_ago($date) {
     //     $is_valid = $date;
         
