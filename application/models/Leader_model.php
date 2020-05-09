@@ -165,8 +165,7 @@ class Leader_model extends CI_Model
         $data = [
             'status' => '1',
         ];
-        $this->db->selectCount('budget');
-        // $this->db->select_sum('budget');
+        $this->db->select_sum('budget');
         $result = $this->db->get_where("projects", $data);
         return $result->row()->budget;
     }
