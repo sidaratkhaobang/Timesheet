@@ -23,7 +23,8 @@ class Profile_model extends CI_Model
 		// $query = $this->db->get();
 		// return $query->row();
     }
-    // function getbyID($id){
-	// 	return $this->db->get_where('users',array('idUser'=>$id))->row();
-	// }
+    function getbyID($id)
+	{
+		return $this->db->get_where('users', array('idUser' => $id))->row();
+	}
 }

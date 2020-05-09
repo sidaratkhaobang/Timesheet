@@ -19,7 +19,8 @@ class Profile_ctrl extends CI_Controller
     {
         $data = array(
 			'title' => "Update Profile"
-		);
+        );
+        // $data['data'] = $this->Project_model->getbyID($id);
         $this->load->view('dist/user-profile_update', $data);
     }
     public function update_data($id)
@@ -35,5 +36,12 @@ class Profile_ctrl extends CI_Controller
 			'title' => "Profile"
 		);
 		$this->load->view('dist/leader-profile-view', $data);
+    }
+    public function admin_profile()
+    {
+       $data = array(
+			'title' => "Profile"
+		);
+		$this->load->view('dist/admin-profile-view', $data);
     }
 }
