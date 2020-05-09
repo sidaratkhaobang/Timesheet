@@ -23,13 +23,13 @@ class Emp_ctrl extends CI_Controller
             redirect('project_ctrl/project', 'refresh');
         } else {
             $hours = $this->input->post("hours");
-            // $member_id = $this->session->userdata("idUser");
+            $member_id = $this->session->userdata("idUser");
             $data = array(
                 "project_name" => $this->input->post("project_name"),
                 "task_type" => $this->input->post("task_type"),
                 "des_task" => $this->input->post("des_task"),
                 "hours" => $this->input->post("hours"),
-                "id_user" => $this->input->post($this->session->userdata("idUser"))
+                "id_user" => $member_id
             );
             if ($hours <= 8) {
                 $this->Emp_model->insert($data);
