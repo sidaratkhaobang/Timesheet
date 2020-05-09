@@ -28,7 +28,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your project</option>
               <?php
               foreach ($projectName as $row) {
-                echo '<option value="  ' . $row->projectCode . '">' . $row->projectCode
+                echo '<option value="  ' . $row->projectName . '">' . $row->projectName
                   . '</option>';
               }
               ?>
@@ -70,7 +70,7 @@ $this->load->view('dist/_partials/sidebar_M');
             </div> -->
           </div>
           <div class="form-group col-2">
-            <label>Your working time/hrs*</label>
+            <label>Your working time(hrs)</label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -97,7 +97,7 @@ $this->load->view('dist/_partials/sidebar_M');
       <div class="section-body">
         <h2 class="section-title">Daily work log</h2>
         <!-- Search form -->
-        <form class="form-inline active-cyan-4" >
+        <form class="form-inline active-cyan-4">
           <input class="form-control form-control-sm mr-3 w-25" id="listSearch" type="text" class="form-control form-control-sm mr-3 w-25" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
           <i class="fas fa-search" aria-hidden="true"></i>
         </form>
@@ -105,9 +105,9 @@ $this->load->view('dist/_partials/sidebar_M');
       <!-- End Search form -->
       <div class="row">
         <div class="col-12">
-          <?php
-        // if($this->session->userdata('idUser') == $select_data->id_user ){
-            foreach ($select_data as $row) {
+          <?php if ($select_data->num_rows() > 0) {
+            // if($this->session->userdata('idUser') == $select_data->id_user ){
+            foreach ($select_data->result() as $row) {
               // $date_create = $this->Emp_ctrl->get_nice_date($row->hours,'full');
           ?>
               <div class="activities">
@@ -136,7 +136,8 @@ $this->load->view('dist/_partials/sidebar_M');
                   </div>
                 </div>
             <?php }
-          ?>
+          }
+            ?>
   </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
