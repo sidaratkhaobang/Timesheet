@@ -35,11 +35,11 @@ $this->load->view('dist/_partials/header');
                   <div class="form-group">
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
-                      <div class="float-right">
+                      <!-- <div class="float-right">
                         <a href="<?php echo base_url(); ?>login_ctrl/reset_password" value="<?php if (get_cookie('password')) { echo get_cookie('password'); } ?>" id="password" name="password" class="text-small">
                           Forgot Password?
                         </a>
-                      </div>
+                      </div> -->
                     </div>
                     <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                     <div class="invalid-feedback">

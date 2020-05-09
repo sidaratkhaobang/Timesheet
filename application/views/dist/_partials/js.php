@@ -54,6 +54,14 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
 <?php
+} elseif ($this->uri->segment(2) == "emp_dashboard") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/jquery.sparkline.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
+<?php
+
 } elseif ($this->uri->segment(2) == "components_table") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
 <?php
@@ -216,6 +224,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/components-multiple-upload.js"></script>
 <?php
 } elseif ($this->uri->segment(2) == "components_statistic") { ?>
+  <script src="<?php echo base_url(); ?>assets/js/page/components-statistic.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "emp_dashboard") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/components-statistic.js"></script>
 <?php
 } elseif ($this->uri->segment(2) == "components_table") { ?>
