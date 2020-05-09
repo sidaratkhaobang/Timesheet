@@ -11,23 +11,23 @@ class Profile_ctrl extends CI_Controller
     {
        $data = array(
 			'title' => "Profile"
-		);
+        );
 		$this->load->view('dist/member-profile-view', $data);
     }   
     
-    public function update_profile()
+    public function update_profile($id)
     {
         $data = array(
 			'title' => "Update Profile"
         );
-        // $data['data'] = $this->Project_model->getbyID($id);
-        $this->load->view('dist/user-profile_update', $data);
+        $data['data'] = $this->Profile_model->getbyID($id);
+        $this->load->view('dist/admin-edit_profile', $data);
     }
     public function update_data($id)
     {
         $this->Profile_model->edit_profile($id);
         $this->session->set_flashdata('save_update', TRUE); 
-        redirect('profile_ctrl/user_profile');
+        redirect('profile_ctrl/admin_profile');
     }
 
     public function leader_profile()
@@ -41,7 +41,8 @@ class Profile_ctrl extends CI_Controller
     {
        $data = array(
 			'title' => "Profile"
-		);
+        );
+        $data["data"] = $this->Profile_model->select_data();
 		$this->load->view('dist/admin-profile-view', $data);
     }
 }

@@ -7,7 +7,16 @@ class Profile_model extends CI_Model
 	{
 		parent::__construct();
 		$this->load->database();
-    }
+	}
+
+	function select_data()
+	{
+		$data = [
+			'level' => "A",
+		];
+		$result = $this->db->get_where("users", $data);
+		return $result->row();
+	}
 	function edit_profile($id)
 	{
 		$data = array(
@@ -20,8 +29,6 @@ class Profile_model extends CI_Model
 		);
 		$this->db->where(array('idUser'=>$id));
 		$this->db->update("users", $data);
-		// $query = $this->db->get();
-		// return $query->row();
     }
     function getbyID($id)
 	{
