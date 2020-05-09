@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/sidebar_L');
         <div class="section-header">
             <h1>Project</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('Leader_ctrl/dashboard'); ?>">Dashboard</a></div>
                 <div class="breadcrumb-item">Decline Project</div>
             </div>
         </div>
@@ -86,7 +86,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td>
                                                 <!-- if status  -->
                                                 <?php if ($row->status === '2') { ?>
-                                                    <div class="badge badge-danger" >Decline</div>
+                                                    <div class="badge badge-danger">Decline</div>
                                                 <?php } ?>
                                             </td>
                                         </tr>

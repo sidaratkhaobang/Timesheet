@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/sidebar_L');
         <div class="section-header">
             <h1>Project</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('Leader_ctrl/dashboard'); ?>">Dashboard</a></div>
                 <div class="breadcrumb-item">Wait Project</div>
             </div>
         </div>
@@ -94,7 +94,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                     <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><i class="far fa-edit"></i></a>
                                                     <div class="dropdown-menu">
                                                         <a href="<?php echo base_url('leader_ctrl/change_accept/' . $row->idProject) ?>" class="dropdown-item has-icon text-success"> Accept</a>
-                                                        <a href="<?php echo base_url('leader_ctrl/change_decline/' . $row->idProject) ?>" class="dropdown-item has-icon text-danger"  onclick="return confirm('Confirm Decline?');" > Decline</a>
+                                                        <a href="<?php echo base_url('leader_ctrl/change_decline/' . $row->idProject) ?>" class="dropdown-item has-icon text-danger" onclick="return confirm('Confirm Decline?');"> Decline</a>
                                                     </div>
                                                 </div>
                                             </td>

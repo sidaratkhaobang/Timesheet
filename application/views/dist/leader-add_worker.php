@@ -29,7 +29,7 @@ $this->load->view('dist/_partials/sidebar_L');
                     <div class="card-body">
 
                         <form class="col-12" method="Post" action="<?php echo base_url() ?>leader_ctrl/insert_worker">
-                            <input type="hidden" name="total" value="<?php echo $count_add;?>">
+                            <input type="hidden" name="total" value="<?php $count_add; ?>">
                             <table class="table">
                                 <tr>
                                     <th>#</th>
@@ -42,7 +42,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                 for ($i = 1; $i <= $count_add; $i++) { ?>
                                     <tr>
                                         <td><?= $i ?></td>
-                                        <td><select class="form-control" id="project_code" name="project_code-<?= $i ?>">
+                                        <td><input type="text" class="form-control" id="project_code" name="project_code-<?= $i ?>" required>
+                                            <!-- <select class="form-control" id="project_code" name="project_code-<?= $i ?>">
                                                 <option value="">Choose Project Code</option>
                                                 <?php
                                                 foreach ($project as $row) {
@@ -50,7 +51,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                                         . '</option>';
                                                 }
                                                 ?>
-                                            </select></td>
+                                            </select> -->
+                                        </td>
                                         <td><input type="text" class="form-control" id="system_name" name="system_name-<?= $i ?>" required></td>
                                         <td><input type="text" class="form-control" id="module_name" name="module_name-<?= $i ?>" required></td>
                                         <td><select class="form-control" id="programmer" name="programmer-<?= $i ?>">

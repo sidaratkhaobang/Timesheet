@@ -175,10 +175,11 @@ class Leader_ctrl extends CI_Controller
         $data = array(
             'title' => "New Worker"
         );
-        $count_add = $this->input->post('count_add');
+        // $count_add = $_POST['count_add'];
+        $data['count_add'] = $_POST['count_add'];
         $data['user'] = $this->Leader_model->getUser();
         $data['project'] = $this->Leader_model->getProjectCode();
-        $this->load->view('dist/leader-add_worker', $data, $count_add);
+        $this->load->view('dist/leader-add_worker', $data);
     }
 
     public function insert_worker()
@@ -243,6 +244,7 @@ class Leader_ctrl extends CI_Controller
         $data['countW'] = $this->Leader_model->getCountWait();
         $data['countAll'] = $this->Leader_model->getCountAll();
         $data['sumAll'] = $this->Leader_model->getSumAll();
+        $data['getName'] = $this->Leader_model->getCountName();
         $this->load->view('dist/leader-dashboard_view', $data);
     }
 }

@@ -153,7 +153,8 @@ class Leader_model extends CI_Model
         return $result->row();
     }
 
-    function getCountAll(){
+    function getCountAll()
+    {
         $sql = "SELECT count(projectName) as projectName FROM projects";
         $result = $this->db->query($sql);
         return $result->row()->projectName;
@@ -161,8 +162,25 @@ class Leader_model extends CI_Model
 
     function getSumAll()
     {
-        $sql = "SELECT sum(budget) as budget FROM projects";
-        $result = $this->db->query($sql);
+        $data = [
+            'status' => '1',
+        ];
+        $this->db->selectCount('budget');
+        // $this->db->select_sum('budget');
+        $result = $this->db->get_where("projects", $data);
         return $result->row()->budget;
     }
+
+    function getCountName()
+    {
+        $this->db->distinct();
+        $this->db->select('project_name, score_type, budget');
+        $this->db->from('tasktypes');
+        $this->db->join('tasks', 'tasktypes.task_type = tasks.task_type');
+        $this->db->join('projects', 'projects.projectName = tasks.project_name');
+        $this->db->group_by('tasks.project_name');
+        $query = $this->db->get();
+        return $query;
+    }
+
 }
