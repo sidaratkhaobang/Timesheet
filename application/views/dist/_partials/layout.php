@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a href="<?php echo base_url('Profile_ctrl/admin_profile/'); ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a> 
-              <?php } elseif ($this->session->userdata('level') == "") {?>
+              <?php } elseif ($this->session->userdata('level') == "M") {?>
                 <a href="<?php echo base_url('Profile_ctrl/emp_profile/'); ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a> 

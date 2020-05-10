@@ -25,6 +25,7 @@ class Register_ctrl extends CI_Controller {
             redirect('register_ctrl/index', 'refresh');
         } else {
             $data = array(
+                "level" => "M",
                 "firstname" => $this->input->post("firstname"),
                 "lastname" => $this->input->post("lastname"),
                 "email" => $this->input->post("email"),
