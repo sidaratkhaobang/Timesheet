@@ -21,4 +21,11 @@ class Team_model extends CI_Model
 	{
 		$this->db->insert("teams", $data);
 	}
+
+	function getdata()
+	{
+		$this->db->order_by('id_team', 'ASC');
+		$query = $this->db->get('teams');
+		return $query;
+	}
 }

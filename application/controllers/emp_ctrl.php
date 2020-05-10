@@ -5,40 +5,33 @@ class Emp_ctrl extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('level') !== '') {
+        if ($this->session->userdata('level') !== 'M') {
             redirect('dist/auth_login', 'refresh');
         }
         $this->load->model('Emp_model');
     }
+
     public function insert_data()
     {
-        $project_name = $this->input->post("project_name");
-        $this->db->select('project_name');
-        $this->db->where('project_name', $project_name);
-        $this->db->group_by('project_name');
-        $query = $this->db->get('tasks');
-        $num = $query->num_rows();
-        if ($num > 1) {
-            $this->session->set_flashdata('data_duplicate', TRUE);
-            redirect('project_ctrl/project', 'refresh');
+        $hours = $this->input->post("hours");
+        $member_id = $this->session->userdata("idUser");
+        $data = array(
+            "project_name" => $this->input->post("project_name"),
+            "task_type" => $this->input->post("task_type"),
+            "des_task" => $this->input->post("des_task"),
+            "hours" => $this->input->post("hours"),
+            "id_user" => $member_id
+        );
+        if ($hours <= 8) {
+            $project_name = $this->input->post("project_name");
+            $this->db->where('project_name', $project_name);
+            $this->db->delete('tasks');
+            $this->Emp_model->insert($data);
+            $this->session->set_flashdata('record_success', TRUE);
+            redirect('Emp_ctrl/task_emp', 'refresh');
         } else {
-            $hours = $this->input->post("hours");
-            $member_id = $this->session->userdata("idUser");
-            $data = array(
-                "project_name" => $this->input->post("project_name"),
-                "task_type" => $this->input->post("task_type"),
-                "des_task" => $this->input->post("des_task"),
-                "hours" => $this->input->post("hours"),
-                "id_user" => $member_id
-            );
-            if ($hours <= 8) {
-                $this->Emp_model->insert($data);
-                $this->session->set_flashdata('record_success', TRUE);
-                redirect('Emp_ctrl/task_emp', 'refresh');
-            } else {
-                $this->session->set_flashdata('data_except', TRUE);
-                redirect('Emp_ctrl/task_emp', 'refresh');
-            }
+            $this->session->set_flashdata('data_except', TRUE);
+            redirect('Emp_ctrl/task_emp', 'refresh');
         }
     }
 
@@ -75,9 +68,9 @@ class Emp_ctrl extends CI_Controller
         );
         $this->load->view('dist/chart', $data);
     }
+
     public function task_emp()
     {
-
         $data = array(
             'title' => "Time Tracker"
         );
@@ -85,18 +78,8 @@ class Emp_ctrl extends CI_Controller
         $data['projectName'] = $this->Emp_model->getProjects();
         $data['module_name'] = $this->Emp_model->getModules();
         $data["select_data"] = $this->Emp_model->select_data();
-        // echo '<pre>';
-        // print_r ($data);
-        // echo '<pre>';
-        // echo "<pre>";
-        // print_r($this->session->userdata('idUser'));  
-        // echo "</pre>";
-        // exit();
-        // }
         $this->load->view("dist/emp-task_view", $data);
     }
-
-
 
     // function time_ago($date) {
     //     $is_valid = $date;
@@ -132,6 +115,7 @@ class Emp_ctrl extends CI_Controller
     // public function showdate($date){
     //     echo nl2br($date. ' -> ' . time_ago($date)."\n");
     // }
+
     public function time_ago($timestamp)
     {
         $time_ago = strtotime($timestamp);
@@ -185,53 +169,4 @@ class Emp_ctrl extends CI_Controller
             }
         }
     }
-    // public function get_nice_date($timestamp, $format)
-    // {
-    //     switch ($format) {
-    //         case 'full':
-    //             $the_date = date('l jS \of F Y \a\t h:i:s A', $timestamp);
-    //             break;
-    //         case 'cool':
-    //             $the_date = date('l jS \of F Y', $timestamp);
-    //             break;
-    //         case 'shorter':
-    //             $the_date = date('jS \of F Y', $timestamp);
-    //             break;
-    //         case 'mini':
-    //             $the_date = date('jS M Y', $timestamp);
-    //             break;
-    //         case 'oldschool':
-    //             $the_date = date('j\/n\/y', $timestamp);
-    //             break;
-    //         case 'datepicker':
-    //             $the_date = date('d-\-m\-y', $timestamp);
-    //             break;
-    //         case 'monyer':
-    //             $the_date = date('F Y', $timestamp);
-    //             break;
-    //     }
-    //     return $the_date;
-    // }
-
-    // public function make_timestamp_from_datepicker($datapicker)
-    // {
-    //     $hour = 7;
-    //     $minute = 0;
-    //     $second = 0;
-
-    //     $day = substr($datapicker, 0, 2);
-    //     $month = substr($datapicker, 3, 2);
-    //     $year = substr($datapicker, 6, 4);
-
-    //     $timestamp = $this->make_timestamp_from_datepicker($hour, $minute, $second, $day, $month, $year);
-    //     return $timestamp;
-    // }
-    // public function make_timestamp($day, $month, $year)
-    // {
-    //     $hour = 7;
-    //     $minute = 0;
-    //     $second = 0;
-    //     $timestamp = $this->make_timestamp_from_datepicker($hour, $minute, $second, $day, $month, $year);
-    //     return $timestamp;
-    // }
 }

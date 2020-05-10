@@ -22,7 +22,7 @@ if (window.Dropzone) {
 }
 
 // Basic confirm box
-$("[data-confirm]").each(function() {
+$("[data-confirm]").each(function () {
   var me = $(this),
     me_data = me.data("confirm");
 
@@ -34,35 +34,35 @@ $("[data-confirm]").each(function() {
       {
         text: me.data("confirm-text-yes") || "Yes",
         class: "btn btn-danger btn-shadow",
-        handler: function() {
+        handler: function () {
           eval(me.data("confirm-yes"));
-        }
+        },
       },
       {
         text: me.data("confirm-text-cancel") || "Cancel",
         class: "btn btn-secondary",
-        handler: function(modal) {
+        handler: function (modal) {
           $.destroyModal(modal);
           eval(me.data("confirm-no"));
-        }
-      }
-    ]
+        },
+      },
+    ],
   });
 });
 
 // Global
-$(function() {
+$(function () {
   let sidebar_nicescroll_opts = {
       cursoropacitymin: 0,
       cursoropacitymax: 0.8,
-      zindex: 892
+      zindex: 892,
     },
     now_layout_class = null;
 
-  var sidebar_sticky = function() {
+  var sidebar_sticky = function () {
     if ($("body").hasClass("layout-2")) {
       $("body.layout-2 #sidebar-wrapper").stick_in_parent({
-        parent: $("body")
+        parent: $("body"),
       });
       $("body.layout-2 #sidebar-wrapper").stick_in_parent({ recalc_every: 1 });
     }
@@ -70,29 +70,29 @@ $(function() {
   sidebar_sticky();
 
   var sidebar_nicescroll;
-  var update_sidebar_nicescroll = function() {
-    let a = setInterval(function() {
+  var update_sidebar_nicescroll = function () {
+    let a = setInterval(function () {
       if (sidebar_nicescroll != null) sidebar_nicescroll.resize();
     }, 10);
 
-    setTimeout(function() {
+    setTimeout(function () {
       clearInterval(a);
     }, 600);
   };
 
-  var sidebar_dropdown = function() {
+  var sidebar_dropdown = function () {
     if ($(".main-sidebar").length) {
       $(".main-sidebar").niceScroll(sidebar_nicescroll_opts);
       sidebar_nicescroll = $(".main-sidebar").getNiceScroll();
 
       $(".main-sidebar .sidebar-menu li a.has-dropdown")
         .off("click")
-        .on("click", function() {
+        .on("click", function () {
           var me = $(this);
 
           me.parent()
             .find("> .dropdown-menu")
-            .slideToggle(500, function() {
+            .slideToggle(500, function () {
               update_sidebar_nicescroll();
               return false;
             });
@@ -105,43 +105,40 @@ $(function() {
   if ($("#top-5-scroll").length) {
     $("#top-5-scroll")
       .css({
-        height: 315
+        height: 315,
       })
       .niceScroll();
   }
 
   $(".main-content").css({
-    minHeight: $(window).outerHeight() - 95
+    minHeight: $(window).outerHeight() - 95,
   });
 
-  $(".nav-collapse-toggle").click(function() {
-    $(this)
-      .parent()
-      .find(".navbar-nav")
-      .toggleClass("show");
+  $(".nav-collapse-toggle").click(function () {
+    $(this).parent().find(".navbar-nav").toggleClass("show");
     return false;
   });
 
-  $(document).on("click", function(e) {
+  $(document).on("click", function (e) {
     $(".nav-collapse .navbar-nav").removeClass("show");
   });
 
-  var toggle_sidebar_mini = function(mini) {
+  var toggle_sidebar_mini = function (mini) {
     let body = $("body");
 
     if (!mini) {
       body.removeClass("sidebar-mini");
       $(".main-sidebar").css({
-        overflow: "hidden"
+        overflow: "hidden",
       });
-      setTimeout(function() {
+      setTimeout(function () {
         $(".main-sidebar").niceScroll(sidebar_nicescroll_opts);
         sidebar_nicescroll = $(".main-sidebar").getNiceScroll();
       }, 500);
       $(".main-sidebar .sidebar-menu > li > ul .dropdown-title").remove();
       $(".main-sidebar .sidebar-menu > li > a").removeAttr("data-toggle");
       $(".main-sidebar .sidebar-menu > li > a").removeAttr(
-        "data-original-title"
+        "data-original-title",
       );
       $(".main-sidebar .sidebar-menu > li > a").removeAttr("title");
     } else {
@@ -149,26 +146,28 @@ $(function() {
       body.removeClass("sidebar-show");
       sidebar_nicescroll.remove();
       sidebar_nicescroll = null;
-      $(".main-sidebar .sidebar-menu > li").each(function() {
+      $(".main-sidebar .sidebar-menu > li").each(function () {
         let me = $(this);
 
         if (me.find("> .dropdown-menu").length) {
           me.find("> .dropdown-menu").hide();
           me.find("> .dropdown-menu").prepend(
-            '<li class="dropdown-title pt-3">' + me.find("> a").text() + "</li>"
+            '<li class="dropdown-title pt-3">' +
+              me.find("> a").text() +
+              "</li>",
           );
         } else {
           me.find("> a").attr("data-toggle", "tooltip");
           me.find("> a").attr("data-original-title", me.find("> a").text());
           $("[data-toggle='tooltip']").tooltip({
-            placement: "right"
+            placement: "right",
           });
         }
       });
     }
   };
 
-  $("[data-toggle='sidebar']").click(function() {
+  $("[data-toggle='sidebar']").click(function () {
     var body = $("body"),
       w = $(window);
 
@@ -195,14 +194,14 @@ $(function() {
     return false;
   });
 
-  var toggleLayout = function() {
+  var toggleLayout = function () {
     var w = $(window),
       layout_class = $("body").attr("class") || "",
       layout_classes =
         layout_class.trim().length > 0 ? layout_class.split(" ") : "";
 
     if (layout_classes.length > 0) {
-      layout_classes.forEach(function(item) {
+      layout_classes.forEach(function (item) {
         if (item.indexOf("layout-") != -1) {
           now_layout_class = item;
         }
@@ -220,7 +219,7 @@ $(function() {
       $("body").removeClass("layout-2 layout-3 sidebar-mini sidebar-show");
       $("body")
         .off("click")
-        .on("click", function(e) {
+        .on("click", function (e) {
           if (
             $(e.target).hasClass("sidebar-show") ||
             $(e.target).hasClass("search-show")
@@ -256,14 +255,14 @@ $(function() {
         main_sidebar.find(".sidebar-brand").remove();
         main_sidebar.find(".sidebar-menu").before(
           $("<div>", {
-            class: "sidebar-brand"
+            class: "sidebar-brand",
           }).append(
             $("<a>", {
-              href: $(".navbar-brand").attr("href")
-            }).html($(".navbar-brand").html())
-          )
+              href: $(".navbar-brand").attr("href"),
+            }).html($(".navbar-brand").html()),
+          ),
         );
-        setTimeout(function() {
+        setTimeout(function () {
           sidebar_nicescroll = main_sidebar.niceScroll(sidebar_nicescroll_opts);
           sidebar_nicescroll = main_sidebar.getNiceScroll();
         }, 700);
@@ -313,7 +312,7 @@ $(function() {
   toggleLayout();
   $(window).resize(toggleLayout);
 
-  $("[data-toggle='search']").click(function() {
+  $("[data-toggle='search']").click(function () {
     var body = $("body");
 
     if (body.hasClass("search-gone")) {
@@ -330,7 +329,7 @@ $(function() {
 
   // popover
   $('[data-toggle="popover"]').popover({
-    container: "body"
+    container: "body",
   });
 
   // Select2
@@ -342,36 +341,36 @@ $(function() {
   if (jQuery().selectric) {
     $(".selectric").selectric({
       disableOnMobile: false,
-      nativeOnMobile: false
+      nativeOnMobile: false,
     });
   }
 
   $(".notification-toggle").dropdown();
   $(".notification-toggle")
     .parent()
-    .on("shown.bs.dropdown", function() {
+    .on("shown.bs.dropdown", function () {
       $(".dropdown-list-icons").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: 7
+        cursorwidth: 7,
       });
     });
 
   $(".message-toggle").dropdown();
   $(".message-toggle")
     .parent()
-    .on("shown.bs.dropdown", function() {
+    .on("shown.bs.dropdown", function () {
       $(".dropdown-list-message").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: 7
+        cursorwidth: 7,
       });
     });
 
   if ($(".chat-content").length) {
     $(".chat-content").niceScroll({
       cursoropacitymin: 0.3,
-      cursoropacitymax: 0.8
+      cursoropacitymax: 0.8,
     });
     $(".chat-content")
       .getNiceScroll(0)
@@ -381,7 +380,7 @@ $(function() {
   if (jQuery().summernote) {
     $(".summernote").summernote({
       dialogsInBody: true,
-      minHeight: 250
+      minHeight: 250,
     });
     $(".summernote-simple").summernote({
       dialogsInBody: true,
@@ -389,30 +388,30 @@ $(function() {
       toolbar: [
         ["style", ["bold", "italic", "underline", "clear"]],
         ["font", ["strikethrough"]],
-        ["para", ["paragraph"]]
-      ]
+        ["para", ["paragraph"]],
+      ],
     });
   }
 
   if (window.CodeMirror) {
-    $(".codeeditor").each(function() {
+    $(".codeeditor").each(function () {
       let editor = CodeMirror.fromTextArea(this, {
         lineNumbers: true,
         theme: "duotone-dark",
         mode: "javascript",
-        height: 200
+        height: 200,
       });
       editor.setSize("100%", 200);
     });
   }
 
   // Follow function
-  $(".follow-btn, .following-btn").each(function() {
+  $(".follow-btn, .following-btn").each(function () {
     var me = $(this),
       follow_text = "Follow",
       unfollow_text = "Following";
 
-    me.click(function() {
+    me.click(function () {
       if (me.hasClass("following-btn")) {
         me.removeClass("btn-danger");
         me.removeClass("following-btn");
@@ -433,12 +432,12 @@ $(function() {
   });
 
   // Dismiss function
-  $("[data-dismiss]").each(function() {
+  $("[data-dismiss]").each(function () {
     var me = $(this),
       target = me.data("dismiss");
 
-    me.click(function() {
-      $(target).fadeOut(function() {
+    me.click(function () {
+      $(target).fadeOut(function () {
         $(target).remove();
       });
       return false;
@@ -446,16 +445,16 @@ $(function() {
   });
 
   // Collapsable
-  $("[data-collapse]").each(function() {
+  $("[data-collapse]").each(function () {
     var me = $(this),
       target = me.data("collapse");
 
-    me.click(function() {
+    me.click(function () {
       $(target).collapse("toggle");
-      $(target).on("shown.bs.collapse", function() {
+      $(target).on("shown.bs.collapse", function () {
         me.html('<i class="fas fa-minus"></i>');
       });
-      $(target).on("hidden.bs.collapse", function() {
+      $(target).on("hidden.bs.collapse", function () {
         me.html('<i class="fas fa-plus"></i>');
       });
       return false;
@@ -463,47 +462,47 @@ $(function() {
   });
 
   // Gallery
-  $(".gallery .gallery-item").each(function() {
+  $(".gallery .gallery-item").each(function () {
     var me = $(this);
 
     me.attr("href", me.data("image"));
     me.attr("title", me.data("title"));
     if (me.parent().hasClass("gallery-fw")) {
       me.css({
-        height: me.parent().data("item-height")
+        height: me.parent().data("item-height"),
       });
       me.find("div").css({
-        lineHeight: me.parent().data("item-height") + "px"
+        lineHeight: me.parent().data("item-height") + "px",
       });
     }
     me.css({
-      backgroundImage: 'url("' + me.data("image") + '")'
+      backgroundImage: 'url("' + me.data("image") + '")',
     });
   });
   if (jQuery().Chocolat) {
     $(".gallery").Chocolat({
       className: "gallery",
-      imageSelector: ".gallery-item"
+      imageSelector: ".gallery-item",
     });
   }
 
   // Background
-  $("[data-background]").each(function() {
+  $("[data-background]").each(function () {
     var me = $(this);
     me.css({
-      backgroundImage: "url(" + me.data("background") + ")"
+      backgroundImage: "url(" + me.data("background") + ")",
     });
   });
 
   // Custom Tab
-  $("[data-tab]").each(function() {
+  $("[data-tab]").each(function () {
     var me = $(this);
 
-    me.click(function() {
+    me.click(function () {
       if (!me.hasClass("active")) {
         var tab_group = $('[data-tab-group="' + me.data("tab") + '"]'),
           tab_group_active = $(
-            '[data-tab-group="' + me.data("tab") + '"].active'
+            '[data-tab-group="' + me.data("tab") + '"].active',
           ),
           target = $(me.attr("href")),
           links = $('[data-tab="' + me.data("tab") + '"]');
@@ -518,7 +517,7 @@ $(function() {
   });
 
   // Bootstrap 4 Validation
-  $(".needs-validation").submit(function() {
+  $(".needs-validation").submit(function () {
     var form = $(this);
     if (form[0].checkValidity() === false) {
       event.preventDefault();
@@ -528,10 +527,10 @@ $(function() {
   });
 
   // alert dismissible
-  $(".alert-dismissible").each(function() {
+  $(".alert-dismissible").each(function () {
     var me = $(this);
 
-    me.find(".close").click(function() {
+    me.find(".close").click(function () {
       me.alert("close");
     });
   });
@@ -540,16 +539,16 @@ $(function() {
   }
 
   // Image cropper
-  $("[data-crop-image]").each(function(e) {
+  $("[data-crop-image]").each(function (e) {
     $(this).css({
       overflow: "hidden",
       position: "relative",
-      height: $(this).data("crop-image")
+      height: $(this).data("crop-image"),
     });
   });
 
   // Slide Toggle
-  $("[data-toggle-slide]").click(function() {
+  $("[data-toggle-slide]").click(function () {
     let target = $(this).data("toggle-slide");
 
     $(target).slideToggle();
@@ -557,25 +556,23 @@ $(function() {
   });
 
   // Dismiss modal
-  $("[data-dismiss=modal]").click(function() {
-    $(this)
-      .closest(".modal")
-      .modal("hide");
+  $("[data-dismiss=modal]").click(function () {
+    $(this).closest(".modal").modal("hide");
 
     return false;
   });
 
   // Width attribute
-  $("[data-width]").each(function() {
+  $("[data-width]").each(function () {
     $(this).css({
-      width: $(this).data("width")
+      width: $(this).data("width"),
     });
   });
 
   // Height attribute
-  $("[data-height]").each(function() {
+  $("[data-height]").each(function () {
     $(this).css({
-      height: $(this).data("height")
+      height: $(this).data("height"),
     });
   });
 
@@ -589,7 +586,7 @@ $(function() {
     $(".sortable-card").sortable({
       handle: ".card-header",
       opacity: 0.8,
-      tolerance: "pointer"
+      tolerance: "pointer",
     });
   }
 
@@ -598,7 +595,7 @@ $(function() {
     if ($(".datepicker").length) {
       $(".datepicker").daterangepicker({
         locale: { format: "YYYY-MM-DD" },
-        singleDatePicker: true
+        singleDatePicker: true,
       });
     }
     if ($(".datetimepicker").length) {
@@ -606,14 +603,14 @@ $(function() {
         locale: { format: "YYYY-MM-DD hh:mm" },
         singleDatePicker: true,
         timePicker: true,
-        timePicker24Hour: true
+        timePicker24Hour: true,
       });
     }
     if ($(".daterange").length) {
       $(".daterange").daterangepicker({
         locale: { format: "YYYY-MM-DD" },
         drops: "down",
-        opens: "right"
+        opens: "right",
       });
     }
   }
@@ -623,155 +620,38 @@ $(function() {
     $(".timepicker").timepicker({
       icons: {
         up: "fas fa-chevron-up",
-        down: "fas fa-chevron-down"
-      }
+        down: "fas fa-chevron-down",
+      },
     });
   }
 });
 
-// //chart_emp
-// var ctx = document.getElementById("myChart2").getContext('2d');
-// var myChart = new Chart(ctx, {
-//   type: 'bar',
-//   data: {
-//     labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-//     datasets: [{
-//       label: 'Statistics',
-//       data: [460, 458, 330, 502, 430, 610, 488],
-//       borderWidth: 2,
-//       backgroundColor: 'rgba(254,86,83,.7)',
-//       borderColor: 'rgba(254,86,83,.7)',
-//       borderWidth: 2.5,
-//       pointBackgroundColor: '#ffffff',
-//       pointRadius: 4
-//     },{
-//       label: 'Statistics',
-//       data: [550, 558, 390, 562, 490, 670, 538],
-//       borderWidth: 2,
-//       backgroundColor: 'rgba(63,82,227,.8)',
-//       borderColor: 'transparent',
-//       borderWidth: 0,
-//       pointBackgroundColor: '#999',
-//       pointRadius: 4
-//     }]
-//   },
-//   options: {
-//     legend: {
-//       display: false
-//     },
-//     scales: {
-//       yAxes: [{
-//         gridLines: {
-//           drawBorder: false,
-//           color: '#f2f2f2',
-//         },
-//         ticks: {
-//           beginAtZero: true,
-//           stepSize: 150
-//         }
-//       }],
-//       xAxes: [{
-//         gridLines: {
-//           display: false
-//         }
-//       }]
-//     },
-//   }
-// });
-
-// step by step worker
-// $(document).ready(function() {
-//   var current = 1,
-//     current_step,
-//     next_step,
-//     steps;
-//   steps = $("fieldset").length;
-//   $(".next").click(function() {
-//     current_step = $(this).parent();
-//     next_step = $(this)
-//       .parent()
-//       .next();
-//     next_step.show();
-//     current_step.hide();
-//     setProgressBar(++current);
-//   });
-//   $(".previous").click(function() {
-//     current_step = $(this).parent();
-//     next_step = $(this)
-//       .parent()
-//       .prev();
-//     next_step.show();
-//     current_step.hide();
-//     setProgressBar(--current);
-//   });
-//   setProgressBar(current);
-//   // Change progress bar action
-//   function setProgressBar(curStep) {
-//     var percent = parseFloat(100 / steps) * curStep;
-//     percent = percent.toFixed();
-//     $(".progress-bar")
-//       .css("width", percent + "%")
-//       .html(percent + "%");
-//   }
-// });
-
-// $(document).ready(function() {
-//   var max_fields = 10;
-//   var wrapper = $(".add1");
-//   var add_button = $(".add_form_field");
-
-//   var x = 1;
-//   $(add_button).click(function(e) {
-//     e.preventDefault();
-//     if (x < max_fields) {
-//       x++;
-//       $(wrapper).append(
-//         '<div class="form-group col-3"><label for="project_code">Project Code:</label><select class="form-control" id="project_code" name="project_code"><'+  +'></select></div><div class="form-group col-3"><label for="system_name">System Name:</label><input type="text" class="form-control" id="system_name" name="system_name" placeholder="Enter System Name"></div><div class="form-group col-3"><label for="module_name">Module Name:</label><input type="text" class="form-control" id="module_name" name="module_name" placeholder="Enter Module Name"></div><div class="form-group col-3"><label for="programmer">Programmer:</label><select class="form-control" id="programmer" name="programmer"><?phpforeach ($user as $row) {echo <option value="   . $row->firstname . "> . $row->firstname. </option>;}?></select></div>');
-      //   '<div class="form-group col-4"><label>Programmer:</label><select class="form-control" id="programmer[]" name="programmer[]"><?php foreach ($user as $row) { echo <option value="   . $row->firstname . "> . $row->firstname . </option>;}?></select></div><div class="form-group col-4"><label>Module Name:</label><input type="text" class="form-control" id="module_name[]" name="module_name[]"></div><div class="form-group col-4"><label>Program Name:</label><input type="text" class="form-control" id="program[]" name="program[]"></div>'
-      // );
-      // <div><input type="text" name="mytext[]"/><a href="#" class="delete">Delete</a></div>'); //add input box
-  //   } else {
-  //     alert("You Reached the limits");
-  //   }
-  // });
-
-  // $(wrapper).on("click", ".delete", function(e) {
-  //   e.preventDefault();
-  //   if (x < max_fields) {
-  //     x--;
-  //     $(this)
-  //       .parent("div")
-  //       .remove();
-  //   } else {
-  //     alert("You Reached the limits");
-  //   }
-  // });
-// });
-
 // auto ProjectCode
-function autoTab(obj){
+function autoTab(obj) {
   var pattern = new String("_______-__");
   var pattern_ex = new String("-");
   var returnText = new String("");
   var obj_1 = obj.value.length;
   var obj_2 = obj_1 - 1;
-  for (var i = 0; i < pattern.length; i++){
-    if (obj_2 == i && pattern.charAt(i+1)==pattern_ex){
-      returnText+=obj.value+pattern_ex
+  for (var i = 0; i < pattern.length; i++) {
+    if (obj_2 == i && pattern.charAt(i + 1) == pattern_ex) {
+      returnText += obj.value + pattern_ex;
       obj.value = returnText;
     }
   }
-  if (obj_1 >= pattern.length){
-    obj.value = obj.value.substr(0,pattern.length);
+  if (obj_1 >= pattern.length) {
+    obj.value = obj.value.substr(0, pattern.length);
   }
 }
 
+function check_char(elm) {
+  if (!elm.value.match(/^[a-zA-Z0-9-]+$/i)) {
+    alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
+  }
+}
 
-// $(document).ready(function(){
-//   $('#team').multiselect({
-//    nonSelectedText: 'Select team',
-//    enableFiltering: true,
-//    enableCaseInsensitiveFiltering: true,
-//    buttonWidth:'400px'
-//   });
-// });
+function check_name(elm) {
+  if (!elm.value.match(/^[ก-ฮa-z0-9A-Z]+$/i)) {
+    alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
+  }
+}

@@ -21,14 +21,15 @@ $this->load->view('dist/_partials/header');
             <div class="card-header-form">
               <form>
                 <div class="input-group">
+                  <div class="buttons">
+                    <a href="<?php echo base_url('project_ctrl/create_project'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Project</a>
+                  </div>
                   <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
                   <div class="input-group-btn">
                     <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                   </div>
                 </div>
               </form>
-            </div>
-            <div class="card-header-form">
             </div>
           </div>
           <!-- End Main Content -->

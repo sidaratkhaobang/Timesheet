@@ -34,14 +34,6 @@ $this->load->view('dist/_partials/sidebar_L');
                                 </a>
                             </div>
                         </div>
-                        <!-- <div class="card-header-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <!-- End Main Content -->
                     <!-- Table -->
@@ -70,7 +62,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->idProject; ?></td>
                                             <td><?php echo $row->projectCode; ?></td>
                                             <td><?php echo $row->projectName; ?></td>
-                                            <td><?php echo $row->budget; ?></td>
+                                            <td><?php echo number_format($row->budget); ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></a>
@@ -110,6 +102,7 @@ $this->load->view('dist/_partials/sidebar_L');
                     </ul>
                 </div>
             </div>
+        </div>
     </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>

@@ -28,7 +28,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your project</option>
               <?php
               foreach ($projectName as $row) {
-                echo '<option value="  ' . $row->projectName . '">' . $row->projectName
+                echo '<option value="' . $row->projectName . '">' . $row->projectName
                   . '</option>';
               }
               ?>
@@ -43,7 +43,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your module name</option>
               <?php
               foreach ($module_name as $row) {
-                echo '<option value="  ' . $row->module_name . '">' . $row->module_name
+                echo '<option value="' . $row->module_name . '">' . $row->module_name
                   . '</option>';
               }
               ?>
@@ -56,7 +56,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your task type</option>
               <?php
               foreach ($task_type as $row) {
-                echo '<option value="  ' . $row->task_type . '">' . $row->task_type
+                echo '<option value="' . $row->task_type . '">' . $row->task_type
                   . '</option>';
               }
               ?>
@@ -64,10 +64,7 @@ $this->load->view('dist/_partials/sidebar_M');
           </div>
           <div class="form-group col-6">
             <label>Task Description</label>
-            <textarea type="text" class="form-control" id="des_task" name="des_task" value=""></textarea>
-            <!-- <div class="invalid-feedback">
-              Please fill in description
-            </div> -->
+            <textarea type="text" class="form-control" id="des_task" onkeyup="check_name(this)" name="des_task" value=""></textarea>
           </div>
           <div class="form-group col-2">
             <label>Your working time(hrs)</label>
@@ -75,12 +72,9 @@ $this->load->view('dist/_partials/sidebar_M');
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <i class="fas fa-clock"></i>
-                  <!-- <div class="invalid-feedback">
-                    Please fill in description
-                  </div> -->
                 </div>
               </div>
-              <input type="text" class="form-control number" name="hours" id="hours" placeholder="0-8" required autofocus>
+              <input type="number" class="form-control number" name="hours" id="hours" placeholder="0-8" required autofocus>
             </div>
           </div>
         </div>
@@ -91,6 +85,7 @@ $this->load->view('dist/_partials/sidebar_M');
       </div>
     </div>
     <!-- End -->
+
 
     <!-- Task -->
     <div class="col-12 col-6">
@@ -106,9 +101,7 @@ $this->load->view('dist/_partials/sidebar_M');
       <div class="row">
         <div class="col-12">
           <?php if ($select_data->num_rows() > 0) {
-            // if($this->session->userdata('idUser') == $select_data->id_user ){
             foreach ($select_data->result() as $row) {
-              // $date_create = $this->Emp_ctrl->get_nice_date($row->hours,'full');
           ?>
               <div class="activities">
                 <div class="activity">
@@ -119,17 +112,6 @@ $this->load->view('dist/_partials/sidebar_M');
                     <div class="mb-2">
                       <span class="text-job text-primary"><?php echo $row->date; ?> </span>
                       <span class="bullet"></span>
-                      <!-- <a class="text-job" href="#">View</a> -->
-                      <!-- <div class="float-right dropdown"> 
-                          <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu">
-                            <div class="dropdown-title">Options</div>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                            <a href="#" class="dropdown-item has-icon text-warning"><i class="fas fa-list"></i>Edit</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger" data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?" data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Archive</a>
-                          </div>
-                        </div> -->
                     </div>
                     <p><?php echo $row->task_type; ?> <?php echo $row->des_task; ?> of project "<a class="text-primary"><?php echo $row->project_name; ?></a>"
                       a total of <?php echo $row->hours; ?> hours </p>
@@ -138,21 +120,11 @@ $this->load->view('dist/_partials/sidebar_M');
             <?php }
           }
             ?>
+              </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Task -->
   </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
-<!-- <script>
-  $(document).ready(function() {
-    $("#listSearch").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#myList li").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-</script> -->
-
-<!-- <div class="required">
-    <label>Name:</label>
-    <input type="text">
-</div> -->

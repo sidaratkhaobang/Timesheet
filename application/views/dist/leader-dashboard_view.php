@@ -116,7 +116,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             </div>
 
                                             <div class="budget-price">
-                                                <div class="budget-price-square bg-danger" data-width=""></div>
+                                                <div class="budget-price-square bg-danger" data-width="20"></div>
                                                 <div class="budget-price-label"><span><?php echo number_format($row->budget); ?>$</span></div>
                                             </div>
 

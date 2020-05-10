@@ -173,9 +173,9 @@ class Leader_model extends CI_Model
     function getCountName()
     {
         $this->db->distinct();
-        $this->db->select('project_name, score_type, budget');
-        $this->db->from('tasktypes');
-        $this->db->join('tasks', 'tasktypes.task_type = tasks.task_type');
+        $this->db->select('tasks.project_name, tasktypes.score_type, projects.budget');
+        $this->db->from('tasks');
+        $this->db->join('tasktypes', 'tasktypes.task_type = tasks.task_type');
         $this->db->join('projects', 'projects.projectName = tasks.project_name');
         $this->db->group_by('tasks.project_name');
         $query = $this->db->get();

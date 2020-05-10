@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     swal("", "Add Data Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('record_success')) : ?>
-    swal("Good jop!", "You have successfully recorded your daily work.", "success");
+    swal("Good job!", "You have successfully recorded your daily work.", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('add_success')) : ?>
     swal("", "Add Team Complete!", "success");

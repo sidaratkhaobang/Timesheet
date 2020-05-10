@@ -63,7 +63,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->idProject; ?></td>
                                             <td><?php echo $row->projectCode; ?></td>
                                             <td><?php echo $row->projectName; ?></td>
-                                            <td><?php echo $row->budget; ?></td>
+                                            <td><?php echo number_format($row->budget); ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></a>
@@ -108,6 +108,7 @@ $this->load->view('dist/_partials/sidebar_L');
                     </ul>
                 </div>
             </div>
+        </div>
     </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>

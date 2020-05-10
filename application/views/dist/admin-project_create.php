@@ -30,18 +30,18 @@ $this->load->view('dist/_partials/header');
 
                                         <br>
                                         <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
-                                        <input type="text" class="form-control" id="projectCode" placeholder="ex.0102010-02" pattern="[0-9]{7}-[0-9]{2}" name="projectCode" onkeyup="autoTab(this)" required>
+                                        <input type="text" class="form-control" id="projectCode" placeholder="ex.0102010-02" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
                                         <br>
 
                                         <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
-                                        <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name" name="projectName" required>
+                                        <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name" onkeyup="check_name(this)" name=" projectName" required>
                                         <br>
 
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="budget">Budget: &nbsp;<code>*</code></label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Enter Budget" name="budget" id="budget" required>
+                                                    <input type="number" class="form-control" placeholder="Enter Budget" name="budget" id="budget" required>
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>

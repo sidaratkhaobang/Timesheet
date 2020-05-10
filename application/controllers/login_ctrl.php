@@ -79,7 +79,7 @@ class Login_ctrl extends CI_Controller
             } elseif ($this->session->userdata('level') == "M") {
                 redirect('Emp_ctrl/task_emp', 'refresh');
             } elseif ($this->session->userdata('level') == "L"){
-                redirect('Leader_ctrl/status', 'refresh');
+                redirect('Leader_ctrl/dashboard', 'refresh');
             }
         } 
         else{   

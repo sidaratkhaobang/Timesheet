@@ -22,6 +22,7 @@ class Emp_model extends CI_Model
 		$data = [
 			'id_user' => $member_id,
 		];
+		$this->db->order_by('id_task  DESC');
 		$query = $this->db->get_where("tasks", $data);
 
 		$search = $this->input->get('search');

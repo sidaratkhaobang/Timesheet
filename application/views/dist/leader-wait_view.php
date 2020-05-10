@@ -34,16 +34,9 @@ $this->load->view('dist/_partials/sidebar_L');
                                 </a>
                             </div>
                         </div>
-                        <!-- <div class="card-header-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <!-- End Main Content -->
+
                     <!-- Table -->
                     <div class="card-body">
                         <div class="table-responsive">
@@ -70,7 +63,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <td><?php echo $row->idProject; ?></td>
                                             <td><?php echo $row->projectCode; ?></td>
                                             <td><?php echo $row->projectName; ?></td>
-                                            <td><?php echo $row->budget; ?></td>
+                                            <td><?php echo number_format($row->budget); ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></a>
@@ -79,6 +72,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                         <?php foreach ($value as $rows) { ?>
                                                             <a href="#" class="dropdown-item has-icon"><i class="far fa-user"></i><?php echo $rows ?> <br></a>
                                                         <?php } ?>
+                                                        <!-- End get team -->
                                                     </div>
                                                 </div>
                                             </td>
@@ -88,6 +82,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                 <?php if ($row->status === '3') { ?>
                                                     <div class="badge badge-warning">Waiting</div>
                                                 <?php } ?>
+                                                <!-- End if status -->
                                             </td>
                                             <td>
                                                 <div class="dropdown">
@@ -112,6 +107,7 @@ $this->load->view('dist/_partials/sidebar_L');
                             </table>
                         </div>
                     </div>
+                    <!-- End table -->
                     <ul class="list-inline mb-0">
                         <ul class="pagination">
                             <?php echo $pagination; ?>
@@ -119,6 +115,7 @@ $this->load->view('dist/_partials/sidebar_L');
                     </ul>
                 </div>
             </div>
+        </div>
     </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
