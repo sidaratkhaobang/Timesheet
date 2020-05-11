@@ -86,7 +86,6 @@ $this->load->view('dist/_partials/sidebar_L');
                                                     <div class="badge badge-warning">Waiting</div>
                                                 <?php } ?>
                                             </td>
-
                                         </tr>
                                     <?php
                                     }
@@ -100,12 +99,13 @@ $this->load->view('dist/_partials/sidebar_L');
                                 ?>
                             </table>
                         </div>
-                    </div>
-                    <ul class="list-inline mb-0">
+                        <ul class="list-inline mb-0">
                         <ul class="pagination">
                             <?php echo $pagination; ?>
                         </ul>
                     </ul>
+                    </div>
+                    
                 </div>
             </div>
         </div>

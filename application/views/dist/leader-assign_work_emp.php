@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/sidebar_L');
         <div class="section-header">
             <h1>Assignment of Member</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('leader_ctrl/status/'); ?>">Project</a></div>
                 <div class="breadcrumb-item">Assignment of Member</div>
             </div>
         </div>
@@ -24,31 +24,36 @@ $this->load->view('dist/_partials/sidebar_L');
                             </div>
                         </div>
                     </div>
-                    <table border="1" cellpadding="5">
-                        <tr>
-                            <th>No</th>
-                            <th>project</th>
-                            <th>system</th>
-                            <th>module</th>
-                            <th>program</th>
-                        </tr>
-                        <?php
-                        if (!empty($projectC)) {
-                            $no = 1;
-                            foreach ($projectC->result() as $data) { ?>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <!-- <table border="1" cellpadding="5"> -->
                                 <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $data->project_code; ?></td>
-                                    <td><?php echo $data->system_name; ?></td>
-                                    <td><?php echo $data->module_name; ?></td>
-                                    <td><?php echo $data->programmer; ?></td>
+                                    <th>No</th>
+                                    <th>project</th>
+                                    <th>system</th>
+                                    <th>module</th>
+                                    <th>program</th>
                                 </tr>
                                 <?php
-                                $no++;
-                            }
-                        }
+                                if (!empty($projectC)) {
+                                    $no = 1;
+                                    foreach ($projectC->result() as $data) { ?>
+                                        <tr>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $data->project_code; ?></td>
+                                            <td><?php echo $data->system_name; ?></td>
+                                            <td><?php echo $data->module_name; ?></td>
+                                            <td><?php echo $data->programmer; ?></td>
+                                        </tr>
+                                <?php
+                                        $no++;
+                                    }
+                                }
                                 ?>
-                    </table>
+                            </table>
+                        </div>
+                    </div>
                     <!-- <div class="row">
                         <?php
                         if ($projectC->num_rows() > 0) {
@@ -63,7 +68,6 @@ $this->load->view('dist/_partials/sidebar_L');
                                             <h4><?php echo $row->project_code; ?></h4>
                                             <a href="<?php echo base_url('leader_Ctrl/detail/' . $row->project_code); ?>" class="card-cta">View Detail <i class="fas fa-chevron-right"></i></a>
                                         </div>
-
                                     </div>
                                 </div>
                         <?php

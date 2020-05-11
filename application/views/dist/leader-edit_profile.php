@@ -9,8 +9,8 @@ $this->load->view('dist/_partials/sidebar_L');
     <div class="section-header">
       <h1>Profile</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item">Profile</div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('Profile_ctrl/leader_profile'); ?>">Profile</a></div>
+        <div class="breadcrumb-item">Edit Profile</div>
       </div>
     </div>
     <div class="col-12 col-md-12 col-lg-7">
