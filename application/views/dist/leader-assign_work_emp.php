@@ -41,7 +41,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                     foreach ($projectC->result() as $data) { ?>
                                         <tr>
                                             <td><?php echo $no; ?></td>
-                                            <td><?php echo $data->project_code; ?></td>
+                                            <td><?php echo $data->project_name; ?></td>
                                             <td><?php echo $data->system_name; ?></td>
                                             <td><?php echo $data->module_name; ?></td>
                                             <td><?php echo $data->programmer; ?></td>
