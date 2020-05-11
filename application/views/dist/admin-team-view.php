@@ -8,7 +8,7 @@ $this->load->view('dist/_partials/header');
         <div class="section-header">
             <h1>Team</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('project_ctrl/project'); ?>">All Project</a></div>
                 <div class="breadcrumb-item">Team</div>
             </div>
         </div>
@@ -23,7 +23,10 @@ $this->load->view('dist/_partials/header');
                             </div>
                         </div>
                     </div>
-                    <table border="1" cellpadding="5">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                    <!-- <table border="1" cellpadding="5"> -->
                         <tr>
                             <th>No</th>
                             <th>Team</th>
@@ -44,6 +47,8 @@ $this->load->view('dist/_partials/header');
                         }
                         ?>
                     </table>
+                </div>
+                </div>
                 </div>
             </div>
         </div>

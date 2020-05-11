@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/sidebar_M');
     <div class="section-header">
       <h1>Profile</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+        <div class="breadcrumb-item active"><a href="<?php echo base_url('Emp_ctrl/emp_dashboard'); ?>">Dashboard Tracker</a></div>
         <div class="breadcrumb-item">Profile</div>
       </div>
     </div>

@@ -26,7 +26,7 @@ $this->load->view('dist/_partials/sidebar_M');
 
     <div class="row">
       <div class="col-12 col-sm-12 col-lg-12">
-        <div class="card">
+      <div class="card card-primary">
           <div class="card-header">
             <h4>Total hours</h4>
             <div class="card-header-action">
@@ -71,7 +71,7 @@ $this->load->view('dist/_partials/sidebar_M');
         display: true
       },
       animation:{
-        duration: '3000',
+        duration: '2000',
         easing: 'linear'  
       },
       scales: {
@@ -116,7 +116,7 @@ $this->load->view('dist/_partials/sidebar_M');
         display: true
       },
       animation:{
-        duration: '3000',
+        duration: '2000',
         easing: 'linear'  
       },
       scales: {

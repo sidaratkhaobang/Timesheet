@@ -17,22 +17,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <script type="text/javascript">
   <?php if ($this->session->flashdata('save_success')) : ?>
-    swal("", "Add Data Complete!", "success");
+    swal("Good job!", "Add Data Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('record_success')) : ?>
     swal("Good job!", "You have successfully recorded your daily work.", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('add_success')) : ?>
-    swal("", "Add Team Complete!", "success");
+    swal("Good job!", "Add Team Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('regis_success')) : ?>
-    swal("", "Registed Complete!", "success");
+    swal("Good job!", "Registed Complete!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('login_wrong')) : ?>
     swal("Oops...!", " Incorrect email or password Try again or click.", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('appove_success')) : ?>
-    swal("", "Successful approval!", "success");
+    swal("Good job!", "Successful approval!", "success");
+  <?php endif; ?>
+  <?php if ($this->session->flashdata('level_success')) : ?>
+    swal("Good job!", "Successfully changed access authoization to the system.", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
     swal("Oops...!", "The record has not been successful. The data is already in the system, or the data has to be reviewed and re-checked.", "error");
@@ -42,18 +45,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('un_success')) : ?>
-    swal("", "Email dupicate!!", "error");
+    swal("Oops...!", "Email dupicate!!", "error");
   <?php endif; ?>
  
   <?php if ($this->session->flashdata('decline_success')) : ?>
-    swal("", " Decline project success!", "success");
+    swal("Good job!", " Decline project success!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('del_success')) : ?>
-    swal("", "Delete Data Success", "success");
+    swal("Good job!", "Delete Data Success", "success");
   <?php endif; ?>
 
   <?php if ($this->session->flashdata('save_update')) : ?>
-    swal("", "Edit Data Complete!", "success");
+    swal("Good job!", "Edit Data Complete!", "success");
   <?php endif; ?>
 
   function confirmDelete(id){

@@ -99,13 +99,15 @@ $this->load->view('dist/_partials/sidebar_L');
                                 ?>
                             </table>
                         </div>
-                        <ul class="list-inline mb-0">
-                        <ul class="pagination">
-                            <?php echo $pagination; ?>
-                        </ul>
-                    </ul>
+                        <div class="card-footer text-right">
+                            <nav class="d-inline-block">
+                                <ul class="pagination mb-0">
+                                    <?php echo $pagination; ?>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

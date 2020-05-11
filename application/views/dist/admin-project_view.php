@@ -8,8 +8,8 @@ $this->load->view('dist/_partials/header');
     <div class="section-header">
       <h1>Project</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item">Project</div>
+        <!-- <div class="breadcrumb-item active"><a href="#">Dashboard</a></div> -->
+        <div class="breadcrumb-item">All Project</div>
       </div>
     </div>
     <br>
@@ -71,7 +71,6 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </td>
                       <td><?php echo $row->endDate; ?></td>
-
                       <td>
                         <?php if ($row->status === '1') { ?>
                           <div class="badge badge-success">Accept</div>
@@ -94,12 +93,15 @@ $this->load->view('dist/_partials/header');
       ?>
       </table>
         </div>
+        <div class="card-footer text-right">
+          <nav class="d-inline-block">
+            <ul class="pagination mb-0">
+              <?php echo $pagination; ?>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <ul class="list-inline mb-0">
-        <ul class="pagination">
-          <?php echo $pagination; ?>
-        </ul>
-      </ul>
+
     </div>
 </div>
 </section>

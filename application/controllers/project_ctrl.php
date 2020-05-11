@@ -29,12 +29,12 @@ class Project_ctrl extends CI_Controller
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['num_tag_open'] = '<li class="page-item disabled" &nbsp;&nbsp;>';
+        $config['num_tag_open'] = '<li class="page-item disabled"> &nbsp;&nbsp;';
         $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+        $config['cur_tag_open'] = '&nbsp;&nbsp;<li class="page-item active"><a href="#" class="page-link">';
         $config['cur_tag_close'] = '</a></li>';
-        $config['next_link'] = '&nbsp;&nbsp; Next';
-        $config['prev_link'] = 'Prev &nbsp;&nbsp;';    
+        $config['next_link'] = '<li class="page-item">&nbsp;&nbsp; Next';
+        $config['prev_link'] = '<li class="page-item">Prev &nbsp;&nbsp;';    
         $config['num_link'] = 1;
         $config['first_link'] = false;
         $config['last_link'] = false;
