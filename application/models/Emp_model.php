@@ -16,6 +16,12 @@ class Emp_model extends CI_Model
 	{
 		$this->db->insert("tasks", $data);
 	}
+
+	function insert_data($data)
+	{
+		$this->db->insert("trackers", $data);
+	}
+
 	function select_data()
 	{
 		$member_id = $this->session->userdata("idUser");

@@ -112,7 +112,7 @@ class Leader_model extends CI_Model
         // $query = $this->db->group_by('wokers', array('project_code'));  ,'system_name','module_name','programmer'
         // $this->db->select('project_code');
         // $this->db->group_by('project_code');
-        // $this->db->order_by('project_code ASC');
+        $this->db->order_by('project_name DESC');
         $query = $this->db->get('wokers'); // table name
         // if ($query->num_rows() > 0) {
         //     return $query->result();

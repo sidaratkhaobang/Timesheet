@@ -51,11 +51,10 @@ $this->load->view('dist/_partials/header');
                                                     <select class="form-control selectric" multiple="" name="team[]" id="team">
                                                         <option value="">Choose Team</option>
                                                         <?php
-                                                        foreach ($team as $row) {
-                                                            echo '<option value="  ' . $row->team_name . '">' . $row->team_name
-                                                                . '</option>';
-                                                        }
-                                                        ?>
+                                                        foreach ($team->result() as $row) : ?>
+                                                            <option value="<?php echo $row->team_name; ?>"><?php echo $row->team_name; ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>

@@ -22,11 +22,16 @@ class Emp_ctrl extends CI_Controller
             "hours" => $this->input->post("hours"),
             "id_user" => $member_id
         );
+        $data2 = array(
+            "project_name" => $this->input->post("project_name"),
+            "task_type" => $this->input->post("task_type")
+        );
         if ($hours <= 8) {
             $project_name = $this->input->post("project_name");
             $this->db->where('project_name', $project_name);
-            $this->db->delete('tasks');
+            $this->db->delete('trackers');
             $this->Emp_model->insert($data);
+            $this->Emp_model->insert_data($data2);
             $this->session->set_flashdata('record_success', TRUE);
             redirect('Emp_ctrl/task_emp', 'refresh');
         } else {

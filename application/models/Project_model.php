@@ -44,7 +44,7 @@ class Project_model extends CI_Model
 	{
 		$this->db->order_by('team_name', 'ASC');
 		$query = $this->db->get('teams');
-		return $query->result();
+		return $query;
 	}
 
 

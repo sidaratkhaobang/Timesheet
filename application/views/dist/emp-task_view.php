@@ -39,7 +39,7 @@ $this->load->view('dist/_partials/sidebar_M');
           </div>
           <div class="form-group col-3">
             <label>Module Name*</label>
-            <select class="form-control" id="task_type" name="task_type" required autofocus>
+            <select class="form-control" id="module_name" name="module_name" required autofocus>
               <option value="">choose your module name</option>
               <?php
               foreach ($module_name as $row) {
@@ -74,7 +74,7 @@ $this->load->view('dist/_partials/sidebar_M');
                   <i class="fas fa-clock"></i>
                 </div>
               </div>
-              <input type="number" class="form-control number" name="hours" id="hours" placeholder="0-8" required autofocus>
+              <input type="text" class="form-control number" name="hours" id="hours" onkeyup="NumChk()" placeholder=" 0-8" required autofocus>
             </div>
           </div>
         </div>
