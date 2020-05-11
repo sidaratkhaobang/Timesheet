@@ -12,7 +12,7 @@ class Leader_model extends CI_Model
     function select_data($limit, $start)
     {
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject  DESC');
+        $this->db->order_by('idProject  ASC');
         $query = $this->db->get("projects");
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -57,7 +57,7 @@ class Leader_model extends CI_Model
             'status' => '1',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject DESC');
+        $this->db->order_by('idProject ASC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -69,7 +69,7 @@ class Leader_model extends CI_Model
             'status' => '3',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject DESC');
+        $this->db->order_by('idProject ASC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -81,7 +81,7 @@ class Leader_model extends CI_Model
             'status' => '2',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject DESC');
+        $this->db->order_by('idProject ASC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -91,19 +91,20 @@ class Leader_model extends CI_Model
     {
         $this->db->order_by('firstname', 'ASC');
         $query = $this->db->get('users');
-        return $query->result();
+        return $query;
     }
 
     function getProjectCode()
     {
-        $this->db->order_by('projectCode', 'ASC');
+        $this->db->order_by('projectName', 'ASC');
         $query = $this->db->get('projects');
-        return $query->result();
+        return $query;
     }
 
     function insert($data)
     {
-        $this->db->insert_batch("wokers", $data);
+        $this->db->insert("wokers", $data);
+        // $this->db->insert_batch("wokers", $data);
     }
 
     function worker()
@@ -111,7 +112,7 @@ class Leader_model extends CI_Model
         // $query = $this->db->group_by('wokers', array('project_code'));  ,'system_name','module_name','programmer'
         // $this->db->select('project_code');
         // $this->db->group_by('project_code');
-        // $this->db->order_by('project_code DESC');
+        // $this->db->order_by('project_code ASC');
         $query = $this->db->get('wokers'); // table name
         // if ($query->num_rows() > 0) {
         //     return $query->result();
@@ -173,13 +174,12 @@ class Leader_model extends CI_Model
     function getCountName()
     {
         $this->db->distinct();
-        $this->db->select('tasks.project_name, tasktypes.score_type, projects.budget');
-        $this->db->from('tasks');
-        $this->db->join('tasktypes', 'tasktypes.task_type = tasks.task_type');
-        $this->db->join('projects', 'projects.projectName = tasks.project_name');
-        $this->db->group_by('tasks.project_name');
+        $this->db->select('trackers.project_name, tasktypes.score_type, projects.budget');
+        $this->db->from('trackers');
+        $this->db->join('tasktypes', 'tasktypes.task_type = trackers.task_type');
+        $this->db->join('projects', 'projects.projectName = trackers.project_name');
+        $this->db->group_by('trackers.project_name');
         $query = $this->db->get();
         return $query;
     }
-
 }

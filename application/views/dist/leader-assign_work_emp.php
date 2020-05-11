@@ -19,9 +19,9 @@ $this->load->view('dist/_partials/sidebar_L');
                     <div class="card-header">
                         <h4>Assignment</h4>&nbsp;&nbsp;
                         <div class="card-header-form">
-                            <div class="buttons">
-                                <a href="<?php echo base_url('leader_ctrl/generate/'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Worker</a>
-                            </div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                New Worker
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -54,31 +54,62 @@ $this->load->view('dist/_partials/sidebar_L');
                             </table>
                         </div>
                     </div>
-                    <!-- <div class="row">
-                        <?php
-                        if ($projectC->num_rows() > 0) {
-                            foreach ($projectC->result() as $row) { ?>
-                                <div class="col-lg-6">
-                                    <div class="card card-large-icons">
-                                        <div class="card-icon bg-primary text-white">
-                                            <i class="fas fa-file-alt"></i>
-                                        </div>
-
-                                        <div class="card-body">
-                                            <h4><?php echo $row->project_code; ?></h4>
-                                            <a href="<?php echo base_url('leader_Ctrl/detail/' . $row->project_code); ?>" class="card-cta">View Detail <i class="fas fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        } else {
-                        }
-                        ?>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">create worker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="" method="Post" action="<?php echo base_url() ?>leader_ctrl/insert_worker">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="project_name">Project Name</label>
+                                    <select class="form-control" name="project_name" id="project_name">
+                                        <?php
+                                        foreach ($project->result() as $row) : ?>
+                                            <option value="<?php echo $row->projectName; ?>"><?php echo $row->projectName; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="system_name">System Name</label>
+                                    <input class="form-control" type="text" placeholder="" name="system_name" id="system_name>
+                            </div>
+                            <div class=" form-group">
+                                    <label for="module_name">Module Name</label>
+                                    <input class="form-control" type="text" placeholder="" name="module_name" id="module_name>
+                            </div>
+                            <div class=" form-group">
+                                    <label for="programmer">Programmer</label>
+                                    <select class="form-control" name="programmer" id="programmer">
+                                        <?php
+                                        foreach ($user->result() as $row) : ?>
+                                            <option value="<?php echo $row->firstname; ?>"><?php echo $row->firstname; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="action" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
