@@ -35,15 +35,24 @@ class Register_ctrl extends CI_Controller {
             $this->session->set_flashdata('regis_success', TRUE);
             redirect('register_ctrl/index1', 'refresh');
         }
-        // $this->form_validation->set_rules('username', 'Username', 'required');
-        // $this->form_validation->set_rules('password', 'Password', 'required',
-        //     array('required' => 'You must provide a %s.')
-        //     );
-        // $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
-        // $this->form_validation->set_rules('email', 'Email', 'required');
+        // $email = $this->input->post("email");
+        // //num rows duplicate
+        // $this->db->select('email');
+        // $this->db->where('email', $email);
+        // $query = $this->db->get('users');
+        // $num = $query->num_rows();
+        // $this->load->library('form_validation');
+       
+        // // field name, error message, validation rules
+        // $this->form_validation->set_rules('firstname', 'firstname', 'trim|required');
+        // $this->form_validation->set_rules('lastname', 'lastname', 'trim|required');
+        // $this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email');
+        // $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+        // $this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
         // if($this->form_validation->run())
         // {
         //     $data = array(
+        //         "level" => "M",
         //         'firstname' => $this->input->post('firstname'),
         //         'lastname' => $this->input->post('lastname'),
         //         'email'    => $this->input->post('email'),
@@ -52,8 +61,7 @@ class Register_ctrl extends CI_Controller {
         //     $this->Register_model->insert($data);
         //      $this->session->set_flashdata('regis_success', TRUE);
         //      redirect('register_ctrl/index1', 'refresh');
-        // }else
-        // {
+        // }else{
         //  $this->session->set_flashdata('un_success', TRUE);
         //    redirect('register_ctrl/index', 'refresh');
         // }

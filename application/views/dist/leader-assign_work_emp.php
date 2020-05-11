@@ -19,7 +19,7 @@ $this->load->view('dist/_partials/sidebar_L');
                     <div class="card-header">
                         <h4>Assignment</h4>&nbsp;&nbsp;
                         <div class="card-header-form">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
                                 New Worker
                             </button>
                         </div>

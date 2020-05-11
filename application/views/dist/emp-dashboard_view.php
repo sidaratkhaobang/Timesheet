@@ -71,7 +71,7 @@ $this->load->view('dist/_partials/sidebar_M');
         display: true
       },
       animation:{
-        duration: '2000',
+        duration: '3000',
         easing: 'linear'  
       },
       scales: {

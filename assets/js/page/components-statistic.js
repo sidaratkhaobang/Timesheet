@@ -49,62 +49,62 @@ $(".sparkline-bar").sparkline(sparkline_values_bar, {
 
 
 
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
-    datasets: [{
-      label: 'Statistics',
-      data: [460, 458, 330, 502, 430, 610, 488],
-      borderWidth: 2,
-      backgroundColor: 'rgba(63,82,227,.8)',
-      borderWidth: 0,
-      borderColor: 'transparent',
-      pointBorderWidth: 0,
-      pointRadius: 3.5,
-      pointBackgroundColor: 'transparent',
-      pointHoverBackgroundColor: 'rgba(63,82,227,.8)',
-    },{
-      label: 'Statistics',
-      data: [390, 600, 390, 280, 600, 430, 638],
-      borderWidth: 2,
-      backgroundColor: 'rgba(254,86,83,.7)',
-      borderWidth: 0,
-      borderColor: 'transparent',
-      pointBorderWidth: 0 ,
-      pointRadius: 3.5,
-      pointBackgroundColor: 'transparent',
-      pointHoverBackgroundColor: 'rgba(254,86,83,.8)',
-    }]
-  },
-  options: {
-    legend: {
-      display: false
-    },
-    scales: {
-      yAxes: [{
-        gridLines: {
-          drawBorder: false,
-          color: '#f2f2f2',
-        },
-        ticks: {
-          beginAtZero: true,
-          stepSize: 200,
-          callback: function(value, index, values) {
-            return '$' + value;
-          }
-        }
-      }],
-      xAxes: [{
-        gridLines: {
-          display: false,
-          tickMarkLength: 15,
-        }
-      }]
-    },
-  }
-});
+// var ctx = document.getElementById("myChart").getContext('2d');
+// var myChart = new Chart(ctx, {
+//   type: 'line',
+//   data: {
+//     labels: ["January", "February", "March", "April", "May", "June", "July", "August"],
+//     datasets: [{
+//       label: 'Statistics',
+//       data: [460, 458, 330, 502, 430, 610, 488],
+//       borderWidth: 2,
+//       backgroundColor: 'rgba(63,82,227,.8)',
+//       borderWidth: 0,
+//       borderColor: 'transparent',
+//       pointBorderWidth: 0,
+//       pointRadius: 3.5,
+//       pointBackgroundColor: 'transparent',
+//       pointHoverBackgroundColor: 'rgba(63,82,227,.8)',
+//     },{
+//       label: 'Statistics',
+//       data: [390, 600, 390, 280, 600, 430, 638],
+//       borderWidth: 2,
+//       backgroundColor: 'rgba(254,86,83,.7)',
+//       borderWidth: 0,
+//       borderColor: 'transparent',
+//       pointBorderWidth: 0 ,
+//       pointRadius: 3.5,
+//       pointBackgroundColor: 'transparent',
+//       pointHoverBackgroundColor: 'rgba(254,86,83,.8)',
+//     }]
+//   },
+//   options: {
+//     legend: {
+//       display: false
+//     },
+//     scales: {
+//       yAxes: [{
+//         gridLines: {
+//           drawBorder: false,
+//           color: '#f2f2f2',
+//         },
+//         ticks: {
+//           beginAtZero: true,
+//           stepSize: 200,
+//           callback: function(value, index, values) {
+//             return '$' + value;
+//           }
+//         }
+//       }],
+//       xAxes: [{
+//         gridLines: {
+//           display: false,
+//           tickMarkLength: 15,
+//         }
+//       }]
+//     },
+//   }
+// });
 
 // var ctx = document.getElementById("myChart2").getContext('2d');
 // var myChart = new Chart(ctx, {
