@@ -41,7 +41,7 @@ $this->load->view('dist/_partials/header');
                                             <div class="col-md-6">
                                                 <label for="budget">Budget: &nbsp;<code>*</code></label>
                                                 <div class="input-group">
-                                                    <input type="number" class="form-control" placeholder="Enter Budget" name="budget" id="budget" required>
+                                                    <input type="text" class="form-control" placeholder="Enter Budget" onkeyup="chkThb(),check_budget(this)" name="budget" id="budget" required>
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>

@@ -26,29 +26,40 @@ $this->load->view('dist/_partials/header');
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped">
-                    <!-- <table border="1" cellpadding="5"> -->
-                        <tr>
-                            <th>No</th>
-                            <th>Team</th>
-                            <th>Programmer</th>
-                        </tr>
-                        <?php
-                        if (!empty($data_team)) {
-                            $no = 1;
-                            foreach ($data_team->result() as $data) { ?>
+                                <!-- <table border="1" cellpadding="5"> -->
                                 <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $data->team_name; ?></td>
-                                    <td><?php echo $data->member; ?></td>
+                                    <th>No</th>
+                                    <th>Team</th>
+                                    <th>Programmer</th>
                                 </tr>
-                        <?php
-                                $no++;
-                            }
-                        }
-                        ?>
-                    </table>
-                </div>
-                </div>
+                                <?php
+                                if ($data_team->num_rows() > 0) {
+                                    foreach ($data_team->result() as $data) {
+                                        // $got = $data->member;
+                                        // $value = explode(',', $got); ?>
+                                        <tr>
+                                            <td><?php echo $data->id_team; ?></td>
+                                            <td><?php echo $data->team_name; ?></td>
+                                            <td>
+                                                <?php echo $data->member ?>
+                                            <!-- <div class="dropdown">
+                                                <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="fas fa-users"></i></i></a>
+                                                <div class="dropdown-menu">
+                                                    <?php foreach ($value as $rows) { ?>
+                                                        <a href="#" class="dropdown-item has-icon"><i class="far fa-user"></i><?php echo $rows ?> <br></a>
+                                                    <?php } ?>
+                                                </div>
+                                            </div> -->
+                                            </td>
+                                        </tr>
+                                <?php
+
+                                    }
+                                }
+                                ?>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

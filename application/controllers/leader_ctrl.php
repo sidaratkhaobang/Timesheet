@@ -172,19 +172,6 @@ class Leader_ctrl extends CI_Controller
         $this->load->view('dist/leader-assign_work_emp', $data);
     }
 
-    // public function new_worker()
-    // {
-    //     $data = array(
-    //         'title' => "New Worker"
-    //     );
-    //     // $count_add = $_POST['count_add'];
-    //     // $data['count_add'] = $_POST['count_add'];
-    //     $data['user'] = $this->Leader_model->getUser();
-    //     $data['project'] = $this->Leader_model->getProjectCode();
-
-    //     $this->load->view('dist/leader-add_worker', $data);
-    // }
-
     public function new_worker()
     {
         $data = array(
@@ -198,32 +185,12 @@ class Leader_ctrl extends CI_Controller
 
     public function insert_worker()
     {
-        // $project_code = $_POST['project_code'];
-        // $system_name = $_POST['system_name'];
-        // $module_name = $_POST['module_name'];
-        // $programmer = $_POST['programmer'];
-        // $data = array();
-
-        // $index = 0;
-        // foreach ($project_code as $isData) {
-        //     array_push($data, array(
-        //         'project_code' => $isData,
-        //         'system_name' => $system_name[$index],
-        //         'module_name' => $module_name[$index],
-        //         'programmer' => $programmer[$index],
-        //     ));
-        //     $index++;
-        // }
-        // $this->Leader_model->insert($data);
-        // if ($_POST) {
-        //     $data = [];
-        //     for ($i = 0; $i < count($this->input->post('project_code')); $i++) {
         $data = array(
             "project_name" => $this->input->post("project_name"),
             "system_name" => $this->input->post("system_name"),
             "module_name" => $this->input->post("module_name"),
             "programmer" => $this->input->post("programmer"),
-            'start_date' => date("Y-m-d"),
+            'date' => date("Y-m-d"),
         );
         // }
 
@@ -232,15 +199,6 @@ class Leader_ctrl extends CI_Controller
         $this->session->set_flashdata('save_success', TRUE);
         redirect('leader_ctrl/assign', 'refresh');
     }
-
-    // public function detail()
-    // {
-    //     $data = array(
-    //         'title' => "Detail Worker"
-    //     );
-    //     // $data["projectC"] = $this->Leader_model->select_worker($code);
-    //     $this->load->view('dist/leader-assign_work_emp', $data);
-    // }
 
     public function generate()
     {

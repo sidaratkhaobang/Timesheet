@@ -86,40 +86,14 @@ class Emp_ctrl extends CI_Controller
         $this->load->view("dist/emp-task_view", $data);
     }
 
-    // function time_ago($date) {
-    //     $is_valid = $date;
-
-    //     if ($is_valid) {
-    //         $timestamp = strtotime($date);
-    //         $difference = time() - $timestamp;
-    //         $periods = array("sec", "min", "hour", "day", "week", "month", "year", "decade");
-    //         $lengths = array("60", "60", "24", "7", "4.35", "12", "10");
-
-    //         if ($difference > 0) { // this was in the past time
-    //             $ending = "ago";
-    //         } else { // this was in the future time
-    //             $difference = -$difference;
-    //             $ending = "to go";
-    //         }
-
-    //         for ($j = 0; $difference >= $lengths[$j]; $j++)
-    //             $difference /= $lengths[$j];
-
-    //         $difference = round($difference);
-
-    //         if ($difference > 1)
-    //             $periods[$j].= "s";
-
-    //         $text = "$difference $periods[$j] $ending";
-
-    //         return $text;
-    //     } else {
-    //         return 'Date Time must be in "yyyy-mm-dd hh:mm:ss" format';
-    //     }
-    // }
-    // public function showdate($date){
-    //     echo nl2br($date. ' -> ' . time_ago($date)."\n");
-    // }
+    public function emp_noti(){
+        $data = array(
+            'title' => "Notification Work"
+        );
+        $data['total'] = $this->Emp_model->getCountAssign();
+        $data['noti'] = $this->Emp_model->select_data_assign();
+        $this->load->view("dist/emp_noti", $data);
+    }
 
     public function time_ago($timestamp)
     {

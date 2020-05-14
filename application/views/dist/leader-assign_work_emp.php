@@ -94,7 +94,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                     <select class="form-control" name="programmer" id="programmer">
                                         <?php
                                         foreach ($user->result() as $row) : ?>
-                                            <option value="<?php echo $row->firstname; ?>"><?php echo $row->firstname; ?>
+                                            <option value="<?php echo $row->email; ?>"><?php echo $row->email; ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>

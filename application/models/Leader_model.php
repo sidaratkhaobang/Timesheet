@@ -89,15 +89,21 @@ class Leader_model extends CI_Model
 
     function getUser()
     {
-        $this->db->order_by('firstname', 'ASC');
-        $query = $this->db->get('users');
+        $data = [
+            'level' => 'M',
+        ];
+        $this->db->order_by('email', 'ASC');
+        $query = $this->db->get_where('users',$data);
         return $query;
     }
 
     function getProjectCode()
     {
+        $data = [
+            'status' => '1',
+        ];
         $this->db->order_by('projectName', 'ASC');
-        $query = $this->db->get('projects');
+        $query = $this->db->get_where('projects', $data);
         return $query;
     }
 
@@ -109,29 +115,10 @@ class Leader_model extends CI_Model
 
     function worker()
     {
-        // $query = $this->db->group_by('wokers', array('project_code'));  ,'system_name','module_name','programmer'
-        // $this->db->select('project_code');
-        // $this->db->group_by('project_code');
         $this->db->order_by('project_name DESC');
         $query = $this->db->get('wokers'); // table name
-        // if ($query->num_rows() > 0) {
-        //     return $query->result();
-        // }
-        // $this->db->group_by('project_code');
-        // $query = $this->db->get("wokers");
         return $query;
     }
-
-
-    // function select_worker($code)
-    // {
-    //     $this->db->select('system_name','module_name','programmer');
-    //     $this->db->where('project_code', $code);
-    //     $query = $this->db->get_where('wokers', $code); // table name
-    //     if ($query->num_rows() > 0) {
-    //         return $query->result();
-    //     }
-    // }
 
     function getCountApprove()
     {
@@ -174,7 +161,7 @@ class Leader_model extends CI_Model
     function getCountName()
     {
         $this->db->distinct();
-        $this->db->select('trackers.project_name, tasktypes.score_type, projects.budget');
+        $this->db->select('trackers.project_name, trackers.task_type, tasktypes.score_type, projects.budget');
         $this->db->from('trackers');
         $this->db->join('tasktypes', 'tasktypes.task_type = trackers.task_type');
         $this->db->join('projects', 'projects.projectName = trackers.project_name');
@@ -182,4 +169,5 @@ class Leader_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
 }

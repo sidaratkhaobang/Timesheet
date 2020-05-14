@@ -103,7 +103,6 @@ $this->load->view('dist/_partials/sidebar_L');
                     <ul class="list-unstyled list-unstyled-border">
                         <?php if ($getName->num_rows() > 0) {
                             foreach ($getName->result() as $row) {
-                                // foreach ($getBudget->result() as $to) { 
                         ?>
                                 <li class="media">
                                     <img class="mr-3 rounded" width="55" src="<?php echo base_url(); ?>assets/img/products/product-4-50.png" alt="product">
@@ -112,7 +111,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                         <div class="mt-1">
                                             <div class="budget-price">
                                                 <div class="budget-price-square bg-primary" data-width="<?php echo $row->score_type; ?>%"></div>
-                                                <div class="budget-price-label"><?php echo $row->score_type; ?>%</div>
+                                                <div class="budget-price-label"><?php echo $row->score_type; ?>% &nbsp;<?php echo $row->task_type ?></div>
                                             </div>
 
                                             <div class="budget-price">

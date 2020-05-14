@@ -29,18 +29,18 @@ $this->load->view('dist/_partials/header');
                                     <form class="col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
                                         <br>
                                         <label for="projectCode">Project Code:</label><br>
-                                        <input type="text" class="form-control" id="projectCode" name="projectCode" value="<?php echo $data->projectCode ?>" required>
+                                        <input type="text" class="form-control" id="projectCode" name="projectCode" onkeyup="autoTab(this),check_char(this)" value="<?php echo $data->projectCode ?>" required>
                                         <br>
 
                                         <label for="projectName">Project Name:</label><br>
-                                        <input type="text" class="form-control" id="projectName" name="projectName" value="<?php echo $data->projectName ?>" required>
+                                        <input type="text" class="form-control" id="projectName" name="projectName" onkeyup="check_name(this)" value="<?php echo $data->projectName ?>" required>
                                         <br>
 
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="budget">Budget:</label>
                                                 <div class="input-group-append">
-                                                    <input type="text" class="form-control" name="budget" id="budget" value="<?php echo $data->budget ?>" required>
+                                                    <input type="text" class="form-control number" name="budget" id="budget" onkeyup="chkThb(),check_budget(this)" value="<?php echo $data->budget ?>" required>
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>

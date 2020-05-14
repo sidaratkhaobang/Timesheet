@@ -17,6 +17,12 @@ class Profile_model extends CI_Model
 		$result = $this->db->get_where("users", $data);
 		return $result->row();
 	}
+	function getRole()
+	{
+		$this->db->order_by('NameRole', 'ASC');
+		$query = $this->db->get('roles');
+		return $query->result();
+	}
 	function select_data_l()
 	{
 		$data = [
@@ -41,6 +47,7 @@ class Profile_model extends CI_Model
 			"phone" => $this->input->post("phone"),
 			"bio" => $this->input->post("bio"),
 			"email" => $this->input->post("email"),
+			"role" => $this->input->post("role"),
 			"img" => $this->input->post("img")
 		);
 		$this->db->where(array('idUser'=>$id));

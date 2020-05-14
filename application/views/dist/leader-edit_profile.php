@@ -50,6 +50,21 @@ $this->load->view('dist/_partials/sidebar_L');
               </div>
             </div>
             <div class="row">
+              <div class="form-group col-md-7 col-12">
+                <label>position</label>
+                <select class="form-control" id="role" name="role" required="">
+                  <?php
+                  foreach ($role as $row) : ?>
+                    <option value="<?php echo $row->NameRole; ?>"><?php echo $row->NameRole; ?>
+                    </option>
+                  <?php endforeach; ?>
+                </select>
+                <div class="invalid-feedback">
+                  Please fill in the position
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="form-group col-12">
                 <label>Bio</label>
                 <textarea class="form-control summernote-simple" id="bio" name="bio">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>

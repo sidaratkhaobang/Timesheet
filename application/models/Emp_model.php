@@ -44,6 +44,7 @@ class Emp_model extends CI_Model
 		$query = $this->db->get('tasktypes');
 		return $query->result();
 	}
+
 	function getProjects()
 	{
 		$data = [
@@ -53,12 +54,14 @@ class Emp_model extends CI_Model
 		$query = $this->db->get_where("projects", $data);
 		return $query->result();
 	}
+
 	function getModules()
 	{
 		$this->db->order_by('module_name', 'ASC');
 		$query = $this->db->get('wokers');
 		return $query->result();
 	}
+
 	function getCountProjectTask()
 	{
 		$member_id = $this->session->userdata("idUser");
@@ -66,6 +69,31 @@ class Emp_model extends CI_Model
 		$result = $this->db->query($query);
 		return $result->row()->total_of_project;
 	}
+
+	function select_data_assign()
+	{
+		$member_id = $this->session->userdata("email");
+		$this->db->select('wokers.*');
+		$this->db->from('wokers');
+		$this->db->where('programmer', $member_id );
+		$query = $this->db->get();
+		return $query;
+	}
+
+	function getCountAssign()
+	{
+		$member_id = $this->session->userdata("email");
+		// $query = "SELECT count('id_worker') as total FROM wokers WHERE programmer = '$member_id' ";
+		// $result = $this->db->query($query);
+		$this->db->select('wokers.*,count(id_worker) as total');
+		$this->db->from('wokers');
+		$this->db->where('programmer', $member_id);
+		// $query = "SELECT count('wokers.id_worker') as total FROM wokers JOIN users WHERE 'users.email = wokers.programmer'";
+		// $result = $this->db->query($query);
+		$result = $this->db->get();
+		return $result->row()->total;
+	}
+
 	function getHoursJanuary()
 	{
 		$member_id = $this->session->userdata("idUser");
@@ -73,6 +101,7 @@ class Emp_model extends CI_Model
 		$result = $this->db->query($query);
 		return $result->row()->sum_January;
 	}
+
 	function getHoursFebruary()
 	{
 		$member_id = $this->session->userdata("idUser");
@@ -80,6 +109,7 @@ class Emp_model extends CI_Model
 		$result = $this->db->query($query);
 		return $result->row()->sum_February;
 	}
+
 	function getHoursMarch()
 	{
 		$member_id = $this->session->userdata("idUser");
@@ -87,6 +117,7 @@ class Emp_model extends CI_Model
 		$result = $this->db->query($query);
 		return $result->row()->sum_march;
 	}
+
 	function getHoursApril()
 	{
 		$member_id = $this->session->userdata("idUser");

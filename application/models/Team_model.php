@@ -12,8 +12,11 @@ class Team_model extends CI_Model
 
     function getUser()
 	{
+		$data = [
+			'level' => 'M',
+		];
 		$this->db->order_by('firstname', 'ASC');
-		$query = $this->db->get('users');
+		$query = $this->db->get_where('users',$data);
 		return $query->result();
     }
     

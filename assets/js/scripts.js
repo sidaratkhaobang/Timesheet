@@ -651,7 +651,7 @@ function check_char(elm) {
 }
 
 function check_name(elm) {
-  if (!elm.value.match(/^[ก-ฮa-z0-9A-Z]+$/i)) {
+  if (!elm.value.match(/^[ก-๙a-z0-9A-Z ()]+$/i)) {
     alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
   }
 }
@@ -663,96 +663,16 @@ function NumChk() {
   }
 }
 
-// $(document).ready(function () {
-//   var count = 0;
+function chkThb() {
+  var number = document.getElementById("budget").value;
+  if (number < 0) {
+    document.getElementById("budget").value = "";
+  }
+}
 
-//   $(document).on("click", ".add", function () {
-//     count++;
-//     var html = "";
-//     html += "<tr>";
-//     html +=
-//       '<td><input type="text" name="item_name[]" class="form-control item_name" /></td>';
-//     html +=
-//       '<td><select name="item_category[]" class="form-control item_category" data-sub_category_id="' +
-//       count +
-//       '"><option value="">Select Category</option><?php echo fill_select_box($connect, "0"); ?></select></td>';
-//     html +=
-//       '<td><select name="item_sub_category[]" class="form-control item_sub_category" id="item_sub_category' +
-//       count +
-//       '"><option value="">Select Sub Category</option></select></td>';
-//     html +=
-//       '<td><button type="button" name="remove" class="btn btn-danger btn-xs remove"><span class="glyphicon glyphicon-minus"></span></button></td>';
-//     $("tbody").append(html);
-//   });
+function check_budget(elm) {
+  if (!elm.value.match(/^[0-9 ,]+$/i)) {
+    alert("กรอกได้เฉพาะตัวเลขเท่านั้น");
+  }
+}
 
-//   $(document).on("click", ".remove", function () {
-//     $(this).closest("tr").remove();
-//   });
-//   $(document).on("change", ".item_category", function () {
-//     var category_id = $(this).val();
-//     var sub_category_id = $(this).data("sub_category_id");
-//     $.ajax({
-//       url: "fill_sub_category.php",
-//       method: "POST",
-//       data: { category_id: category_id },
-//       success: function (data) {
-//         var html = '<option value="">Select Sub Category</option>';
-//         html += data;
-//         $("#item_sub_category" + sub_category_id).html(html);
-//       },
-//     });
-//   });
-
-//   $("#insert_form").on("submit", function (event) {
-//     event.preventDefault();
-//     var error = "";
-//     $(".item_name").each(function () {
-//       var count = 1;
-//       if ($(this).val() == "") {
-//         error += "<p>Enter Item name at " + count + " Row</p>";
-//         return false;
-//       }
-//       count = count + 1;
-//     });
-//     $(".item_category").each(function () {
-//       var count = 1;
-
-//       if ($(this).val() == "") {
-//         error += "<p>Select Item Category at " + count + " row</p>";
-//         return false;
-//       }
-
-//       count = count + 1;
-//     });
-
-//     $(".item_sub_category").each(function () {
-//       var count = 1;
-
-//       if ($(this).val() == "") {
-//         error += "<p>Select Item Sub category " + count + " Row</p> ";
-//         return false;
-//       }
-
-//       count = count + 1;
-//     });
-//     var form_data = $(this).serialize();
-
-//     if (error == "") {
-//       $.ajax({
-//         url: "insert.php",
-//         method: "POST",
-//         data: form_data,
-//         success: function (data) {
-//           if (data == "ok") {
-//             $("#item_table").find("tr:gt(0)").remove();
-//             $("#error").html(
-//               '<div class="alert alert-success">Item Details Saved</div>',
-//             );
-//           }
-//         },
-//       });
-//     } else {
-//       $("#error").html('<div class="alert alert-danger">' + error + "</div>");
-//     }
-//   });
-// });
