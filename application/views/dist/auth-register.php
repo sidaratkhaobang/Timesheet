@@ -50,9 +50,7 @@ $this->load->view('dist/_partials/header');
                   <div class="row">
                     <div class="form-group col-12">
                       <label for="password" class="d-block">Password</label>
-
                       <input id="password" type="password" class="form-control pwstrength" pattern=".{8,}" data-indicator="pwindicator" name="password" required autofocus>
-
                       <div class="invalid-feedback">
                         Please enter more than 8 digits.
                       </div>
@@ -60,8 +58,11 @@ $this->load->view('dist/_partials/header');
                         <div class="bar"></div>
                         <div class="label"></div>
                       </div>
-                      <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-
+                     
+                      <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox"  class="custom-control-input" onclick="myFunction()" id="agree">
+                      <label class="custom-control-label" for="agree">Show Password</label>
                     </div>
                     <!-- <div class="form-group col-6">
                       <label for="password2" class="d-block">Password Confirmation</label>
@@ -99,14 +100,12 @@ $this->load->view('dist/_partials/header');
   <?php $this->load->view('dist/_partials/footer'); ?>
   <?php $this->load->view('dist/_partials/js'); ?>
   <script>
-    $(".toggle-password").click(function() {
-
-      $(this).toggleClass("fa-eye fa-eye-slash");
-      var input = $($(this).attr("toggle"));
-      if (input.attr("type") == "password") {
-        input.attr("type", "text");
-      } else {
-        input.attr("type", "password");
-      }
-    });
+   function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
   </script>

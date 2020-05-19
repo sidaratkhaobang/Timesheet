@@ -17,46 +17,43 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <script type="text/javascript">
   <?php if ($this->session->flashdata('save_success')) : ?>
-    swal("Good job!", "Add Data Complete!", "success");
+    swal("เพิ่มข้อมูลสำเร็จ", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('record_success')) : ?>
-    swal("Good job!", "You have successfully recorded your daily work.", "success");
+    swal("คุณบันทึกงานประจำวันเรียบร้อยแล้ว", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('add_success')) : ?>
-    swal("Good job!", "Add Team Complete!", "success");
+    swal("เพิ่มสมาชิกในทีมได้สำเร็จ", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
   <?php endif; ?>
-  <?php if ($this->session->flashdata('regis_success')) : ?>
-    swal("Good job!", "Registed Complete!", "success");
+  <?php if ($this->session->flashdata('register_success')) : ?>
+    swal("ลงทะเบียนสำเร็จ", "กรุณากด ตกลง เพื่อสามารถเข้าสู่ระบบได้", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('login_wrong')) : ?>
-    swal("Oops...!", " Incorrect email or password Try again or click.", "error");
+    swal("อีเมลหรือรหัสผ่านไม่ถูกต้อง", "กรุณาลองใหม่อีกครั้ง", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('appove_success')) : ?>
-    swal("Good job!", "Successful approval!", "success");
+    swal("การอนุมัติโครงการสำเร็จ", "การอนุมัติโครงการสำเร็จ!", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('level_success')) : ?>
-    swal("Good job!", "Successfully changed access authoization to the system.", "success");
+    swal("เปลี่ยนการอนุญาตการเข้าใช้ระบบสำเร็จ", "เปลี่ยนการอนุญาตการเข้าใช้ระบบสำเร็จ", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
-    swal("Oops...!", "The record has not been successful. The data is already in the system, or the data has to be reviewed and re-checked.", "error");
+    swal("การบันทึกไม่สำเร็จ", "ข้อมูลอยู่ในระบบอยู่แล้วหรือต้องตรวจสอบและตรวจสอบข้อมูลอีกครั้ง", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_except')) : ?>
-    swal("Oops...!", "The hour must be greater than or equal to 8 hours.", "error");
+    swal("การบันทึกไม่สำเร็จ", "ชั่วโมงต้องมากกว่าหรือเท่ากับ 8 ชั่วโมง", "error");
   <?php endif; ?>
-
-  <?php if ($this->session->flashdata('un_success')) : ?>
-    swal("Oops...!", "Email dupicate!!", "error");
+  <?php if ($this->session->flashdata('unsuccess')) : ?>
+    swal("การลงทะเบียนไม่สำเร็จ", "ข้อมูลอยู่ในระบบอยู่แล้วหรือต้องตรวจสอบและตรวจสอบข้อมูลอีกครั้ง", "error");
   <?php endif; ?>
- 
   <?php if ($this->session->flashdata('decline_success')) : ?>
-    swal("Good job!", " Decline project success!", "success");
+    swal("การปฏิเสธโครงการสำเร็จ", "การปฏิเสธโครงการสำเร็จ", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('del_success')) : ?>
-    swal("Good job!", "Delete Data Success", "success");
+    swal("ลบข้อมูลสำเร็จ", "ลบข้อมูลสำเร็จ", "success");
   <?php endif; ?>
-
   <?php if ($this->session->flashdata('save_update')) : ?>
-    swal("Good job!", "Edit Data Complete!", "success");
+    swal("แก้ไขข้อมูลสำเร็จ", "แก้ไขข้อมูลสำเร็จ", "success");
   <?php endif; ?>
 
   function confirmDelete(id){
