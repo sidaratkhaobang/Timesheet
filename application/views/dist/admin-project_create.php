@@ -27,21 +27,24 @@ $this->load->view('dist/_partials/header');
                             <div class="card-text">
                                 <div class="card-body">
                                     <form class="col-12" id="user_form" method="Post" action="<?php echo base_url() ?>project_ctrl/insert_data">
-
                                         <br>
-                                        <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
-                                        <input type="text" class="form-control" id="projectCode" placeholder="ex.0102010-02" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
-                                        <br>
-
-                                        <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
-                                        <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name" onkeyup="check_name(this)" name=" projectName" required>
-                                        <br>
-
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
+                                                <input type="text" class="form-control" id="projectCode" placeholder="ex.0102010-02 or ex.THM0360-01" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
+                                            </div>
+                                            <br>
+                                            <div class="col-md-6">
+                                                <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
+                                                <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name" onkeyup="check_name(this)" name=" projectName" required>
+                                                <br>
+                                            </div>
+                                        </div>
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="budget">Budget: &nbsp;<code>*</code></label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Enter Budget" onkeyup="chkThb(),check_budget(this)" name="budget" id="budget" required>
+                                                    <input type="text" class="form-control" placeholder="Enter Budget" onkeyup="check_num(this)" name="budget" id="budget" required>
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
@@ -51,7 +54,7 @@ $this->load->view('dist/_partials/header');
                                                     <select class="form-control selectric" multiple="" name="team[]" id="team">
                                                         <option value="">Choose Team</option>
                                                         <?php
-                                                        foreach ($team->result() as $row) : ?>
+                                                        foreach ($team as $row) : ?>
                                                             <option value="<?php echo $row->team_name; ?>"><?php echo $row->team_name; ?>
                                                             </option>
                                                         <?php endforeach; ?>
@@ -65,19 +68,39 @@ $this->load->view('dist/_partials/header');
                                                 <label for="endDate">Finish Date: &nbsp;<code>*</code></label>
                                                 <input class="form-control datepicker" type="text" id="endDate" name="endDate">
                                             </div>
+                                            <div class="col-md-6">
+                                                <label for="leader">Leader: &nbsp;<code>*</code></label>
+                                                <div class="form-group">
+                                                    <select class="form-control" name="leader" id="leader">
+                                                        <option value="">Choose Leader</option>
+                                                        <?php
+                                                        foreach ($leader as $row) : ?>
+                                                            <option value="<?php echo $row->firstname; ?>"><?php echo $row->firstname; ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <br><br>
                                             <label class="custom-switch mt-2">
                                                 <input checked type="checkbox" id="status" name="status" value="3" class="custom-switch-input">
                                             </label>
                                         </div>
+                                        <table class="table" id="dynamic_field">
+                                            <tr>
+                                                <td><input type="text" name="module_name[]" id="module_name" placeholder="Enter your Name" class="form-control name_list" required="" /></td>
+                                                <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+                                            </tr>
+                                        </table>
+
                                         <br>
-
-
-                                        <div class="offset-sm-8 col-sm-10">
+                                        <div class="offset-sm-7 col-sm-10">
+                                            <!-- <a href="<?php echo base_url('Project_ctrl/add_module') ?>"><button type="button" class="btn btn-danger">Add Module</button> </a>&nbsp; -->
                                             <button type="submit" name="action" class="btn btn-primary">Add</button> &nbsp;
                                             <a href="<?php echo base_url('Project_ctrl/project') ?>"><button type="button" class="btn btn-default center-block">Cancel</button></a>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

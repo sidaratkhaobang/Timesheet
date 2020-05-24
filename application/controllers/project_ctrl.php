@@ -79,12 +79,22 @@ class Project_ctrl extends CI_Controller
                 "status" => $this->input->post("status"),
                 "leader" => $this->input->post("leader")
             );
-            // $data2 = array(
-            //     "project_name" => $this->input->post("projectName"),
-            //     "module_name" => $this->input->post("module_mame")
-            // );
+            $module_name = $_POST['module_name'];
+            $projectName = $this->input->post("projectName");
+
+            $data2 = array();
+
+            $index = 0;
+            foreach ($module_name as $datanis) {
+                array_push($data2, array(
+                    'module_name' => $datanis,
+                    'project_name' => $projectName,
+                ));
+
+                $index++;
+            }
             $this->Project_model->insert($data);
-            // $this->Project_model->insert_module($data2);
+            $this->Project_model->insert_module($data2);
             $this->session->set_flashdata('save_success', TRUE);
             redirect('project_ctrl/project', 'refresh');
         }
