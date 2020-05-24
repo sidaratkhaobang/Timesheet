@@ -109,7 +109,19 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
 <?php
-} elseif ($this->uri->segment(2) == "team") { ?>
+} elseif ($this->uri->segment(2) == "form_team") { ?>
+  <script src="<?php echo base_url(); ?>assets/modules/cleave-js/dist/cleave.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/cleave-js/dist/addons/cleave-phone.us.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/sweetalert/sweetalert.min.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "update_team") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/cleave-js/dist/cleave.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/cleave-js/dist/addons/cleave-phone.us.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
@@ -249,7 +261,11 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 } elseif ($this->uri->segment(2) == "update_project") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
 <?php
-} elseif ($this->uri->segment(2) == "team") { ?>
+} elseif ($this->uri->segment(2) == "form_team") { ?>
+  <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-sweetalert.js"></script>
+<?php
+} elseif ($this->uri->segment(2) == "update_team") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-sweetalert.js"></script>
 <?php
