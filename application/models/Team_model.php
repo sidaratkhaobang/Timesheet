@@ -31,4 +31,25 @@ class Team_model extends CI_Model
 		$query = $this->db->get('teams');
 		return $query;
 	}
+
+	function getbyID($id)
+	{
+		return $this->db->get_where('teams', array('id_team' => $id))->row();
+	}
+
+	function update($id){
+		$data = array(
+			"team_name" => $this->input->post("team_name"),
+			"member" => implode(",", $this->input->post("member"))
+		);
+		$this->db->where(array('id_team' => $id));
+		$this->db->update("teams", $data);
+	}
+
+	function delete_package($id)
+	{
+		$this->db->trans_start();
+		$this->db->delete('teams', array('id_team' => $id));
+		$this->db->trans_complete();
+	}
 }

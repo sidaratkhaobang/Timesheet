@@ -676,3 +676,58 @@ function check_budget(elm) {
   }
 }
 
+$(document).ready(function () {
+
+  //GET CONFIRM DELETE
+  $(".delete-record").on("click", function () {
+    var id_team = $(this).data("id_team");
+    $("#DeleteModal").modal("show");
+    $('[name="delete_id"]').val(id_team);
+  });
+});
+
+
+// $(document).ready(function () {
+//   load_data();
+
+//   function load_data() {
+//     $.ajax({
+//       url: "<?php echo base_url(); ?>project_ctrl/load_data",
+//       method: "POST",
+//       success: function (data) {
+//         $("#imported_csv_data").html(data);
+//       },
+//     });
+//   }
+
+//   $("#import_csv").on("submit", function (event) {
+//     event.preventDefault();
+//     $.ajax({
+//       url: "<?php echo base_url(); ?>project_ctrl/import",
+//       method: "POST",
+//       data: new FormData(this),
+//       contentType: false,
+//       cache: false,
+//       processData: false,
+//       beforeSend: function () {
+//         $("#import_csv_btn").html("Importing...");
+//       },
+//       success: function (data) {
+//         $("#import_csv")[0].reset();
+//         $("#import_csv_btn").attr("disabled", false);
+//         $("#import_csv_btn").html("Import Done");
+//         load_data();
+//       },
+//     });
+//   });
+// });
+
+// $(document).ready(function () {
+//   $("#table-sort").DataTable({
+//     order: [[3, "desc"]],
+//   });
+// });
+
+// $(document).ready(function () {
+//   $("#myTable").DataTable();
+// });
