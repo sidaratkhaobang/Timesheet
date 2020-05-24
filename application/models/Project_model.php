@@ -17,6 +17,11 @@ class Project_model extends CI_Model
 		$this->db->insert("projects", $data);
 	}
 
+	function insert_module($data)
+	{
+		$this->db->insert_batch("detail_project", $data);
+	}
+
 	function select_data($limit, $start)
 	{
 		$search = $this->input->get('search');
@@ -44,24 +49,26 @@ class Project_model extends CI_Model
 	{
 		$this->db->order_by('team_name', 'ASC');
 		$query = $this->db->get('teams');
-		return $query;
+		return $query->result();
 	}
 
+	function getLeader()
+	{
+		$data = [
+			'level' => 'L',
+		];
+		$this->db->order_by('firstname', 'ASC');
+		$query = $this->db->get_where('users', $data);
+		return $query->result();
+	}
 
 	function delete($id)
 	{
 		$this->db->delete('projects', array('idProject' => $id));
 	}
 
-	function update($id)
+	function update($id, $data)
 	{
-		$data = array(
-			"projectCode" => $this->input->post("projectCode"),
-			"projectName" => $this->input->post("projectName"),
-			"budget" => $this->input->post("budget"),
-			"team" => implode(",", $this->input->post("team")),
-			"endDate" => $this->input->post("endDate")
-		);
 		$this->db->where(array('idProject' => $id));
 		$this->db->update("projects", $data);
 	}
@@ -69,5 +76,17 @@ class Project_model extends CI_Model
 	function getbyID($id)
 	{
 		return $this->db->get_where('projects', array('idProject' => $id))->row();
+	}
+
+	function select()
+	{
+		$this->db->order_by('id_detail', 'DESC');
+		$query = $this->db->get('detail_project');
+		return $query;
+	}
+
+	function insert_detail($data)
+	{
+		$this->db->insert_batch('detail_project', $data);
 	}
 }

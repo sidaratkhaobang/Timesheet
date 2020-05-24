@@ -52,8 +52,8 @@ $this->load->view('dist/_partials/header');
                 <?php
                 if ($select_data->num_rows() > 0) {
                   foreach ($select_data->result() as $row) {
-                    $got = $row->team;
-                    $value = explode(',', $got);
+                    // $got = $row->team;
+                    $value = explode(',', $row->team);
                 ?>
                     <tr>
                       <td><?php echo $row->idProject; ?></td>
@@ -107,30 +107,3 @@ $this->load->view('dist/_partials/header');
 </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
-<!-- <script>
-  function confirmDelete(id){
-        swal({
-          title: "Are you sure?",
-          text: "You won't be able to delete this!",
-          type: "warning",
-          showCancelButton: true, 
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: "Yes, delete it!",
-          closeOnConfirm: false
-        },function (isConfirm) {
-            $.ajax({
-                url: "<?php echo base_url('Project_ctrl/delete_project/') ?>",
-                type: "POST",
-                data: {id:id},
-                // dataType:"HTML",
-                success: function () {
-                    swal("Done!", "It was succesfully deleted!", "success");
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    swal("Error deleting!", "Please try again", "error");
-                }
-            });
-        });
-    }
-    </script> -->
