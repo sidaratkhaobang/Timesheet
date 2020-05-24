@@ -8,8 +8,7 @@ $this->load->view('dist/_partials/sidebar_M');
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1></h1>
-      <div class="section-header-breadcrumb">
+            <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="<?php echo base_url('Emp_ctrl/emp_dashboard'); ?>">Dashboard Tracker</a></div>
         <div class="breadcrumb-item">Time Task</div>
       </div>
@@ -28,7 +27,7 @@ $this->load->view('dist/_partials/sidebar_M');
               <option value="">choose your project</option>
               <?php
               foreach ($projectName as $row) {
-                echo '<option value="' . $row->projectName . '">' . $row->projectName
+                echo '<option value="' . $row->project_name . '">' . $row->project_name
                   . '</option>';
               }
               ?>
@@ -62,12 +61,8 @@ $this->load->view('dist/_partials/sidebar_M');
               ?>
             </select>
           </div>
-          <div class="form-group col-6">
-            <label>Task Description</label>
-            <textarea type="text" class="form-control" id="des_task" onkeyup="check_name(this)" name="des_task" value=""></textarea>
-          </div>
           <div class="form-group col-2">
-            <label>Your working time(hrs)&nbsp;<code>*</code></label>
+            <label>Time(hrs)&nbsp;<code>*</code></label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -77,6 +72,11 @@ $this->load->view('dist/_partials/sidebar_M');
               <input type="text" class="form-control number" name="hours" id="hours" onkeyup="NumChk()" placeholder=" 0-8" required autofocus>
             </div>
           </div>
+          <div class="form-group col-6">
+            <label>Task Description</label>
+            <textarea type="text" class="form-control" id="des_task" onkeyup="check_name(this)" name="des_task" value=""></textarea>
+          </div>
+       
         </div>
         <div>
           <button type="submit" name="action" id="toastr-3" class="btn btn-lg btn-success"><i class="fas fa-check"></i> Save</button>

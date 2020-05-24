@@ -12,7 +12,6 @@ $this->load->view('dist/_partials/header');
         <div class="breadcrumb-item">All Project</div>
       </div>
     </div>
-    <br>
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -22,7 +21,7 @@ $this->load->view('dist/_partials/header');
               <form>
                 <div class="input-group">
                   <div class="buttons">
-                    <a href="<?php echo base_url('project_ctrl/create_project'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Project</a>
+                    <a href="<?php echo base_url('project_ctrl/create_project'); ?>" class="btn icon-left btn-danger"><i class="fas fa-plus"></i> New Project</a>
                   </div>
                   <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
                   <div class="input-group-btn">
@@ -30,6 +29,25 @@ $this->load->view('dist/_partials/header');
                   </div>
                 </div>
               </form>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;    
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="btn-group btn-group-sm">
+                <a href="<?php echo base_url('Project_ctrl/project/'); ?>" type="button" class="btn btn-primary">
+                  All <span class="badge badge-transparent"></span>
+                </a>
+                <a href="<?php echo base_url('Project_ctrl/status_approve/'); ?>" type="btn-group btn-group-sm" class="btn btn-success">
+                  Approve <span class="badge badge-transparent"></span>
+                </a>
+                <a href="<?php echo base_url('Project_ctrl/status_wait/'); ?>" type="btn-group btn-group-sm" class="btn btn-warning">
+                  Waiting <span class="badge badge-transparent"></span>
+                </a>
+                <a href="<?php echo base_url('Project_ctrl/status_decl/'); ?>" type="btn-group btn-group-sm" class="btn btn-danger">
+                  Decline <span class="badge badge-transparent"></span>
+                </a>
+              </div>
             </div>
           </div>
           <!-- End Main Content -->

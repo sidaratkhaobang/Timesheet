@@ -47,19 +47,24 @@ class Emp_model extends CI_Model
 
 	function getProjects()
 	{
+		$programmer = $this->session->userdata("email");
 		$data = [
-			'status' => '1',
+			'programmer' => $programmer,
 		];
-		$this->db->order_by('projectName', 'ASC');
-		$query = $this->db->get_where("projects", $data);
+		$this->db->order_by('project_name', 'ASC');
+		$this->db->group_by('project_name');
+		$query = $this->db->get_where("wokers", $data);
 		return $query->result();
 	}
 
 	function getModules()
 	{
-		
+		$programmer = $this->session->userdata("email");
+		$data = [
+			'programmer' => $programmer,
+		];
 		$this->db->order_by('module_name', 'ASC');
-		$query = $this->db->get('wokers');
+		$query = $this->db->get_where('wokers', $data);
 		return $query->result();
 	}
 

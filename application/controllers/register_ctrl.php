@@ -21,8 +21,8 @@ class Register_ctrl extends CI_Controller {
         $query = $this->db->get('users');
         $num = $query->num_rows();
         if ($num > 0) {
-            $this->session->set_flashdata('un_success', TRUE);
-            redirect('register_ctrl/index', 'refresh');
+            $this->session->set_flashdata('unsuccess', TRUE);
+            // redirect('register_ctrl/index', 'refresh');
         } else {
             $data = array(
                 "level" => "M",

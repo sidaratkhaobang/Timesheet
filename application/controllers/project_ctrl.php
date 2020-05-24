@@ -89,7 +89,6 @@ class Project_ctrl extends CI_Controller
             redirect('project_ctrl/project', 'refresh');
         }
     }
-
     public function update_project($id)
     {
         $data = array(
@@ -123,7 +122,106 @@ class Project_ctrl extends CI_Controller
         redirect('Project_ctrl/project', 'refresh');
     }
 
-    // public function add_module(){
-    //     $this->load->view('dist/admin-add-module');
-    // }
+    public function status_approve()
+    {
+        $data = array(
+            'title' => "Approve"
+        );
+        $this->load->library("pagination");
+        $config['base_url'] = base_url('Project_ctrl/status_approve');
+        $config['uri_segement'] = 3;
+        $config['per_page'] = 5;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li class="page-item disabled" &nbsp;&nbsp;>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['next_link'] = '&nbsp;&nbsp; Next';
+        $config['prev_link'] = 'Prev &nbsp;&nbsp;';
+        $config['num_link'] = 1;
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $page = $this->uri->segment(3, 0);
+        $data["data_approve"] = $this->Project_model->select_approvr($config['per_page'], $page);
+        $config['total_rows'] = $this->Project_model->getTotalrows();
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+        $this->load->view('dist/admin-approve_view', $data);
+    }
+
+    public function status_wait()
+    {
+        $data = array(
+            'title' => "Waitting"
+        );
+        $this->load->library("pagination");
+        $config['base_url'] = base_url('Project_ctrl/status_wait');
+        $config['uri_segement'] = 3;
+        $config['per_page'] = 5;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li class="page-item disabled" &nbsp;&nbsp;>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['next_link'] = '&nbsp;&nbsp; Next';
+        $config['prev_link'] = 'Prev &nbsp;&nbsp;';
+        $config['num_link'] = 1;
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $page = $this->uri->segment(3, 0);
+        $data["data_wait"] = $this->Project_model->select_wait($config['per_page'], $page);
+        $config['total_rows'] = $this->Project_model->getTotalrows();
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+        $this->load->view('dist/admin-wait_view', $data);
+    }
+
+    public function status_decl()
+    {
+        $data = array(
+            'title' => "Decline"
+        );
+        $this->load->library("pagination");
+        $config['base_url'] = base_url('Project_ctrl/status_decl');
+        $config['uri_segement'] = 3;
+        $config['per_page'] = 5;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li class="page-item disabled" &nbsp;&nbsp;>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['next_link'] = '&nbsp;&nbsp; Next';
+        $config['prev_link'] = 'Prev &nbsp;&nbsp;';
+        $config['num_link'] = 1;
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $page = $this->uri->segment(3, 0);
+        $data["data_decl"] = $this->Project_model->select_decl($config['per_page'], $page);
+        $config['total_rows'] = $this->Project_model->getTotalrows();
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+        $this->load->view('dist/admin-decline_view', $data);
+    }
+
 }

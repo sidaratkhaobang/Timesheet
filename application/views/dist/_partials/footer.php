@@ -41,14 +41,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     swal("เปลี่ยนการอนุญาตการเข้าใช้ระบบสำเร็จ", "เปลี่ยนการอนุญาตการเข้าใช้ระบบสำเร็จ", "success");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_duplicate')) : ?>
-    swal("การบันทึกไม่สำเร็จ", "ข้อมูลอยู่ในระบบอยู่แล้วหรือต้องตรวจสอบและตรวจสอบข้อมูลอีกครั้ง", "error");
+    swal("การบันทึกไม่สำเร็จ", "ข้อมูลซ้ำกับที่มีอยู่ในระบบแล้ว กรุณาตรวจสอบข้อมูลอีกครั้ง", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('data_except')) : ?>
     swal("การบันทึกไม่สำเร็จ", "ชั่วโมงต้องมากกว่าหรือเท่ากับ 8 ชั่วโมง", "error");
   <?php endif; ?>
   <?php if ($this->session->flashdata('unsuccess')) : ?>
-    swal("การลงทะเบียนไม่สำเร็จ", "ข้อมูลอยู่ในระบบอยู่แล้วหรือต้องตรวจสอบและตรวจสอบข้อมูลอีกครั้ง", "error");
-  <?php endif; ?>
+    swal("การลงทะเบียนไม่สำเร็จ", "อีเมลของท่านซ้ำกับที่มีอยู่ในระบบแล้ว กรุณาตรวจสอบข้อมูลอีกครั้ง", "error");
+  <?php endif; ?> 
   <?php if ($this->session->flashdata('decline_success')) : ?>
     swal("การปฏิเสธโครงการสำเร็จ", "การปฏิเสธโครงการสำเร็จ", "success");
   <?php endif; ?>
