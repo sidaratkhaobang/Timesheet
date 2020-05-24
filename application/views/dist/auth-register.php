@@ -22,34 +22,34 @@ $this->load->view('dist/_partials/header');
                 <form class="needs-validation" novalidate="" method="POST" action="<?php echo base_url() ?>register_ctrl/validation">
                   <div class="row">
                     <div class="form-group col-12">
-                      <label for="firstname">First Name</label>
+                      <label for="firstname">First Name&nbsp;<code>*</code></label><br>
                       <input id="firstname" type="text" class="form-control" name="firstname" required autofocus>
                       <div class="invalid-feedback">
-                        What's your first name?
+                      Please your first name?
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-12">
-                      <label for="lastname">Last Name</label>
+                      <label for="lastname">Last Name&nbsp;<code>*</code></label><br>
                       <input id="lastname" type="text" class="form-control" name="lastname" required autofocus>
                       <div class="invalid-feedback">
-                        What's your last name?
+                      Please your last name?
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-12">
-                      <label for="email">Email</label>
-                      <input id="email" type="email" class="form-control" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required autofocus>
+                      <label for="email">Email&nbsp;<code>*</code></label><br>
+                      <input id="email" type="email" class="form-control" placeholder="someone@example.com" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required autofocus>
                       <div class="invalid-feedback">
-                        What's your email?
+                      Please your email?
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-12">
-                      <label for="password" class="d-block">Password</label>
+                      <label for="password" class="d-block">Password&nbsp;<code>*</code></label>
                       <input id="password" type="password" class="form-control pwstrength" pattern=".{8,}" data-indicator="pwindicator" name="password" required autofocus>
                       <div class="invalid-feedback">
                         Please enter more than 8 digits.

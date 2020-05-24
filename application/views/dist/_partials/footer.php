@@ -19,6 +19,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <?php if ($this->session->flashdata('save_success')) : ?>
     swal("เพิ่มข้อมูลสำเร็จ", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
   <?php endif; ?>
+  <?php if ($this->session->flashdata('add1_success')) : ?>
+    swal("มอบหมายงานสำเร็จ", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
+  <?php endif; ?>
   <?php if ($this->session->flashdata('record_success')) : ?>
     swal("คุณบันทึกงานประจำวันเรียบร้อยแล้ว", "กรุณากด ตกลง เพื่อดำเนินการต่อ", "success");
   <?php endif; ?>

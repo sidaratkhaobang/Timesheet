@@ -88,11 +88,17 @@ class Emp_ctrl extends CI_Controller
 
     public function emp_noti(){
         $data = array(
-            'title' => "Notification Work"
+            'title' => "Your Assignments"
         );
         $data['total'] = $this->Emp_model->getCountAssign();
         $data['noti'] = $this->Emp_model->select_data_assign();
         $this->load->view("dist/emp_noti", $data);
+    }
+    function delete()
+    {
+        $id = $this->input->post('delete_worker_id', TRUE);
+        $this->Emp_model->delete_worker($id);
+        redirect('Emp_ctrl/emp_noti');
     }
 
     public function time_ago($timestamp)

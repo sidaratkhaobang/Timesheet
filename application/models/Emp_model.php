@@ -57,6 +57,7 @@ class Emp_model extends CI_Model
 
 	function getModules()
 	{
+		
 		$this->db->order_by('module_name', 'ASC');
 		$query = $this->db->get('wokers');
 		return $query->result();
@@ -188,5 +189,11 @@ class Emp_model extends CI_Model
 		$query = "SELECT id_user, SUM(hours) as sum_2020 FROM tasks  WHERE id_user = '$member_id' AND YEAR(date) = '2020'";
 		$result = $this->db->query($query);
 		return $result->row()->sum_2020;
+	}
+	function delete_worker($id)
+	{
+		$this->db->trans_start();
+		$this->db->delete('wokers', array('id_worker' => $id));
+		$this->db->trans_complete();
 	}
 }

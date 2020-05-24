@@ -23,7 +23,7 @@ $this->load->view('dist/_partials/sidebar_M');
       <div class="card-body">
         <div class="row">
           <div class="form-group col-3">
-            <label>Your project*</label>
+            <label>Your project&nbsp;<code>*</code></label>
             <select class="form-control" id="project_name" name="project_name" required>
               <option value="">choose your project</option>
               <?php
@@ -38,7 +38,7 @@ $this->load->view('dist/_partials/sidebar_M');
             </div> -->
           </div>
           <div class="form-group col-3">
-            <label>Module Name*</label>
+            <label>Module Name&nbsp;<code>*</code></label>
             <select class="form-control" id="module_name" name="module_name" required autofocus>
               <option value="">choose your module name</option>
               <?php
@@ -51,7 +51,7 @@ $this->load->view('dist/_partials/sidebar_M');
           </div>
 
           <div class="form-group col-3">
-            <label>Task Type*</label>
+            <label>Task Type&nbsp;<code>*</code></label>
             <select class="form-control" id="task_type" name="task_type" required autofocus>
               <option value="">choose your task type</option>
               <?php
@@ -67,7 +67,7 @@ $this->load->view('dist/_partials/sidebar_M');
             <textarea type="text" class="form-control" id="des_task" onkeyup="check_name(this)" name="des_task" value=""></textarea>
           </div>
           <div class="form-group col-2">
-            <label>Your working time(hrs)</label>
+            <label>Your working time(hrs)&nbsp;<code>*</code></label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">

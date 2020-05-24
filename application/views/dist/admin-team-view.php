@@ -72,13 +72,13 @@ $this->load->view('dist/_partials/header');
                     </div>
                     <div class="modal-body">
 
-                        <h4>Are you sure to delete this package?</h4>
+                        <h4>คุณแน่ใจที่จะลบทีมนี้?</h4>
 
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="delete_id" required>
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
-                        <button type="submit" class="btn btn-success btn-sm">Yes</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-success btn-sm">ตกลง</button>
                     </div>
                 </div>
             </div>
