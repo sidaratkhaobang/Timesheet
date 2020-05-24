@@ -53,6 +53,7 @@ $this->load->view('dist/_partials/header');
               <div class="form-group col-md-7 col-12">
                 <label>position</label>
                 <select class="form-control" id="role" name="role" required="">
+                  <option value=""><?php echo $data->role ?></option>
                   <?php
                   foreach ($role as $row) : ?>
                     <option value="<?php echo $row->NameRole; ?>"><?php echo $row->NameRole; ?>

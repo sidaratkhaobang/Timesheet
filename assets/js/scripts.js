@@ -598,21 +598,21 @@ $(function () {
         singleDatePicker: true,
       });
     }
-    if ($(".datetimepicker").length) {
-      $(".datetimepicker").daterangepicker({
-        locale: { format: "YYYY-MM-DD hh:mm" },
-        singleDatePicker: true,
-        timePicker: true,
-        timePicker24Hour: true,
-      });
-    }
-    if ($(".daterange").length) {
-      $(".daterange").daterangepicker({
-        locale: { format: "YYYY-MM-DD" },
-        drops: "down",
-        opens: "right",
-      });
-    }
+    // if ($(".datetimepicker").length) {
+    //   $(".datetimepicker").daterangepicker({
+    //     locale: { format: "YYYY-MM-DD hh:mm" },
+    //     singleDatePicker: true,
+    //     timePicker: true,
+    //     timePicker24Hour: true,
+    //   });
+    // }
+    // if ($(".daterange").length) {
+    //   $(".daterange").daterangepicker({
+    //     locale: { format: "YYYY-MM-DD" },
+    //     drops: "down",
+    //     opens: "right",
+    //   });
+    // }
   }
 
   // Timepicker
@@ -645,8 +645,20 @@ function autoTab(obj) {
 }
 
 function check_char(elm) {
-  if (!elm.value.match(/^[a-zA-Z0-9-]+$/i)) {
+  if (!elm.value.match(/[a-zA-Z0-9-]/)) {
     alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
+  }
+}
+
+function check_num(elm) {
+  if (elm.value.match(/[^\d]/)) {
+    alert("กรอกตัวเลขเท่านั้น");
+
+    elm.value = "";
+  } else if (elm.value < 1) {
+    alert("ไม่สามารถกรอกตัวเลขที่น้อยกว่า 1");
+
+    elm.value = "";
   }
 }
 
@@ -663,21 +675,40 @@ function NumChk() {
   }
 }
 
-function chkThb() {
-  var number = document.getElementById("budget").value;
-  if (number < 0) {
-    document.getElementById("budget").value = "";
-  }
-}
+// function chkThb() {
+//   var number = document.getElementById("budget").value;
+//   if (number < 0) {
+//     document.getElementById("budget").value = "";
+//   }
+// }
 
-function check_budget(elm) {
-  if (!elm.value.match(/^[0-9 ,]+$/i)) {
-    alert("กรอกได้เฉพาะตัวเลขเท่านั้น");
-  }
-}
+// function check_budget(elm) {
+//   if (!elm.value.match(/^[0-9 ,]+$/i)) {
+//     alert("กรอกได้เฉพาะตัวเลขเท่านั้น");
+//   }
+// }
 
 $(document).ready(function () {
+  $("#project_name").change(function () {
+    var project_name = $("#project_name").val();
+    if (project_name != "") {
+      $.ajax({
+        url: "<?php echo base_url(); ?>leader_ctrl/fetch_module",
+        method: "POST",
+        data: { project_name: project_name },
+        success: function (data) {
+          $("#module_name").html(data);
+          // $("#city").html('<option value="">Select City</option>');
+        },
+      });
+    } else {
+      $("#module_name").html('<option value="">Select State</option>');
+      // $("#city").html('<option value="">Select City</option>');
+    }
+  });
+});
 
+$(document).ready(function () {
   //GET CONFIRM DELETE
   $(".delete-record").on("click", function () {
     var id_team = $(this).data("id_team");
@@ -686,48 +717,22 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  var i = 1;
 
-// $(document).ready(function () {
-//   load_data();
+  $("#add").click(function () {
+    i++;
+    $("#dynamic_field").append(
+      '<tr id="row' +
+        i +
+        '" class="dynamic-added"><td><input type="text" name="module_name[]"  id="module_name" placeholder="Enter your Name" class="form-control name_list" required /></td><td><button type="button" name="remove" id="' +
+        i +
+        '" class="btn btn-danger btn_remove">X</button></td></tr>',
+    );
+  });
 
-//   function load_data() {
-//     $.ajax({
-//       url: "<?php echo base_url(); ?>project_ctrl/load_data",
-//       method: "POST",
-//       success: function (data) {
-//         $("#imported_csv_data").html(data);
-//       },
-//     });
-//   }
-
-//   $("#import_csv").on("submit", function (event) {
-//     event.preventDefault();
-//     $.ajax({
-//       url: "<?php echo base_url(); ?>project_ctrl/import",
-//       method: "POST",
-//       data: new FormData(this),
-//       contentType: false,
-//       cache: false,
-//       processData: false,
-//       beforeSend: function () {
-//         $("#import_csv_btn").html("Importing...");
-//       },
-//       success: function (data) {
-//         $("#import_csv")[0].reset();
-//         $("#import_csv_btn").attr("disabled", false);
-//         $("#import_csv_btn").html("Import Done");
-//         load_data();
-//       },
-//     });
-//   });
-// });
-
-// $(document).ready(function () {
-//   $("#table-sort").DataTable({
-//     order: [[3, "desc"]],
-//   });
-// });
-
-// $(document).ready(function () {
-//   $("#myTable").DataTable();
-// });
+  $(document).on("click", ".btn_remove", function () {
+    var button_id = $(this).attr("id");
+    $("#row" + button_id + "").remove();
+  });
+});
