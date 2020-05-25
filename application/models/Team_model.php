@@ -27,6 +27,10 @@ class Team_model extends CI_Model
 
 	function getdata()
 	{
+		$search = $this->input->get('search');	
+		$this->db->like(array('team_name' => $search));
+		$this->db->or_like(array('member' => $search));
+		
 		$this->db->order_by('id_team', 'ASC');
 		$query = $this->db->get('teams');
 		return $query;

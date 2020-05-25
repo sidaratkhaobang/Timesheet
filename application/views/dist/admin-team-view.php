@@ -16,10 +16,21 @@ $this->load->view('dist/_partials/header');
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Team</h4>&nbsp;&nbsp;
+                <div class="card-header">
+                        <h4>All Team</h4>
                         <div class="card-header-form">
-                            <a href="<?php echo base_url('Team_ctrl/form_team'); ?>" class="btn  icon-left btn-danger"><i class="fas fa-plus"></i> New Team</a>
+                            <form>
+                                <div class="input-group">
+                                    <div class="buttons">
+                                        <a href="<?php echo base_url('Team_ctrl/form_team'); ?>" class="btn icon-left btn-danger"><i class="fas fa-plus"></i> New Team</a>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Search..." name="search" id="search" value="<?php if ($this->input->get('search')) echo $this->input->get('search'); ?>">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        
                         </div>
                     </div>
                     <div class="card-body">
@@ -41,7 +52,7 @@ $this->load->view('dist/_partials/header');
                                             <td><?php echo $data->team_name; ?></td>
                                             <td>
                                                 <?php echo $data->member ?>
-                                            </td>
+                                            </td>   
                                             <td>
                                                 <a href="<?php echo base_url('Team_ctrl/update_team/' . $data->id_team); ?>" class="btn btn-info btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm delete-record" data-id_team="<?php echo $data->id_team; ?>">Delete</a>

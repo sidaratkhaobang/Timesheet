@@ -27,27 +27,33 @@ $this->load->view('dist/_partials/header');
                             <div class="card-text">
                                 <div class="card-body">
                                     <form class="col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
-                                        <br>
-                                        <label for="projectCode">Project Code:</label><br>
-                                        <input type="text" class="form-control" id="projectCode" name="projectCode" onkeyup="autoTab(this),check_char(this)" value="<?php echo $data->projectCode ?>" required>
-                                        <br>
-
-                                        <label for="projectName">Project Name:</label><br>
-                                        <input type="text" class="form-control" id="projectName" name="projectName" onkeyup="check_name(this)" value="<?php echo $data->projectName ?>" required>
-                                        <br>
-
+                                    <br>
                                         <div class="form-row">
+                                            <div class="col-md-12">
+                                                <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
+                                                <input type="text" class="form-control" id="projectCode" value="<?php echo $data->projectCode ?>" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
                                             <div class="col-md-6">
-                                                <label for="budget">Budget:</label>
-                                                <div class="input-group-append">
-                                                    <input type="text" class="form-control number" name="budget" id="budget" onkeyup="chkThb(),check_budget(this)" value="<?php echo $data->budget ?>" required>
+                                                <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
+                                                <input type="text" class="form-control" id="projectName" value="<?php echo $data->projectName ?>" onkeyup="check_name(this)" name=" projectName" required>
+                                                <br>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="budget">Budget: &nbsp;<code>*</code></label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" value="<?php echo $data->budget ?>" onkeyup="check_num(this)" name="budget" id="budget" required>
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-7 col-12">
-                                                <label for="team">Team:</label>
+                                            </div>
+                                            <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label for="team">Team: &nbsp;<code>*</code></label>
                                                 <div class="form-group">
-                                                    <select class="form-control selectric multiple"  name="team[]" id="team">
+                                                    <select class="form-control selectric" multiple="" name="team[]" id="team">
                                                         <option value="<?php echo $data->team ?>"><?php echo $data->team ?></option>
                                                         <?php
                                                         foreach ($team as $row) : ?>
@@ -56,16 +62,10 @@ $this->load->view('dist/_partials/header');
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="form-row">
+                                            </div>                                    
+                                            <br><br>
                                             <div class="col-md-6">
-                                                <label for="endDate">Finish Date:</label>
-                                                <input class="form-control datepicker" type="text" id="endDate" name="endDate" value="<?php echo $data->endDate ?>">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="leader">Leader:</label>
+                                                <label for="leader">Leader: &nbsp;<code>*</code></label>
                                                 <div class="form-group">
                                                     <select class="form-control" name="leader" id="leader">
                                                         <option value="<?php echo $data->leader ?>"><?php echo $data->leader ?></option>
@@ -77,6 +77,16 @@ $this->load->view('dist/_partials/header');
                                                     </select>
                                                 </div>
                                             </div>
+                                            </div>
+                                            <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label for="endDate">Start Date: &nbsp;<code>*</code></label>
+                                                <input class="form-control datepicker" type="text" id="create_date" value="<?php echo $data->create_date ?>" name="create_date">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="endDate">Finish Date: &nbsp;<code>*</code></label>
+                                                <input class="form-control datepicker" type="text" id="endDate" value="<?php echo $data->endDate ?>" name="endDate">
+                                            </div> 
                                         </div>
                                         <br>
                                         <div class="offset-sm-8 col-sm-10">
@@ -94,3 +104,22 @@ $this->load->view('dist/_partials/header');
     </section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
+<script>
+        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#create_date').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: today,
+            maxDate: function () {
+                return $('#endDate').val();
+            }
+        });
+        $('#endDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: function () {
+                return $('#create_date').val();
+            }
+        });
+    </script>
+ 

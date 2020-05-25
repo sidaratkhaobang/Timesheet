@@ -75,6 +75,7 @@ class Project_ctrl extends CI_Controller
                 "projectName" => $this->input->post("projectName"),
                 "budget" => $this->input->post("budget"),
                 "team" => implode(",", $this->input->post("team")),
+                "create_date" => $this->input->post("create_date"),
                 "endDate" => $this->input->post("endDate"),
                 "status" => $this->input->post("status"),
                 "leader" => $this->input->post("leader")
