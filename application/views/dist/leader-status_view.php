@@ -56,8 +56,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                 <?php
                                 if ($select_data->num_rows() > 0) {
                                     foreach ($select_data->result() as $row) {
-                                        $got = $row->team;
-                                        $value = explode(',', $got);
+                                        $value = explode(',', $row->team);
                                 ?>
                                         <tr>
                                             <td><?php echo $row->idProject; ?></td>
@@ -70,7 +69,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                                     <div class="dropdown-menu">
                                                         <!-- get team -->
                                                         <?php foreach ($value as $rows) { ?>
-                                                            <a href="#" class="dropdown-item has-icon"><i class="far fa-user"></i><?php echo $rows ?> <br></a>
+                                                            <a href="<?php echo base_url('Leader_ctrl/team_view/'. $rows); ?>" class="dropdown-item has-icon"><i class="far fa-user"></i><?php echo $rows ?> <br></a>
                                                         <?php } ?>
                                                     </div>
                                                 </div>

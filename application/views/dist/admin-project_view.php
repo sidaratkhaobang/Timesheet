@@ -32,7 +32,7 @@ $this->load->view('dist/_partials/header');
               &nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;    
+              &nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;
               <div class="btn-group btn-group-sm">
                 <a href="<?php echo base_url('Project_ctrl/project/'); ?>" type="button" class="btn btn-primary">
@@ -100,7 +100,7 @@ $this->load->view('dist/_partials/header');
                       </td>
                       <td>
                         <a href="<?php echo base_url('Project_ctrl/update_project/' . $row->idProject); ?>" class="edit"><i class='fas fa-edit' title="Edit"></i></a>
-                        <a href="<?php echo base_url('Project_ctrl/delete_project/' . $row->idProject); ?>" onclick="return confirm('confirm delete?');" data-toggle="tooltip"><i class="fas fa-trash-alt" style="color:red" title="Delete"></i></a>
+                        <a href="#" class="delete-record" data-id_team="<?php echo $row->idProject; ?>"><i class="fas fa-trash-alt" style="color:red" title="Delete"></i></a>
             </div>
           </div>
           </td>
@@ -119,9 +119,33 @@ $this->load->view('dist/_partials/header');
           </nav>
         </div>
       </div>
-
     </div>
-</div>
-</section>
+  </section>
+  <!-- Delete Package Modal -->
+  <form action="<?php echo site_url('Project_ctrl/delete_project'); ?>" method="post">
+    <div class="modal fade" id="DeleteModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ยืนยัน</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <h4>คุณแน่ใจที่จะลบโครงการนี้?</h4>
+
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="delete_id" required>
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+            <button type="submit" class="btn btn-success btn-sm">ตกลง</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- End Delete -->
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>

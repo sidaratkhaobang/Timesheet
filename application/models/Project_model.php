@@ -62,6 +62,8 @@ class Project_model extends CI_Model
 		return $query->result();
 	}
 
+
+
 	function delete($id)
 	{
 		$this->db->delete('projects', array('idProject' => $id));
@@ -116,7 +118,7 @@ class Project_model extends CI_Model
             'status' => '1',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject ASC');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -128,7 +130,7 @@ class Project_model extends CI_Model
             'status' => '3',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject ASC');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;
@@ -140,7 +142,7 @@ class Project_model extends CI_Model
             'status' => '2',
         ];
         $this->db->limit($limit, $start);
-        $this->db->order_by('idProject ASC');
+        $this->db->order_by('idProject DESC');
         $query = $this->db->get_where("projects", $data);
         $this->lastQuery = $this->db->last_query();
         return $query;

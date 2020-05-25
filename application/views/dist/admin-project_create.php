@@ -33,9 +33,9 @@ $this->load->view('dist/_partials/header');
                                                 <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
                                                 <input type="text" class="form-control" id="projectCode" placeholder="ex.0102010-02 or ex.THM0360-01" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
                                             </div>
-                                            </div>
-                                            <br>
-                                            <div class="form-row">
+                                        </div>
+                                        <br>
+                                        <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
                                                 <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name" onkeyup="check_name(this)" name=" projectName" required>
@@ -48,8 +48,8 @@ $this->load->view('dist/_partials/header');
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
-                                            </div>
-                                            <div class="form-row">
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="team">Team: &nbsp;<code>*</code></label>
                                                 <div class="form-group">
@@ -62,7 +62,7 @@ $this->load->view('dist/_partials/header');
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>                                    
+                                            </div>
                                             <br><br>
                                             <div class="col-md-6">
                                                 <label for="leader">Leader: &nbsp;<code>*</code></label>
@@ -77,26 +77,26 @@ $this->load->view('dist/_partials/header');
                                                     </select>
                                                 </div>
                                             </div>
-                                            </div>
-                                            <div class="form-row">
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6">
-                                                <label for="endDate">Start Date: &nbsp;<code>*</code></label>
+                                                <label for="create_date">Start Date: &nbsp;<code>*</code></label>
                                                 <input class="form-control datepicker" type="text" id="create_date" name="create_date">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="endDate">Finish Date: &nbsp;<code>*</code></label>
                                                 <input class="form-control datepicker" type="text" id="endDate" name="endDate">
-                                            </div> 
-                                            </div> 
-                                            <div class="form-row">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
                                             <label class="custom-switch mt-2">
                                                 <input checked type="checkbox" id="status" name="status" value="3" class="custom-switch-input">
                                             </label>
                                         </div>
-                                        
+                                        <br>
                                         <table class="table" id="dynamic_field">
                                             <tr>
-                                            <label for="endDate">Module Name: &nbsp;<code>*</code></label>
+                                                <label for="endDate">Module Name: &nbsp;<code>*</code></label>
                                                 <td><input type="text" name="module_name[]" id="module_name" placeholder="Enter your Name" class="form-control name_list" required="" /></td>
                                                 <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                                             </tr>
@@ -106,34 +106,33 @@ $this->load->view('dist/_partials/header');
                                             <button type="submit" name="action" class="btn btn-primary">Add</button> &nbsp;
                                             <a href="<?php echo base_url('Project_ctrl/project') ?>"><button type="button" class="btn btn-default center-block">Cancel</button></a>
                                         </div>
-                                    </div>      
-                                    </form>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </section>
+</div>
+</section>
+</section>
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
 <script>
-        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-        $('#create_date').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: today,
-            maxDate: function () {
-                return $('#endDate').val();
-            }
-        });
-        $('#endDate').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: function () {
-                return $('#create_date').val();
-            }
-        });
-    </script>
- 
+    var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#create_date').datepicker({
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        minDate: today,
+        maxDate: function() {
+            return $('#endDate').val();
+        }
+    });
+    $('#endDate').datepicker({
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        minDate: function() {
+            return $('#create_date').val();
+        }
+    });
+</script>

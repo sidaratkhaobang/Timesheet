@@ -27,15 +27,15 @@ $this->load->view('dist/_partials/header');
                             <div class="card-text">
                                 <div class="card-body">
                                     <form class="col-12" id="user_form" method="Post" action="<?php echo base_url('project_ctrl/update_data/' . $data->idProject); ?>">
-                                    <br>
+                                        <br>
                                         <div class="form-row">
                                             <div class="col-md-12">
                                                 <label for="projectCode">Project Code: &nbsp;<code>*</code></label><br>
                                                 <input type="text" class="form-control" id="projectCode" value="<?php echo $data->projectCode ?>" name="projectCode" onkeyup="autoTab(this),check_char(this)" required>
                                             </div>
-                                            </div>
-                                            <br>
-                                            <div class="form-row">
+                                        </div>
+                                        <br>
+                                        <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="projectName">Project Name: &nbsp;<code>*</code></label><br>
                                                 <input type="text" class="form-control" id="projectName" value="<?php echo $data->projectName ?>" onkeyup="check_name(this)" name=" projectName" required>
@@ -48,12 +48,12 @@ $this->load->view('dist/_partials/header');
                                                     <span class="input-group-text">THB</span>
                                                 </div>
                                             </div>
-                                            </div>
-                                            <div class="form-row">
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6">
                                                 <label for="team">Team: &nbsp;<code>*</code></label>
                                                 <div class="form-group">
-                                                    <select class="form-control selectric" multiple="" name="team[]" id="team">
+                                                    <select class="form-control selectric multiple" multiple="" name="team[]" id="team">
                                                         <option value="<?php echo $data->team ?>"><?php echo $data->team ?></option>
                                                         <?php
                                                         foreach ($team as $row) : ?>
@@ -62,7 +62,7 @@ $this->load->view('dist/_partials/header');
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>                                    
+                                            </div>
                                             <br><br>
                                             <div class="col-md-6">
                                                 <label for="leader">Leader: &nbsp;<code>*</code></label>
@@ -77,17 +77,25 @@ $this->load->view('dist/_partials/header');
                                                     </select>
                                                 </div>
                                             </div>
-                                            </div>
-                                            <div class="form-row">
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-6">
-                                                <label for="endDate">Start Date: &nbsp;<code>*</code></label>
+                                                <label for="create_date">Start Date: &nbsp;<code>*</code></label>
                                                 <input class="form-control datepicker" type="text" id="create_date" value="<?php echo $data->create_date ?>" name="create_date">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="endDate">Finish Date: &nbsp;<code>*</code></label>
                                                 <input class="form-control datepicker" type="text" id="endDate" value="<?php echo $data->endDate ?>" name="endDate">
-                                            </div> 
+                                            </div>
                                         </div>
+                                        <br>
+                                        <table class="table" id="dynamic_field">
+                                            <tr>
+                                                <label for="endDate">Module Name: &nbsp;<code>*</code></label>
+                                                <td><input type="text" name="module_name[]" id="module_name" placeholder="Enter your Name" class="form-control name_list" /></td>
+                                                <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+                                            </tr>
+                                        </table>
                                         <br>
                                         <div class="offset-sm-8 col-sm-10">
                                             <button type="submit" name="action" class="btn btn-primary">Save</button> &nbsp;
@@ -105,21 +113,20 @@ $this->load->view('dist/_partials/header');
 </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
 <script>
-        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-        $('#create_date').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: today,
-            maxDate: function () {
-                return $('#endDate').val();
-            }
-        });
-        $('#endDate').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: function () {
-                return $('#create_date').val();
-            }
-        });
-    </script>
- 
+    var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('#create_date').datepicker({
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        minDate: today,
+        maxDate: function() {
+            return $('#endDate').val();
+        }
+    });
+    $('#endDate').datepicker({
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        minDate: function() {
+            return $('#create_date').val();
+        }
+    });
+</script>

@@ -16,7 +16,7 @@ $this->load->view('dist/_partials/header');
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                <div class="card-header">
+                    <div class="card-header">
                         <h4>All Team</h4>
                         <div class="card-header-form">
                             <form>
@@ -30,7 +30,7 @@ $this->load->view('dist/_partials/header');
                                     </div>
                                 </div>
                             </form>
-                        
+
                         </div>
                     </div>
                     <div class="card-body">
@@ -52,7 +52,7 @@ $this->load->view('dist/_partials/header');
                                             <td><?php echo $data->team_name; ?></td>
                                             <td>
                                                 <?php echo $data->member ?>
-                                            </td>   
+                                            </td>
                                             <td>
                                                 <a href="<?php echo base_url('Team_ctrl/update_team/' . $data->id_team); ?>" class="btn btn-info btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm delete-record" data-id_team="<?php echo $data->id_team; ?>">Delete</a>
@@ -76,7 +76,7 @@ $this->load->view('dist/_partials/header');
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Team</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">ยืนยัน</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -96,4 +96,5 @@ $this->load->view('dist/_partials/header');
         </div>
     </form>
     <!-- End Delete -->
+</div>
 <?php $this->load->view('dist/_partials/footer'); ?>

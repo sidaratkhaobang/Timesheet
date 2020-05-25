@@ -45,6 +45,12 @@ class Leader_ctrl extends CI_Controller
         $this->load->view('dist/leader-status_view', $data);
     }
 
+    public function team_view($id){
+        // $value = explode(',', $id);
+        $data['team'] = $this->Leader_model->get_team($id);
+        $this->load->view('dist/leader-team-view',$data);
+    }
+
     public function change_accept($id)
     {
         $this->Leader_model->change_statusA($id);
@@ -164,39 +170,26 @@ class Leader_ctrl extends CI_Controller
     public function assign()
     {
         $data = array(
-            'title' => "Assignment of Member"
+            'title' => "Assignment"
         );
         $data['user'] = $this->Leader_model->getUser();
-        $data['project'] = $this->Leader_model->getProjectCode();
+        $data['project'] = $this->Leader_model->get_project_name();
         $data["projectC"] = $this->Leader_model->worker();
+        $data['module'] = $this->Leader_model->get_module();
         $this->load->view('dist/leader-assign_work_emp', $data);
-    }
-
-    public function new_worker()
-    {
-        $data = array(
-            'title' => "New Worker"
-        );
-        $data['user'] = $this->Leader_model->getUser();
-        $data['project'] = $this->Leader_model->getProjectCode();
-
-        $this->load->view('dist/leader-add_worker', $data);
     }
 
     public function insert_worker()
     {
         $data = array(
             "project_name" => $this->input->post("project_name"),
-            "system_name" => $this->input->post("system_name"),
             "module_name" => $this->input->post("module_name"),
             "programmer" => $this->input->post("programmer"),
             'date' => date("Y-m-d"),
         );
-        // }
-
         $this->Leader_model->insert($data);
         // }
-        $this->session->set_flashdata('save_success', TRUE);
+        $this->session->set_flashdata('add1_success', TRUE);
         redirect('leader_ctrl/assign', 'refresh');
     }
 

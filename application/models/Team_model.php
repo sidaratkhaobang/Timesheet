@@ -41,11 +41,8 @@ class Team_model extends CI_Model
 		return $this->db->get_where('teams', array('id_team' => $id))->row();
 	}
 
-	function update($id){
-		$data = array(
-			"team_name" => $this->input->post("team_name"),
-			"member" => implode(",", $this->input->post("member"))
-		);
+	function update($id,$data){
+
 		$this->db->where(array('id_team' => $id));
 		$this->db->update("teams", $data);
 	}

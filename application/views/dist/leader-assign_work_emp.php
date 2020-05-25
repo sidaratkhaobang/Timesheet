@@ -7,10 +7,10 @@ $this->load->view('dist/_partials/sidebar_L');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Assignment of Member</h1>
+            <h1>Assignment</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="<?php echo base_url('leader_ctrl/status/'); ?>">Project</a></div>
-                <div class="breadcrumb-item">Assignment of Member</div>
+                <div class="breadcrumb-item">Assignment</div>
             </div>
         </div>
         <div class="row">
@@ -19,8 +19,9 @@ $this->load->view('dist/_partials/sidebar_L');
                     <div class="card-header">
                         <h4>Assignment</h4>&nbsp;&nbsp;
                         <div class="card-header-form">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
-                                New Worker
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
+                                <!-- <a href="<?php echo base_url('leader_ctrl/new_worker'); ?>" class="btn icon-left btn-danger"><i class="fas fa-plus"></i> New Project</a> -->
+                                New Assignment
                             </button>
                         </div>
                     </div>
@@ -31,9 +32,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                 <tr>
                                     <th>No</th>
                                     <th>project</th>
-                                    <th>system</th>
                                     <th>module</th>
-                                    <th>program</th>
+                                    <th>Programmer</th>
                                 </tr>
                                 <?php
                                 if (!empty($projectC)) {
@@ -42,7 +42,6 @@ $this->load->view('dist/_partials/sidebar_L');
                                         <tr>
                                             <td><?php echo $no; ?></td>
                                             <td><?php echo $data->project_name; ?></td>
-                                            <td><?php echo $data->system_name; ?></td>
                                             <td><?php echo $data->module_name; ?></td>
                                             <td><?php echo $data->programmer; ?></td>
                                         </tr>
@@ -59,10 +58,10 @@ $this->load->view('dist/_partials/sidebar_L');
         </div>
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">create worker</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Create Assignment</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -74,6 +73,7 @@ $this->load->view('dist/_partials/sidebar_L');
                                 <div class="form-group">
                                     <label for="project_name">Project Name</label>
                                     <select class="form-control" name="project_name" id="project_name">
+                                        <option value="">Selcet Project Name</option>
                                         <?php
                                         foreach ($project->result() as $row) : ?>
                                             <option value="<?php echo $row->projectName; ?>"><?php echo $row->projectName; ?>
@@ -82,16 +82,23 @@ $this->load->view('dist/_partials/sidebar_L');
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="system_name">System Name</label>
-                                    <input class="form-control" type="text" placeholder="" name="system_name" id="system_name>
-                            </div>
-                            <div class=" form-group">
                                     <label for="module_name">Module Name</label>
-                                    <input class="form-control" type="text" placeholder="" name="module_name" id="module_name>
-                            </div>
-                            <div class=" form-group">
+                                    <select class="form-control" name="module_name" id="module_name">
+                                        <option value="">Select Module Name</option>
+                                        <?php
+                                        foreach ($module->result() as $row) : ?>
+                                            <!-- <optgroup label="<?php echo $row->project_name; ?>"> -->
+                                                <option value="<?php echo $row->module_name; ?>"><?php echo $row->module_name; ?>
+                                                </option>
+                                            <!-- </optgroup> -->
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <!-- <input class="form-control" type="text" placeholder="" name="module_name" id="module_name> -->
+                                </div>
+                                <div class=" form-group">
                                     <label for="programmer">Programmer</label>
                                     <select class="form-control" name="programmer" id="programmer">
+                                        <option value="">Select Programmer</option>
                                         <?php
                                         foreach ($user->result() as $row) : ?>
                                             <option value="<?php echo $row->email; ?>"><?php echo $row->email; ?>
@@ -105,7 +112,6 @@ $this->load->view('dist/_partials/sidebar_L');
                     </div>
                     <div class="modal-footer">
                         <button type="submit" name="action" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>

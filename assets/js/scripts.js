@@ -591,13 +591,13 @@ $(function () {
   }
 
   // Daterangepicker
-  if (jQuery().daterangepicker) {
-    if ($(".datepicker").length) {
-      $(".datepicker").daterangepicker({
-        locale: { format: "YYYY-MM-DD" },
-        singleDatePicker: true,
-      });
-    }
+  // if (jQuery().daterangepicker) {
+  //   if ($(".datepicker").length) {
+  //     $(".datepicker").daterangepicker({
+  //       locale: { format: "YYYY-MM-DD" },
+  //       singleDatePicker: true,
+      // });
+  //   }
     // if ($(".datetimepicker").length) {
     //   $(".datetimepicker").daterangepicker({
     //     locale: { format: "YYYY-MM-DD hh:mm" },
@@ -613,7 +613,7 @@ $(function () {
     //     opens: "right",
     //   });
     // }
-  }
+  // }
 
   // Timepicker
   if (jQuery().timepicker && $(".timepicker").length) {
@@ -647,6 +647,7 @@ function autoTab(obj) {
 function check_char(elm) {
   if (!elm.value.match(/[a-zA-Z0-9-]/)) {
     alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
+    elm.value = "";
   }
 }
 
@@ -656,15 +657,16 @@ function check_num(elm) {
 
     elm.value = "";
   } else if (elm.value < 1) {
-    alert("ไม่สามารถกรอกตัวเลขที่น้อยกว่า 1");
-
+    alert("กรุณาตรวจสอบงบประมาณของคุณ อีกครั้ง!!");
     elm.value = "";
+  
   }
 }
 
 function check_name(elm) {
-  if (!elm.value.match(/^[ก-๙a-z0-9A-Z ()]+$/i)) {
+  if (!elm.value.match(/^[ก-๙a-z0-9A-Z ()_-]+$/i)) {
     alert("ไม่สามารถใช้ตัวอักษรพิเศษได้");
+    elm.value = "";
   }
 }
 
@@ -688,25 +690,6 @@ function NumChk() {
 //   }
 // }
 
-$(document).ready(function () {
-  $("#project_name").change(function () {
-    var project_name = $("#project_name").val();
-    if (project_name != "") {
-      $.ajax({
-        url: "<?php echo base_url(); ?>leader_ctrl/fetch_module",
-        method: "POST",
-        data: { project_name: project_name },
-        success: function (data) {
-          $("#module_name").html(data);
-          // $("#city").html('<option value="">Select City</option>');
-        },
-      });
-    } else {
-      $("#module_name").html('<option value="">Select State</option>');
-      // $("#city").html('<option value="">Select City</option>');
-    }
-  });
-});
 
 $(document).ready(function () {
   //GET CONFIRM DELETE
@@ -725,7 +708,7 @@ $(document).ready(function () {
     $("#dynamic_field").append(
       '<tr id="row' +
         i +
-        '" class="dynamic-added"><td><input type="text" name="module_name[]"  id="module_name" placeholder="Enter your Name" class="form-control name_list" required /></td><td><button type="button" name="remove" id="' +
+        '" class="dynamic-added"><td><input type="text" name="module_name[]"  id="module_name" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="' +
         i +
         '" class="btn btn-danger btn_remove">X</button></td></tr>',
     );

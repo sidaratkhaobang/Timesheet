@@ -118,6 +118,7 @@ class Project_ctrl extends CI_Controller
             "projectName" => $this->input->post("projectName"),
             "budget" => $this->input->post("budget"),
             "team" => implode(",", (array) $this->input->post("team[]")),
+            "create_date" => $this->input->post("create_date"),
             "endDate" => $this->input->post("endDate"),
             "leader" => $this->input->post("leader")
         );
@@ -126,8 +127,9 @@ class Project_ctrl extends CI_Controller
         redirect('Project_ctrl/project', 'refresh');
     }
 
-    public function delete_project($id)
+    public function delete_project()
     {
+        $id = $this->input->post('delete_id', TRUE);
         $this->Project_model->delete($id);
         $this->session->set_flashdata('del_success', TRUE);
         redirect('Project_ctrl/project', 'refresh');

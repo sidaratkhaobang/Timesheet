@@ -30,7 +30,7 @@ class Team_ctrl extends CI_Controller
         $num = $query->num_rows();
         if ($num > 0) {
             $this->session->set_flashdata('data_duplicate', TRUE);
-            redirect('team_ctrl/dataTeam', 'refresh');
+            // redirect('team_ctrl/dataTeam', 'refresh');
         } else {
         $data = array(
             "team_name" => $this->input->post("team_name"),
@@ -63,7 +63,11 @@ class Team_ctrl extends CI_Controller
 
     public function update_data($id)
     {
-        $this->Team_model->update($id);
+        $data = array(
+            "team_name" => $this->input->post("team_name"),
+            "member" => implode(",", (array) $this->input->post("member[]"))
+        );
+        $this->Team_model->update($id,$data);
         $this->session->set_flashdata('save_update', TRUE);
         redirect('team_ctrl/dataTeam', 'refresh');
     }

@@ -32,7 +32,7 @@ $this->load->view('dist/_partials/header');
                                         <br>
                                         <label for="member">Programmer:</label>
                                         <div class="form-group">
-                                            <select class="form-control selectric" multiple="" name="member[]" id="member">
+                                            <select class="form-control selectric multiple" name="member[]" id="member">
                                                 <option value="<?php echo $data->member ?>"><?php echo $data->member ?></option>
                                                 <?php
                                                 foreach ($user as $row) : ?>

@@ -115,8 +115,8 @@ $this->load->view('dist/_partials/sidebar_L');
                                             </div>
 
                                             <div class="budget-price">
-                                                <div class="budget-price-square bg-danger" data-width="20"></div>
-                                                <div class="budget-price-label"><span><?php echo number_format($row->budget); ?>$</span></div>
+                                                <div class="budget-price-square bg-success" data-width="20"></div>
+                                                <div class="budget-price-label"><span><?php echo number_format($row->budget); ?> THB</span></div>
                                             </div>
 
                                         </div>
@@ -133,8 +133,8 @@ $this->load->view('dist/_partials/sidebar_L');
                         <div class="budget-price-label">Progress</div>
                     </div>
                     <div class="budget-price justify-content-center">
-                        <div class="budget-price-square bg-danger" data-width="20"></div>
-                        <div class="budget-price-label">Budget Price</div>
+                        <div class="budget-price-square bg-success" data-width="20"></div>
+                        <div class="budget-price-label">Budget</div>
                     </div>
                 </div>
             </div>
